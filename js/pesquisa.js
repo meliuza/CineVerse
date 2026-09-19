@@ -1,192 +1,445 @@
 /*=========================================
-            ELEMENTOS
+            PESQUISA CINEVERSE
 =========================================*/
 
 const campoPesquisa = document.getElementById("pesquisa");
 const resultadoPesquisa = document.getElementById("resultadoPesquisa");
 const botaoLimpar = document.getElementById("limparPesquisa");
 
+const botaoPesquisar = document.querySelector(
+    '.search-box > button:not(#limparPesquisa)'
+);
+
+
+/*=========================================
+            NORMALIZAR TEXTO
+=========================================*/
+
+function normalizarTexto(texto = "") {
+
+    return texto
+        .toString()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+
+}
+
+
+/*=========================================
+            DEFINIR PÁGINA
+=========================================*/
+
+function paginaDoFilme(filme) {
+
+    if (!filme || filme.id == null) {
+        return "index.html";
+    }
+
+    const tipo = normalizarTexto(filme.tipo);
+
+    if (tipo === "novela") {
+        return `pages/novela.html?id=${filme.id}`;
+    }
+
+    if (tipo === "serie") {
+        return `pages/serie.html?id=${filme.id}`;
+    }
+
+    return `pages/filme.html?id=${filme.id}`;
+
+}
+
+
 /*=========================================
             PESQUISAR
 =========================================*/
 
-function pesquisar(texto){
+function pesquisar(texto) {
 
-    if(!resultadoPesquisa) return;
+    if (!resultadoPesquisa) return;
 
-    texto = texto.trim().toLowerCase();
+    texto = texto.trim();
 
     resultadoPesquisa.innerHTML = "";
 
-    if(texto === ""){
+    if (texto === "") {
 
         resultadoPesquisa.style.display = "none";
-        return;
 
+        return;
     }
 
-    const encontrados = catalogo.filter(filme=>{
 
-        const nome = filme.nome.toLowerCase();
+    const busca = normalizarTexto(texto);
+
+
+    const encontrados = catalogo.filter(filme => {
+
+        const nome = normalizarTexto(
+            filme.nome
+        );
+
 
         const categoria = Array.isArray(filme.categoria)
-            ? filme.categoria.join(" ").toLowerCase()
-            : (filme.categoria || "").toLowerCase();
 
-        const colecao = (filme.colecao || "").toLowerCase();
+            ? normalizarTexto(
+                filme.categoria.join(" ")
+            )
 
-        const tipo = (filme.tipo || "").toLowerCase();
+            : normalizarTexto(
+                filme.categoria || ""
+            );
+
+
+        const colecao = normalizarTexto(
+            filme.colecao || ""
+        );
+
+
+        const tipo = normalizarTexto(
+            filme.tipo || ""
+        );
+
 
         const genero = Array.isArray(filme.genero)
-            ? filme.genero.join(" ").toLowerCase()
-            : "";
 
-        return nome.includes(texto)
-            || categoria.includes(texto)
-            || colecao.includes(texto)
-            || genero.includes(texto)
-            || tipo.includes(texto);
+            ? normalizarTexto(
+                filme.genero.join(" ")
+            )
+
+            : normalizarTexto(
+                filme.genero || ""
+            );
+
+
+        const ano = String(
+            filme.ano || ""
+        );
+
+
+        return (
+
+            nome.includes(busca) ||
+
+            categoria.includes(busca) ||
+
+            colecao.includes(busca) ||
+
+            genero.includes(busca) ||
+
+            tipo.includes(busca) ||
+
+            ano.includes(busca)
+
+        );
 
     });
 
-    if(encontrados.length === 0){
 
-        resultadoPesquisa.innerHTML =
+    /*=========================================
+                NENHUM RESULTADO
+    =========================================*/
 
-        `
-        <div class="semResultado">
+    if (encontrados.length === 0) {
 
-            Nenhum resultado encontrado.
+        resultadoPesquisa.innerHTML = `
 
-        </div>
+            <div class="semResultado">
+
+                Nenhum resultado encontrado.
+
+            </div>
+
         `;
 
         resultadoPesquisa.style.display = "block";
 
         return;
-
     }
 
-    encontrados.forEach(filme=>{
 
-        resultadoPesquisa.innerHTML +=
+    /*=========================================
+                MOSTRAR RESULTADOS
+    =========================================*/
 
-        `
-        <div class="resultado-item"
+    encontrados.forEach(filme => {
 
-        onclick="window.location.href='${filme.pagina}'">
+        const item = document.createElement("div");
 
-            <img src="${filme.poster}">
+        item.className = "resultado-item";
+
+
+        const poster =
+            filme.poster ||
+            "img/sem-poster.png";
+
+
+        item.innerHTML = `
+
+            <img
+                src="${poster}"
+                alt="${filme.nome || "Poster"}"
+                onerror="this.src='img/sem-poster.png'"
+            >
+
 
             <div class="resultado-info">
 
-                <h3>${filme.nome}</h3>
+                <h3>
+                    ${filme.nome || "Sem nome"}
+                </h3>
 
-                <p>${filme.ano} • ${filme.tipo}</p>
+
+                <p>
+
+                    ${filme.ano || "—"}
+
+                    •
+
+                    ${filme.tipo || "Filme"}
+
+                </p>
+
 
                 <div class="resultado-tags">
 
-                    ${filme.dublado ? '<span class="dublado">Dublado</span>' : ''}
+                    ${
+                        filme.dublado
+                        ?
+                        '<span class="dublado">Dublado</span>'
+                        :
+                        ''
+                    }
 
-                    ${filme.novo ? '<span class="novo">Novo</span>' : ''}
+
+                    ${
+                        filme.novo
+                        ?
+                        '<span class="novo">Novo</span>'
+                        :
+                        ''
+                    }
+
+
+                    ${
+                        normalizarTexto(filme.tipo) === "serie"
+                        ?
+                        '<span class="serie">Série</span>'
+                        :
+                        ''
+                    }
 
                 </div>
 
             </div>
 
-        </div>
         `;
 
+
+        /*=========================================
+                    CLICAR NO RESULTADO
+        =========================================*/
+
+        item.addEventListener("click", () => {
+
+            window.location.href =
+                paginaDoFilme(filme);
+
+        });
+
+
+        resultadoPesquisa.appendChild(item);
+
     });
+
 
     resultadoPesquisa.style.display = "block";
 
 }
 
+
 /*=========================================
-            EVENTOS
+            DIGITAR
 =========================================*/
 
-if(campoPesquisa){
+if (campoPesquisa) {
 
-    campoPesquisa.addEventListener("input",()=>{
+    campoPesquisa.addEventListener(
+        "input",
+        () => {
 
-        pesquisar(campoPesquisa.value);
+            pesquisar(
+                campoPesquisa.value
+            );
 
-    });
+        }
+    );
 
 }
+
+
+/*=========================================
+            BOTÃO 🔍
+=========================================*/
+
+if (botaoPesquisar) {
+
+    botaoPesquisar.addEventListener(
+        "click",
+        () => {
+
+            const texto =
+                campoPesquisa?.value.trim();
+
+
+            if (!texto) {
+
+                campoPesquisa?.focus();
+
+                return;
+            }
+
+
+            const busca =
+                normalizarTexto(texto);
+
+
+            const primeiro =
+                catalogo.find(filme =>
+
+                    normalizarTexto(
+                        filme.nome
+                    ).includes(busca)
+
+                );
+
+
+            if (primeiro) {
+
+                window.location.href =
+                    paginaDoFilme(primeiro);
+
+            } else {
+
+                pesquisar(texto);
+
+            }
+
+        }
+    );
+
+}
+
 
 /*=========================================
             ENTER
 =========================================*/
 
-if(campoPesquisa){
+if (campoPesquisa) {
 
-    campoPesquisa.addEventListener("keydown",(e)=>{
+    campoPesquisa.addEventListener(
+        "keydown",
+        (e) => {
 
-        if(e.key==="Enter"){
+            if (e.key !== "Enter") return;
 
-            const primeiro = catalogo.find(f=>
+            e.preventDefault();
 
-                f.nome.toLowerCase().includes(
 
-                    campoPesquisa.value.toLowerCase()
+            const texto =
+                campoPesquisa.value.trim();
 
-                )
 
-            );
+            if (!texto) return;
 
-            if(primeiro){
 
-                window.location.href = primeiro.pagina;
+            const busca =
+                normalizarTexto(texto);
+
+
+            const primeiro =
+                catalogo.find(filme =>
+
+                    normalizarTexto(
+                        filme.nome
+                    ).includes(busca)
+
+                );
+
+
+            if (primeiro) {
+
+                window.location.href =
+                    paginaDoFilme(primeiro);
+
+            } else {
+
+                pesquisar(texto);
+
+            }
+
+        }
+    );
+
+}
+
+
+/*=========================================
+            LIMPAR ✖
+=========================================*/
+
+if (botaoLimpar) {
+
+    botaoLimpar.addEventListener(
+        "click",
+        () => {
+
+            if (campoPesquisa) {
+
+                campoPesquisa.value = "";
+
+                campoPesquisa.focus();
+
+            }
+
+
+            if (resultadoPesquisa) {
+
+                resultadoPesquisa.innerHTML = "";
+
+                resultadoPesquisa.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+/*=========================================
+            FECHAR RESULTADOS
+=========================================*/
+
+document.addEventListener(
+    "click",
+    (e) => {
+
+        if (
+            !e.target.closest(".search-box")
+        ) {
+
+            if (resultadoPesquisa) {
+
+                resultadoPesquisa.style.display =
+                    "none";
 
             }
 
         }
 
-    });
-
-}
-
-/*=========================================
-            LIMPAR
-=========================================*/
-
-if(botaoLimpar){
-
-    botaoLimpar.addEventListener("click",()=>{
-
-        campoPesquisa.value = "";
-
-        resultadoPesquisa.innerHTML = "";
-
-        resultadoPesquisa.style.display = "none";
-
-        campoPesquisa.focus();
-
-    });
-
-}
-
-/*=========================================
-        FECHAR RESULTADOS
-=========================================*/
-
-document.addEventListener("click",(e)=>{
-
-    if(
-
-        !e.target.closest(".search-box")
-
-    ){
-
-        if(resultadoPesquisa){
-
-            resultadoPesquisa.style.display = "none";
-
-        }
-
     }
-
-});
+);

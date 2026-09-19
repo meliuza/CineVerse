@@ -968,7 +968,7 @@ const catalogo = [
             MONSTER HIGH
 =========================================*/
 {
-    id:101,
+    id:52,
     nome:"Monster High: O Novo Fantasma da Escola",
     tipo:"Filme",
     categoria:"Filmes",
@@ -984,7 +984,7 @@ const catalogo = [
 },
 
 {
-    id:102,
+    id:53,
     nome:"Monster High: Choque de Cultura: Presas x Pelos",
     ano:2011,
     nota:8.1,
@@ -999,7 +999,7 @@ const catalogo = [
 },
 
 {
-    id:103,
+    id:54,
     nome:"Monster High: Por que os Monstros se Apaixonam?",
     ano:2012,
     nota:8.2,
@@ -1014,7 +1014,7 @@ const catalogo = [
 },
 
 {
-    id:104,
+    id:55,
     nome:"Monster High: Fuga da Ilha do Esqueleto",
     ano:2012,
     nota:8.0,
@@ -1029,7 +1029,7 @@ const catalogo = [
 },
 
 {
-    id:105,
+    id:56,
     nome:"Monster High: Uma Festa de Arrepiar",
     ano:2012,
     nota:8.0,
@@ -1044,7 +1044,7 @@ const catalogo = [
 },
 
 {
-    id:106,
+    id:57,
     nome:"Monster High: Os Pesadelos de Monster High",
     ano:2012,
     nota:8.0,
@@ -1059,7 +1059,7 @@ const catalogo = [
 },
 
 {
-    id:107,
+    id:58,
     nome:"Monster High: Scaris, a Cidade Sem Luz",
     ano:2013,
     nota:8.2,
@@ -1074,7 +1074,7 @@ const catalogo = [
 },
 
 {
-    id:108,
+    id:59,
     nome:"Monster High: 13 Monster Desejos",
     ano:2013,
     nota:8.5,
@@ -1089,7 +1089,7 @@ const catalogo = [
 },
 
 {
-    id:109,
+    id:60,
     nome:"Monster High: Monstros, Câmera, Ação!",
     ano:2014,
     nota:8.4,
@@ -1104,7 +1104,7 @@ const catalogo = [
 },
 
 {
-    id:110,
+    id:61,
     nome:"Monster High: Uma Fusão Muito Louca",
     ano:2014,
     nota:8.1,
@@ -1119,7 +1119,7 @@ const catalogo = [
 },
 
 {
-    id:111,
+    id:62,
     nome:"Monster High: Assombrada",
     ano:2015,
     nota:8.5,
@@ -1134,7 +1134,7 @@ const catalogo = [
 },
 
 {
-    id:112,
+    id:63,
     nome:"Monster High: Boo York, Boo York",
     ano:2015,
     nota:8.3,
@@ -1149,7 +1149,7 @@ const catalogo = [
 },
 
 {
-    id:113,
+    id:64,
     nome:"Monster High: A Assustadora Barreira de Coral",
     ano:2016,
     nota:8.0,
@@ -1164,7 +1164,7 @@ const catalogo = [
 },
 
 {
-    id:114,
+    id:65,
     nome:"Bem-Vindos a Monster High",
     ano:2016,
     nota:7.8,
@@ -1179,7 +1179,7 @@ const catalogo = [
 },
 
 {
-    id:115,
+    id:66,
     nome:"Monster High: Eletrizante",
     ano:2017,
     nota:7.7,
@@ -1194,7 +1194,7 @@ const catalogo = [
 },
 
 {
-    id:116,
+    id:67,
     nome:"Monster High: O Filme",
     ano:2022,
     nota:7.9,
@@ -1209,7 +1209,7 @@ const catalogo = [
 },
 
 {
-    id:117,
+    id:68,
     nome:"Monster High 2",
     ano:2023,
     nota:8.0,
@@ -1235,7 +1235,7 @@ const catalogo = [
 =========================================*/
 
 {
-    id:201,
+    id:69,
     nome:"Avenida Brasil",
     ano:2012,
     nota:9.4,
@@ -1253,7 +1253,7 @@ const catalogo = [
 },
 
 {
-    id:202,
+    id:70,
     nome:"Pantanal",
     ano:2022,
     nota:9.1,
@@ -1270,7 +1270,7 @@ const catalogo = [
     novo:false
 },
 {
-    id:203,
+    id:71,
     nome:"Coração Acelerado",
     ano:2025,
     nota:9.0,
@@ -1288,7 +1288,7 @@ const catalogo = [
 },
 
 {
-    id:204,
+    id:72,
     nome:"Maria do Bairro",
     ano:1995,
     nota:8.1,
@@ -1301,9 +1301,7 @@ const catalogo = [
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Maria%20do%20Bairro.png",
     sinopse:"Maria do Bairro é uma jovem humilde que, após ser acolhida por uma família rica, enfrenta diferenças sociais, conflitos familiares e uma história de amor cheia de reviravoltas.",
     totalEpisodios:185,
-
     baseVideo:"https://23rzv4udpdbv8t6.cdn-novflix.com/storage3/MDB/MDBzJ8ZbkUekz24eeeVxdBUi",
-
     dublado:true,
     legendado:false,
     novo:false
@@ -1312,8 +1310,16 @@ const catalogo = [
             NOVELAS
 =========================================*/
 
+
+
+
+
+
+/*=========================================
+            FILMES
+=========================================*/
 {
-    id: 10,
+    id: 73,
     nome: "Obsessão",
     ano: 2025,
     nota: 7.8,
@@ -1331,4 +1337,44 @@ const catalogo = [
     novo: true
 },
 
+{
+    id:74,
+    nome:"Um Tira no Jardim da Infância",
+    ano:1990,
+    nota:6.3,
+    duracao:"1h 51min",
+    genero:["Ação","Comédia","Crime"],
+    categoria:"Filmes",
+    colecao:"Arnold Schwarzenegger",
+    tipo:"Filme",
+    poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Um%20Tira%20no%20Jardim%20da%20Infancia.png",
+    banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Um%20Tira%20no%20Jardim%20da%20Infancia.png",
+    sinopse:"O policial John Kimble precisa se disfarçar de professor de jardim de infância para encontrar a ex-esposa de um perigoso traficante, que pode testemunhar contra ele. Enquanto tenta proteger as crianças e manter seu disfarce, Kimble acaba enfrentando uma situação bem diferente das que está acostumado.",
+    video:"https://screenapp.io/app/api/public/files/Zrk7HbjwVQ2Qgs5mfZB8rOTw",
+    dublado:true,
+    legendado:true,
+    novo:false
+},
+
+{
+    id:75,
+    nome:"Burlesque",
+    ano:2010,
+    nota:6.4,
+    duracao:"1h 59min",
+    genero:["Drama","Musical","Romance"],
+    categoria:"Filmes",
+    colecao:"Christina Aguilera",
+    tipo:"Filme",
+    poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Burlesque.png",
+    banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Burlesque.png",
+    sinopse:"Ali é uma jovem do interior com uma grande voz que vai para Los Angeles em busca de seus sonhos. Lá, ela consegue um emprego como garçonete no Burlesque Lounge, um antigo clube comandado por Tess. Encantada pelos figurinos, músicas e coreografias, Ali luta para conseguir uma oportunidade no palco e acaba mostrando que pode ser a grande estrela que o clube precisava.",
+    video:"",
+    dublado:true,
+    legendado:true,
+    novo:false
+},
+/*=========================================
+            FILMES
+=========================================*/
 ];
