@@ -1297,8 +1297,8 @@ const catalogo = [
     categoria:"Novelas",
     colecao:"Maria do Bairro",
     tipo:"Novela",
-    poster:"",
-    banner:"",
+    poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Maria%20do%20Bairro.png",
+    banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Maria%20do%20Bairro.png",
     sinopse:"Maria do Bairro é uma jovem humilde que, após ser acolhida por uma família rica, enfrenta diferenças sociais, conflitos familiares e uma história de amor cheia de reviravoltas.",
     totalEpisodios:185,
 
