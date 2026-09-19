@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="tituloPagina">
+        Categoria
+    </title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/categoria.css">
+</head>
+
+<body>
+
+    <!--======================
+        NAVBAR
+=======================-->
+
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            <img src="img/logo.png">
+            <span>CineVerse</span>
+        </a>
+
+        <div class="navbar-icons">
+            <a href="../favoritos.html">
+                <button class="favoritos">
+                    ❤️
+                    <span id="contadorFavoritos">
+                        0
+                    </span>
+                </button>
+            </a>
+            <button id="menuMobile">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <!--==================================
+            HERO
+===================================-->
+
+    <section class="heroCategoria">
+
+        <div class="overlay"></div>
+
+        <div class="heroInfo">
+
+            <span id="tipoCategoria">
+
+                Categoria
+
+            </span>
+
+            <h1 id="nomeCategoria">
+
+                Filmes
+
+            </h1>
+
+            <p id="quantidadeCategoria">
+
+                0 títulos
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!--==================================
+        BARRA SUPERIOR
+===================================-->
+
+    <section class="topoCategoria">
+
+        <div class="pesquisaCategoria">
+
+            <input id="pesquisaCategoria" type="text" placeholder="Pesquisar nesta categoria...">
+
+        </div>
+
+        <select id="ordenacao">
+
+            <option value="novo">
+
+                Mais recentes
+
+            </option>
+
+            <option value="nota">
+
+                Melhor avaliados
+
+            </option>
+
+            <option value="az">
+
+                A-Z
+
+            </option>
+
+            <option value="za">
+
+                Z-A
+
+            </option>
+
+        </select>
+
+    </section>
+
+    <!--==================================
+            GRID
+===================================-->
+
+    <main>
+
+        <section id="listaCategoria" class="gridCategoria">
+
+        </section>
+
+    </main>
+
+    <!--==================================
+            PAGINAÇÃO
+===================================-->
+
+    <section class="paginacao">
+
+        <button id="voltarPagina">
+
+            ◀
+
+        </button>
+
+        <span id="paginaAtual">
+
+            Página 1
+
+        </span>
+
+        <button id="proximaPagina">
+
+            ▶
+
+        </button>
+
+    </section>
+
+    <!--==================================
+            SCRIPTS
+===================================-->
+
+    <script src="../js/catalogo.js"></script>
+
+    <script src="../js/navbar.js"></script>
+
+    <script src="../js/categoria.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+/* Tema claro */
+
+body {
+
+    background: #f8f1f6;
+    color: #333;
+
+    transition: .4s;
+
+}
+
+/* Tema escuro */
+
+body.dark {
+
+    background: #0f0f0f;
+    color: white;
+
+}
+
+/* Cards */
+
+body.dark .card,
+body.dark .card,
+body.dark .episodio,
+body.dark .banner {
+
+    background: #241b25;
+    background: var(--card);
+}
+
+body.dark .card{
+    background: #1b1b1b;
+    border:2px solid rgba(0, 0, 0, 0.6);
+}
+
+body.dark .btn-assistir{
+    background: #0f0f0f;
+    border:2px solid rgba(0, 0, 0, 0.6);
+}
+/* Títulos */
+
+body.dark h1,
+body.dark h2,
+body.dark h3 {
+
+    color: #fdfdfd;
+
+}
+
+/* Texto */
+
+body.dark p {
+
+    color: #d8d8d8;
+
+}
+
+/* Botão */
+
+#tema {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: #ff2f92;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 999;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+
+    --fundo:#fff5fa;
+    --card:#ffffff;
+    --texto:#444;
+    --titulo:#ff2f92;
+
+}
+
+body{
+
+    background:var(--fundo);
+
+    color:var(--texto);
+
+    transition:.45s;
+
+}
+
+.card,
+.banner,
+.episodio{
+
+    background:var(--card);
+
+}
+
+h1,h2,h3{
+
+    color:var(--titulo);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==================================
+        BOTÃO TEMA
+==================================*/
+
+#tema{
+
+    position:fixed;
+
+    top:22px;
+    right:22px;
+
+    width:70px;
+    height:70px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    z-index:99999;
+
+    transition:.35s;
+
+}
+
+#tema:hover{
+
+    transform:scale(1.12) rotate(10deg);
+
+}
+
+#tema img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    filter:drop-shadow(0 8px 18px rgba(255,0,120,.35));
+
+    transition:.35s;
+
+}
+
+#tema:hover img{
+
+    transform:rotate(180deg);
+
+}

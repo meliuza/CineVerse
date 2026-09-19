@@ -1,0 +1,175 @@
+/*=========================================
+                CARD
+=========================================*/
+
+.cardFilme{
+
+    flex:0 0 auto;
+
+    width:180px;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.cardFilme img{
+
+    width:100%;
+
+    height:270px;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:12px;
+
+}
+
+/*=========================================
+                POSTER
+=========================================*/
+
+.card img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/*=========================================
+            GRADIENTE
+=========================================*/
+
+
+/*=========================================
+            BADGE
+=========================================*/
+
+.badge{
+
+    position:absolute;
+
+    top:12px;
+    left:12px;
+
+    background:#ff3b30;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    z-index:6;
+
+}
+
+/*=========================================
+            RESPONSIVO
+=========================================*/
+
+@media(max-width:900px){
+
+.card{
+
+    width:180px;
+    min-width:180px;
+
+}
+
+.card img{
+
+    height:260px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.card{
+
+    width:150px;
+    min-width:150px;
+
+}
+
+.card img{
+
+    height:220px;
+
+}
+
+.cardInfo{
+
+    padding:12px;
+
+}
+
+.cardInfo h3{
+
+    font-size:15px;
+
+}
+
+.cardInfo p{
+
+    font-size:12px;
+
+}
+
+.cardButtons{
+
+    flex-direction:column;
+
+}
+
+.cardButtons button{
+
+    height:34px;
+
+    font-size:12px;
+
+}
+
+}
+
+/*=========================================
+        CURSOR
+=========================================*/
+
+.listaFilmes{
+
+    cursor:grab;
+
+}
+
+.listaFilmes.arrastando{
+
+    cursor:grabbing;
+
+    user-select:none;
+
+}
+
+.listaFilmes.arrastando img{
+
+    pointer-events:none;
+
+}

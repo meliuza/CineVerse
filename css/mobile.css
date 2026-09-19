@@ -1,0 +1,297 @@
+/*=========================================
+            MENU MOBILE
+=========================================*/
+
+#mobileMenu{
+
+    position:fixed;
+
+    top:0;
+    left:-320px;
+
+    width:300px;
+    height:100vh;
+
+    background:#111;
+
+    border-right:1px solid #2d2d2d;
+
+    transition:.35s;
+
+    z-index:99999;
+
+    overflow-y:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:25px;
+
+}
+
+#mobileMenu.ativo{
+
+    left:0;
+
+}
+
+/*=========================================
+            CABEÇALHO
+=========================================*/
+
+.mobile-topo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.mobile-topo h2{
+
+    color:white;
+
+    font-size:22px;
+
+}
+
+.mobile-topo button{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#222;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+/*=========================================
+            LINKS
+=========================================*/
+
+.mobile-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.mobile-links a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+    background:#181818;
+
+}
+
+.mobile-links a:hover{
+
+    background:#262626;
+
+    color:white;
+
+}
+
+.mobile-links span{
+
+    font-size:22px;
+
+}
+
+/*=========================================
+        PESQUISA MOBILE
+=========================================*/
+
+.mobile-search{
+
+    margin:20px 0;
+
+}
+
+.mobile-search input{
+
+    width:100%;
+
+    height:48px;
+
+    border:none;
+
+    outline:none;
+
+    background:#1b1b1b;
+
+    color:white;
+
+    padding:0 15px;
+
+    border-radius:12px;
+
+}
+
+/*=========================================
+            OVERLAY
+=========================================*/
+
+#overlayMobile{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    backdrop-filter:blur(4px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:99998;
+
+}
+
+#overlayMobile.ativo{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/*=========================================
+        RESPONSIVO
+=========================================*/
+
+@media(max-width:900px){
+
+    .menu-desktop{
+
+        display:none;
+
+    }
+
+    #menuMobile{
+
+        display:flex !important;
+
+        justify-content:center;
+
+        align-items:center;
+
+    }
+
+    .navbar{
+
+        padding:0 15px;
+
+    }
+
+    .search-box{
+
+        display:none;
+
+    }
+
+    .logo span{
+
+        display:none;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .bannerPrincipal{
+
+        height:60vh;
+
+    }
+
+    .banner-info{
+
+        width:100%;
+
+    }
+
+    .banner-info h1{
+
+        font-size:30px;
+
+    }
+
+    .banner-info p{
+
+        font-size:14px;
+
+    }
+
+    .categoria{
+
+        padding:0 12px;
+
+    }
+
+    .tituloCategoria h2{
+
+        font-size:22px;
+
+    }
+
+}
+
+@media(max-width:420px){
+
+    #mobileMenu{
+
+        width:260px;
+
+    }
+
+    .navbar{
+
+        height:65px;
+
+    }
+
+    .logo img{
+
+        width:36px;
+
+    }
+
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title id="tituloPagina">CineVerse</title>
+
+    <link rel="stylesheet" href="../css/filme.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/novela.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!--======================
+        NAVBAR
+    =======================-->
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            <img src="img/logo.png">
+            <span>CineVerse</span>
+        </a>
+        <nav class="menu-desktop">
+            <a href="#">Início</a>
+            <button id="btnCategorias">
+                🎬 Categorias
+            </button>
+        </nav>
+        <div class="search-box">
+
+            <input id="pesquisa" type="text" placeholder="Pesquisar filmes, séries...">
+            <button>
+                🔍
+            </button>
+            <button id="limparPesquisa">
+
+                ✖
+            </button>
+            <div id="resultadoPesquisa"></div>
+        </div>
+        <div class="navbar-icons">
+            <a href="../favoritos.html">
+                <button class="favoritos">
+                    ❤️
+                    <span id="contadorFavoritos">
+                        0
+                    </span>
+                </button>
+            </a>
+            <button id="menuMobile">
+                ☰
+            </button>
+        </div>
+    </header>
+
+
+    <!-- ===============================
+            HERO
+================================ -->
+
+    <section id="hero" class="hero">
+
+        <div class="overlay"></div>
+
+        <div class="heroConteudo">
+
+            <img id="posterFilme" class="poster">
+
+            <div class="info">
+
+                <span id="categoria" class="categoria"></span>
+
+                <h1 id="nomeFilme"></h1>
+
+                <div class="detalhes">
+
+                    <span id="ano"></span>
+
+                    <span>•</span>
+
+                    <span id="duracao"></span>
+
+                    <span>•</span>
+
+                    <span id="nota"></span>
+
+                </div>
+
+                <div id="generos" class="generos">
+
+                </div>
+
+                <p id="sinopse"></p>
+
+                <div class="acoes">
+
+                    <button id="btnAssistir">
+
+                        ▶ Assistir
+
+                    </button>
+
+                    <button id="btnFavoritoFilme" class="btnFavorito" data-id="">
+                        🤍
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===============================
+            PLAYER
+================================ -->
+
+    <section class="playerArea" id="playerArea">
+
+        <iframe id="player" allowfullscreen allow="autoplay">
+
+        </iframe>
+
+    </section>
+
+    <!-- ===============================
+            ELENCO
+================================ -->
+
+    <section class="bloco">
+
+        <h2>
+
+            👥 Elenco
+
+        </h2>
+
+        <div id="elenco">
+
+        </div>
+
+    </section>
+
+    <!-- ===============================
+        RECOMENDADOS
+================================ -->
+
+    <section class="bloco">
+
+        <h2>
+
+            🍿 Você também pode gostar
+
+        </h2>
+
+        <div id="recomendados" class="sliderFilmes">
+
+        </div>
+
+    </section>
+
+    <!-- ===============================
+        MESMA COLEÇÃO
+================================ -->
+
+    <section id="colecaoArea" class="bloco">
+
+        <h2>
+
+            🎬 Da mesma coleção
+
+        </h2>
+
+        <div id="colecao" class="sliderFilmes">
+
+        </div>
+
+    </section>
+
+    <script src="../js/catalogo.js"></script>
+
+    <script src="../js/navbar.js"></script>
+
+    <script src="../js/favoritos.js"></script>
+
+    <script src="../js/favoritos-page.js"></script>
+
+    <script src="../js/filme.js"></script>
+
+</body>
+
+</html>

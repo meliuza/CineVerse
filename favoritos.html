@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meus Favoritos | CineVerse</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/favoritos.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
+</head>
+
+<body>
+
+<!--=========================================
+                NAVBAR
+==========================================-->
+
+<header class="navbar">
+
+    <a href="../index.html" class="logo">
+
+        Cine<span>Verse</span>
+
+    </a>
+
+    <nav>
+
+        <a href="../index.html">Início</a>
+
+        <a href="favoritos.html" class="ativo">
+
+            ❤️ Favoritos
+
+        </a>
+
+    </nav>
+
+</header>
+
+<!--=========================================
+                HERO
+==========================================-->
+
+<section class="favoritosHero">
+
+    <div class="heroOverlay"></div>
+
+    <div class="heroConteudo">
+
+        <h1>
+
+            ❤️ Meus Favoritos
+
+        </h1>
+
+        <p>
+
+            Todos os filmes e séries que você salvou.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!--=========================================
+            BARRA SUPERIOR
+==========================================-->
+
+<section class="topoFavoritos">
+
+    <div class="contadorArea">
+
+        <span class="contadorNumero" id="contadorFavoritos">
+
+            0
+
+        </span>
+
+        <span>
+
+            Favoritos
+
+        </span>
+
+    </div>
+
+    <div class="pesquisaFavoritos">
+
+        <input
+            type="text"
+            id="pesquisaFavoritos"
+            placeholder="Pesquisar favorito...">
+
+    </div>
+
+    <button
+        id="limparFavoritos"
+        class="btnLimpar">
+
+        🗑 Limpar Favoritos
+
+    </button>
+
+</section>
+
+<!--=========================================
+            FAVORITOS
+==========================================-->
+
+<main class="favoritosContainer">
+
+    <div
+        class="gradeFavoritos"
+        id="listaFavoritos">
+
+    </div>
+
+</main>
+
+<!--=========================================
+        NENHUM FAVORITO
+==========================================-->
+
+<section
+    class="vazio"
+    id="semFavoritos">
+
+    <div class="icone">
+
+        ❤️
+
+    </div>
+
+    <h2>
+
+        Você ainda não possui favoritos
+
+    </h2>
+
+    <p>
+
+        Clique no coração dos filmes para adicioná-los aqui.
+
+    </p>
+
+    <a
+        href="../index.html"
+        class="btnInicio">
+
+        Voltar ao Início
+
+    </a>
+
+</section>
+
+<!--=========================================
+                FOOTER
+==========================================-->
+
+<footer>
+
+    <p>
+
+        © 2026 CineVerse
+
+    </p>
+
+</footer>
+
+<!--=========================================
+                SCRIPTS
+==========================================-->
+
+<script src="../js/catalogo.js"></script>
+
+<script src="../js/favoritos.js"></script>
+
+<script src="../js/favoritos-page.js"></script>
+
+</body>
+
+</html>

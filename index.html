@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CineVerse</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/pesquisa.css">
+    <link rel="stylesheet" href="css/tema.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <link rel="stylesheet" href="css/categorias.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/favoritos.css">
+
+</head>
+
+<body>
+
+    <!--======================
+        NAVBAR
+=======================-->
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <img src="img/logo.png">
+            <span>CineVerse</span>
+        </a>
+
+        <nav class="menu-desktop">
+            <a href="#">Início</a>
+            <button id="btnCategorias">
+                🎬 Categorias
+            </button>
+        </nav>
+
+        <div class="search-box">
+
+            <input id="pesquisa" type="text" placeholder="Pesquisar filmes, séries...">
+
+            <button>
+
+                🔍
+
+            </button>
+
+            <button id="limparPesquisa">
+
+                ✖
+
+            </button>
+
+            <div id="resultadoPesquisa"></div>
+
+        </div>
+
+        <div class="navbar-icons">
+            <a href="favoritos.html">
+                <button class="favoritos">
+                    ❤️
+                    <span id="contadorFavoritos">
+                        0
+                    </span>
+                </button>
+            </a>
+
+            <button id="menuMobile">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <!--======================
+        MENU MOBILE
+=======================-->
+    <aside id="mobileMenu">
+        <button id="fecharMenu" class="fechar">
+            ✕
+        </button>
+        <a href="#">🏠 Início</a>
+        <button id="mobileCategorias">
+            🎬 Categorias
+        </button>
+        <a href="#">❤ Favoritos</a>
+
+    </aside>
+
+    <div id="overlayMobile"></div>
+    <!--======================
+        CATEGORIAS
+=======================-->
+    <div id="overlayCategorias"></div>
+    <div id="categorias">
+        <h2>🎬 Todas as Categorias</h2>
+        <div class="listaCategorias">
+            <a href="#"><span>🔥</span> Em Alta</a>
+            <a href="pages/categoria.html?categoria=Filmes">🎬 Filmes</a>
+            <a href="pages/categoria.html?categoria=Séries">📺 Séries</a>
+            <a href="pages/categoria.html?categoria=Romance">❤️ Romance</a>
+            <a href="pages/categoria.html?categoria=Comédia">😂 Comédia</a>
+            <a href="pages/categoria.html?categoria=Terror">👻 Terror</a>
+            <a href="#"><span>🚀</span> Ficção Científica</a>
+            <a href="#"><span>🧙</span> Fantasia</a>
+            <a href="#"><span>🕵️</span> Mistério</a>
+            <a href="#"><span>⚔️</span> Ação</a>
+            <a href="#"><span>🎭</span> Drama</a>
+            <a href="#"><span>🧸</span> Infantil</a>
+            <a href="pages/categoria.html?categoria=Barbie"><span>🎀</span> Barbie</a>
+
+            <a href="pages/categoria.html?categoria=MonsterHigh"><span>💀</span> Monster High</a>
+
+            <a href="pages/categoria.html?categoria=Disney"><span>🐭</span> Disney</a>
+            <a href="pages/categoria.html?categoria=Pixar"><span>✨</span> Pixar</a>
+            <a href="pages/categoria.html?categoria=Marvel">🦸 Marvel</a>
+            <a href="pages/categoria.html?categoria=DC"><span>🦇</span> DC</a>
+            <a href="pages/categoria.html?categoria=Harry+Potter"><span>⚡</span> Harry Potter</a>
+            <a href="pages/categoria.html?categoria=Star+Wars"><span>🌌</span> Star Wars</a>
+            <a href="pages/categoria.html?categoria=Animes"><span>🎌</span> Animes</a>
+            <a href="pages/categoria.html?categoria=Dragon+Ball"><span>🐉</span> Dragon Ball</a>
+            <a href="pages/categoria.html?categoria=One+Piece"><span>🏴‍☠️</span> One Piece</a>
+            <a href="pages/categoria.html?categoria=Naruto"><span>🍥</span> Naruto</a>
+            <a href="pages/categoria.html?categoria=Esportes"><span>⚽</span> Esportes</a>
+            <a href="pages/categoria.html?categoria=Novelas">📺 Novelas</a>
+        </div>
+    </div>
+    <!--======================
+        BANNER
+=======================-->
+    <section class="bannerPrincipal">
+        <div class="banner-info">
+            <h1>Bem-vindo ao CineVerse</h1>
+            <p>
+                Descubra milhares de filmes, séries, animes e animações em um único lugar.
+            </p>
+            <div class="banner-botoes">
+                <button class="assistir">
+                    ▶ Assistir Agora
+                </button>
+                <button class="info">
+                    ℹ Mais Informações
+                </button>
+            </div>
+        </div>
+        <div class="fadeBanner"></div>
+    </section>
+    <!--======================
+        FILMES
+=======================-->
+    <main>
+
+        <section class="categoria" id="continuarAssistindoCategoria">
+            <div class="tituloCategoria">
+                <h2>▶ Continuar Assistindo</h2>
+            </div>
+            <div class="slider">
+                <button class="slider-btn slider-prev">❮</button>
+                <div class="listaFilmes" id="continuarAssistindo"></div>
+                <button class="slider-btn slider-next">❯</button>
+            </div>
+        </section>
+
+        <section class="categoria" id="recomendadoCategoria">
+            <div class="tituloCategoria">
+                <h2 id="tituloRecomendado">
+                    Porque você assistiu...
+                </h2>
+            </div>
+            <div class="slider">
+                <button class="slider-btn slider-prev">❮</button>
+                <div class="listaFilmes" id="recomendados"></div>
+                <button class="slider-btn slider-next">❯</button>
+            </div>
+        </section>
+
+        <section class="categoria" id="recomendadoUsuarioCategoria">
+            <div class="tituloCategoria">
+                <h2>
+                    Recomendado para Você
+                </h2>
+            </div>
+            <div class="slider">
+                <button class="slider-btn slider-prev">❮</button>
+                <div class="listaFilmes" id="recomendadoUsuario"></div>
+                <button class="slider-btn slider-next">❯</button>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <div class="tituloCategoria">
+                <h2>🔥 Em Alta</h2>
+            </div>
+            <div class="slider">
+                <button class="voltar">❮</button>
+                <div class="listaFilmes" id="emAlta"></div>
+                <button class="proximo">❯</button>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <div class="tituloCategoria">
+                <h2>📺 Novelas</h2>
+            </div>
+            <div class="slider">
+                <button class="slider-btn slider-prev">❮</button>
+                <div class="listaFilmes" id="novelas"></div>
+                <button class="slider-btn slider-next">❯</button>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <div class="tituloCategoria">
+                <h2>🎬 Filmes</h2>
+            </div>
+            <div class="slider">
+                <button class="voltar">❮</button>
+                <div class="listaFilmes" id="filmes"></div>
+                <button class="proximo">❯</button>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <div class="tituloCategoria">
+                <h2>📺 Séries</h2>
+            </div>
+
+            <div class="slider">
+                <button class="voltar">❮</button>
+                <div class="listaFilmes" id="series"></div>
+                <button class="proximo">❯</button>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <div class="tituloCategoria">
+                <h2>🧸 Infantil</h2>
+            </div>
+            <div class="slider">
+                <button class="voltar">❮</button>
+                <div class="listaFilmes" id="infantil"></div>
+                <button class="proximo">❯</button>
+            </div>
+        </section>
+
+
+
+    </main>
+
+
+    <!-- O JavaScript criará automaticamente -->
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">
+                    <img src="img/logo.png">
+                    <h2>CineVerse</h2>
+                </div>
+                <p class="footer-text">
+                    Assista filmes, séries, desenhos e animes em um só lugar.
+                    Um catálogo organizado, rápido e bonito para encontrar seus
+                    conteúdos favoritos.
+                </p>
+                <div class="footer-social">
+                    <a href="#">📷</a>
+                    <a href="#">🎵</a>
+                    <a href="#">▶</a>
+                    <a href="#">💬</a>
+                </div>
+            </div>
+            <div>
+                <h3>Explorar</h3>
+                <div class="footer-links">
+                    <a href="#">Início</a>
+                    <a href="#">Filmes</a>
+                    <a href="#">Séries</a>
+                    <a href="#">Animes</a>
+                    <a href="#">Desenhos</a>
+                </div>
+            </div>
+            <div>
+                <h3>Categorias</h3>
+                <div class="footer-links">
+                    <a href="#">Ação</a>
+                    <a href="#">Comédia</a>
+                    <a href="#">Terror</a>
+                    <a href="#">Romance</a>
+                    <a href="#">Infantil</a>
+                </div>
+            </div>
+            <div>
+                <h3>Suporte</h3>
+                <div class="footer-links">
+                    <a href="#">Contato</a>
+                    <a href="#">Termos</a>
+                    <a href="#">Privacidade</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 CineVerse • Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!--======================
+        LOADING
+=======================-->
+
+    <!--======================
+        SCRIPTS
+=======================-->
+
+    <script src="js/catalogo.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/tema.js"></script>
+    <script src="js/pesquisa.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/favoritos.js"></script>
+
+
+
+    <script src="js/historico.js"></script>
+    <script src="js/continuar.js"></script>
+    <script src="js/recomendacoes.js"></script>
+    <script src="js/recomendado.js"></script>
+
+</body>
+
+</html>

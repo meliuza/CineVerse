@@ -1,0 +1,226 @@
+/*=========================================
+            MENU CATEGORIAS
+=========================================*/
+
+#categorias{
+
+    position:fixed;
+
+    top:90px;
+    left:50%;
+
+    transform:translateX(-50%) scale(.95);
+
+    width:95%;
+    max-width:1350px;
+
+    max-height:75vh;
+
+    background:#161616;
+
+    border:1px solid #2b2b2b;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    overflow-y:auto;
+
+    display:none;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:99999;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.55);
+
+}
+
+/*=========================================
+            ABERTO
+=========================================*/
+
+#categorias.ativo{
+
+    display:block;
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateX(-50%) scale(1);
+
+}
+
+/*=========================================
+            TÍTULO
+=========================================*/
+
+#categorias h2{
+
+    color:white;
+
+    font-size:32px;
+
+    margin-bottom:25px;
+
+}
+
+/*=========================================
+            GRID
+=========================================*/
+
+.listaCategorias{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(180px,1fr));
+
+    gap:15px;
+
+}
+
+/*=========================================
+            BOTÕES
+=========================================*/
+
+.listaCategorias a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:#202020;
+
+    color:#d8d8d8;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.listaCategorias a:hover{
+
+    background:#2f2f2f;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+/*=========================================
+            ÍCONES
+=========================================*/
+
+.listaCategorias span{
+
+    font-size:22px;
+
+}
+
+/*=========================================
+            OVERLAY
+=========================================*/
+
+#overlayCategorias{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    backdrop-filter:blur(5px);
+
+    display:none;
+
+    z-index:99998;
+
+}
+
+#overlayCategorias.ativo{
+
+    display:block;
+
+}
+
+/*=========================================
+            SCROLL
+=========================================*/
+
+#categorias::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+#categorias::-webkit-scrollbar-thumb{
+
+    background:#444;
+
+    border-radius:50px;
+
+}
+
+#categorias::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+/*=========================================
+            MOBILE
+=========================================*/
+
+@media(max-width:900px){
+
+#categorias{
+
+    top:75px;
+
+    width:96%;
+
+    padding:20px;
+
+}
+
+.listaCategorias{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.listaCategorias{
+
+    grid-template-columns:1fr;
+
+}
+
+#categorias h2{
+
+    font-size:24px;
+
+}
+
+}

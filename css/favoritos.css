@@ -1,0 +1,515 @@
+/*==================================================
+                FAVORITOS
+==================================================*/
+
+body{
+
+    background:#0b0b0b;
+
+    color:#fff;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+}
+
+/*==================================================
+                    HERO
+==================================================*/
+
+.favoritosHero{
+    position:relative;
+    height:300px;
+    overflow:hidden;
+}
+
+.heroOverlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        rgba(0,0,0,.15),
+
+        rgba(0,0,0,.65),
+
+        #0b0b0b
+
+    );
+
+}
+
+.heroConteudo{
+
+    position:absolute;
+
+    bottom:45px;
+
+    left:60px;
+
+    z-index:10;
+}
+
+.heroConteudo h1{
+
+    font-size:55px;
+
+    margin-bottom:10px;
+
+    font-weight:800;
+}
+
+.heroConteudo p{
+
+    color:#d6d6d6;
+
+    font-size:18px;
+
+}
+
+/*==================================================
+                TOPO
+==================================================*/
+
+.topoFavoritos{
+
+    max-width:1500px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:35px 60px;
+
+    flex-wrap:wrap;
+
+}
+
+.contadorArea{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+
+.contadorNumero{
+
+    background:#ff0055;
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-size:18px;
+
+}
+
+.pesquisaFavoritos{
+
+    flex:1;
+
+    min-width:260px;
+
+}
+
+.pesquisaFavoritos input{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:#181818;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+.pesquisaFavoritos input::placeholder{
+
+    color:#888;
+
+}
+
+.btnLimpar{
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#ff2f55;
+
+    color:white;
+
+    padding:15px 22px;
+
+    border-radius:12px;
+
+    transition:.25s;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+}
+
+.btnLimpar:hover{
+
+    transform:translateY(-3px);
+
+    background:#ff0044;
+
+}
+
+/*==================================================
+                GRID
+==================================================*/
+
+.favoritosContainer{
+
+    max-width:1600px;
+
+    margin:auto;
+
+    padding:0 60px 80px;
+
+}
+
+.gradeFavoritos{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fill,minmax(190px,1fr));
+
+    gap:28px;
+
+}
+
+/*==================================================
+                CARD
+==================================================*/
+
+.cardFavorito{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    background:#111;
+
+    transition:.30s;
+
+}
+
+.cardFavorito:hover{
+
+    transform:
+
+    translateY(-8px)
+
+    scale(1.03);
+
+}
+
+.cardFavorito img{
+
+    width:100%;
+
+    display:block;
+
+    aspect-ratio:2/3;
+
+    object-fit:cover;
+
+}
+
+.infoFavorito{
+
+    padding:14px;
+
+}
+
+.infoFavorito h3{
+
+    font-size:18px;
+
+    margin-bottom:8px;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    text-overflow:ellipsis;
+
+}
+
+.infoFavorito p{
+
+    color:#a9a9a9;
+
+    font-size:14px;
+
+}
+
+/*==================================================
+            BOTÕES
+==================================================*/
+
+.acoesFavorito{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+.btnAssistir{
+
+    flex:1;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:#111;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    transition:.25s;
+
+}
+
+.btnAssistir:hover{
+
+    background:#ececec;
+
+}
+
+.btnRemover{
+
+    width:48px;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:10px;
+
+    background:#ff2c54;
+
+    color:white;
+
+    transition:.25s;
+
+}
+
+.btnRemover:hover{
+
+    background:#ff003c;
+
+}
+
+/*==================================================
+            VAZIO
+==================================================*/
+
+.vazio{
+
+    display:none;
+
+    text-align:center;
+
+    padding:90px 20px;
+
+}
+
+.vazio .icone{
+
+    font-size:90px;
+
+    margin-bottom:20px;
+
+}
+
+.vazio h2{
+
+    font-size:35px;
+
+    margin-bottom:15px;
+
+}
+
+.vazio p{
+
+    color:#a5a5a5;
+
+    margin-bottom:35px;
+
+}
+
+.btnInicio{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:#ff004c;
+
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:12px;
+
+    transition:.25s;
+
+}
+
+.btnInicio:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/*==================================================
+            ANIMAÇÕES
+==================================================*/
+
+.cardFavorito{
+
+    animation:aparecer .45s ease;
+
+}
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+    }
+
+}
+
+/*==================================================
+            RESPONSIVO
+==================================================*/
+
+@media(max-width:900px){
+
+    .heroConteudo{
+
+        left:30px;
+
+    }
+
+    .heroConteudo h1{
+
+        font-size:38px;
+
+    }
+
+    .topoFavoritos{
+
+        padding:25px;
+
+    }
+
+    .favoritosContainer{
+
+        padding:25px;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .heroConteudo{
+
+        text-align:center;
+
+        left:50%;
+
+        transform:translateX(-50%);
+
+        width:100%;
+
+        padding:0 20px;
+
+    }
+
+    .heroConteudo h1{
+
+        font-size:30px;
+
+    }
+
+    .gradeFavoritos{
+
+        grid-template-columns:
+
+        repeat(2,1fr);
+
+        gap:18px;
+
+    }
+
+}

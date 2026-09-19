@@ -1,0 +1,345 @@
+/*=========================================
+            PESQUISA
+=========================================*/
+
+.search-box{
+
+    position:relative;
+
+    width:450px;
+
+    display:flex;
+
+    align-items:center;
+
+    background:#181818;
+
+    border:2px solid #2a2a2a;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.search-box:hover{
+
+    border-color:#4b4b4b;
+
+}
+
+.search-box:focus-within{
+
+    border-color:#5f8dff;
+
+    box-shadow:0 0 20px rgba(95,141,255,.25);
+
+}
+
+/*=========================================
+                INPUT
+=========================================*/
+
+.search-box input{
+
+    flex:1;
+
+    height:50px;
+
+    background:none;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+    padding:0 18px;
+
+    font-size:15px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#8d8d8d;
+
+}
+
+/*=========================================
+                BOTÃO
+=========================================*/
+
+.search-box button{
+
+    width:55px;
+
+    height:50px;
+
+    border:none;
+
+    background:#222;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.search-box button:hover{
+
+    background:#333;
+
+}
+
+/*=========================================
+            RESULTADOS
+=========================================*/
+
+#resultadoPesquisa{
+
+    position:absolute;
+
+    top:60px;
+
+    left:0;
+
+    width:100%;
+
+    max-height:500px;
+
+    overflow-y:auto;
+
+    background:#151515;
+
+    border:1px solid #303030;
+
+    border-radius:18px;
+
+    display:none;
+
+    z-index:99999;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.45);
+
+}
+
+/*=========================================
+            ITEM
+=========================================*/
+
+.resultado-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:12px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.resultado-item:hover{
+
+    background:#222;
+
+}
+
+/*=========================================
+            POSTER
+=========================================*/
+
+.resultado-item img{
+
+    width:60px;
+
+    height:90px;
+
+    border-radius:10px;
+
+    object-fit:cover;
+
+    flex-shrink:0;
+
+}
+
+/*=========================================
+            TEXTO
+=========================================*/
+
+.resultado-info{
+
+    flex:1;
+
+}
+
+.resultado-info h3{
+
+    color:white;
+
+    font-size:16px;
+
+    margin-bottom:6px;
+
+}
+
+.resultado-info p{
+
+    color:#9d9d9d;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+/*=========================================
+            TAGS
+=========================================*/
+
+.resultado-tags{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:8px;
+
+}
+
+.resultado-tags span{
+
+    padding:4px 9px;
+
+    border-radius:20px;
+
+    background:#2c2c2c;
+
+    color:white;
+
+    font-size:11px;
+
+}
+
+.resultado-tags .novo{
+
+    background:#ff3b30;
+
+}
+
+.resultado-tags .dublado{
+
+    background:#2ecc71;
+
+}
+
+.resultado-tags .serie{
+
+    background:#5f8dff;
+
+}
+
+/*=========================================
+        SEM RESULTADOS
+=========================================*/
+
+.semResultado{
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#888;
+
+    font-size:15px;
+
+}
+
+/*=========================================
+            SCROLL
+=========================================*/
+
+#resultadoPesquisa::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+#resultadoPesquisa::-webkit-scrollbar-thumb{
+
+    background:#444;
+
+    border-radius:20px;
+
+}
+
+#resultadoPesquisa::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+/*=========================================
+            RESPONSIVO
+=========================================*/
+
+@media(max-width:900px){
+
+.search-box{
+
+    width:320px;
+
+}
+
+}
+
+@media(max-width:650px){
+
+.search-box{
+
+    width:100%;
+
+}
+
+.resultado-item img{
+
+    width:50px;
+
+    height:75px;
+
+}
+
+.resultado-info h3{
+
+    font-size:14px;
+
+}
+
+.resultado-info p{
+
+    font-size:12px;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.search-box{
+
+    display:none;
+
+}
+
+}

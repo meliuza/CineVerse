@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Novela | CineVerse</title>
+
+    <link rel="stylesheet" href="../css/novela.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+
+</head>
+
+<body>
+
+    <!--======================
+        NAVBAR
+=======================-->
+
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            <img src="img/logo.png">
+            <span>CineVerse</span>
+        </a>
+
+        <nav class="menu-desktop">
+            <a href="#">Início</a>
+            <button id="btnCategorias">
+                🎬 Categorias
+            </button>
+        </nav>
+
+        <div class="search-box">
+
+            <input id="pesquisa" type="text" placeholder="Pesquisar filmes, séries...">
+
+            <button>
+
+                🔍
+
+            </button>
+
+            <button id="limparPesquisa">
+
+                ✖
+
+            </button>
+
+            <div id="resultadoPesquisa"></div>
+
+        </div>
+
+        <div class="navbar-icons">
+            <a href="../favoritos.html">
+                <button class="favoritos">
+                    ❤️
+                    <span id="contadorFavoritos">
+                        0
+                    </span>
+                </button>
+            </a>
+
+            <button id="menuMobile">
+                ☰
+            </button>
+        </div>
+    </header>
+
+<!--=========================================
+                HERO
+==========================================-->
+
+<header id="heroNovela" class="hero">
+
+    <div class="heroOverlay"></div>
+
+    <div class="heroConteudo">
+
+        <img
+            id="posterNovela"
+            class="posterNovela">
+
+        <div class="infoNovela">
+
+            <span class="tagNovela">
+
+                📺 Novela
+
+            </span>
+
+            <h1 id="nomeNovela"></h1>
+
+            <div class="meta">
+
+                <span id="notaNovela">⭐ 0.0</span>
+
+                <span id="anoNovela">2026</span>
+
+                <span id="duracaoNovela">180 capítulos</span>
+
+            </div>
+
+            <p id="sinopseNovela"></p>
+
+            <div class="botoesHero">
+
+                <button id="btnContinuar">
+
+                    ▶ Continuar assistindo
+
+                </button>
+
+                <button id="btnFavorito">
+
+                    🤍 Favoritar
+
+                </button>
+
+                <button id="btnTrailer">
+
+                    🎬 Trailer
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!--=========================================
+                PLAYER
+==========================================-->
+
+<main class="container">
+
+<section class="playerArea">
+
+    <video
+
+        id="videoPlayer"
+
+        controls
+
+        controlsList="nodownload"
+
+        width="100%">
+
+    </video>
+
+</section>
+
+<!--=========================================
+        CONTROLES EPISÓDIOS
+==========================================-->
+
+<section class="navegacaoEpisodios">
+
+    <button id="btnAnterior">
+
+        ⏮ Episódio anterior
+
+    </button>
+
+    <div class="episodioAtual">
+
+        Assistindo
+
+        <strong id="tituloEpisodio">
+
+            Episódio 001
+
+        </strong>
+
+    </div>
+
+    <button id="btnProximo">
+
+        Próximo episódio ⏭
+
+    </button>
+
+</section>
+
+<!--=========================================
+            LISTA EPISÓDIOS
+==========================================-->
+
+<section class="episodiosArea">
+
+    <div class="topoLista">
+
+        <h2>
+
+            Episódios
+
+        </h2>
+
+        <button id="mostrarMais">
+
+            Mostrar mais
+
+        </button>
+
+    </div>
+
+    <div id="episodios"
+
+         class="listaEpisodios">
+
+    </div>
+
+</section>
+
+<!--=========================================
+        RECOMENDADOS
+==========================================-->
+
+<section class="recomendados">
+
+    <h2>
+
+        Você também pode gostar
+
+    </h2>
+
+    <div id="recomendadosNovela"
+
+         class="sliderRecomendados">
+
+    </div>
+
+</section>
+
+</main>
+
+<script src="../js/catalogo.js"></script>
+<script src="../js/navbar.js"></script>
+<script src="../js/favoritos.js"></script>
+<script src="../js/novela.js"></script>
+
+</body>
+</html>

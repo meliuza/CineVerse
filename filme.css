@@ -1,0 +1,622 @@
+/*==================================================
+                PÁGINA DO FILME
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#0b0b0b;
+
+    color:#fff;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    overflow-x:hidden;
+
+}
+
+/*==================================================
+                    BANNER
+==================================================*/
+
+.bannerFilme{
+
+    position:relative;
+
+    width:100%;
+
+    height:75vh;
+
+    overflow:hidden;
+
+}
+
+.bannerImagem{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transform:scale(1.05);
+
+    animation:zoomBanner 12s ease-in-out infinite alternate;
+
+}
+
+.bannerOverlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        rgba(0,0,0,.10),
+
+        rgba(0,0,0,.55),
+
+        #0b0b0b
+
+    );
+
+}
+
+@keyframes zoomBanner{
+
+    from{
+
+        transform:scale(1.05);
+
+    }
+
+    to{
+
+        transform:scale(1.15);
+
+    }
+
+}
+
+/*==================================================
+                CONTEÚDO
+==================================================*/
+
+.conteudoFilme{
+
+    max-width:1450px;
+
+    margin:auto;
+
+    margin-top:-170px;
+
+    position:relative;
+
+    z-index:20;
+
+    display:flex;
+
+    gap:45px;
+
+    padding:0 60px 80px;
+
+    align-items:flex-end;
+
+}
+
+/*==================================================
+                    POSTER
+==================================================*/
+
+.poster{
+
+    flex-shrink:0;
+
+}
+
+.poster img{
+
+    width:300px;
+
+    border-radius:18px;
+
+    box-shadow:
+
+    0 35px 80px rgba(0,0,0,.65);
+
+    transition:.35s;
+
+}
+
+.poster img:hover{
+
+    transform:
+
+    translateY(-10px)
+
+    scale(1.03);
+
+}
+
+/*==================================================
+                INFORMAÇÕES
+==================================================*/
+
+.informacoes{
+
+    flex:1;
+
+    padding-bottom:15px;
+
+}
+
+.informacoes h1{
+
+    font-size:58px;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+
+}
+
+.dados{
+
+    display:flex;
+
+    gap:14px;
+
+    align-items:center;
+
+    color:#cfcfcf;
+
+    font-size:18px;
+
+    margin-bottom:30px;
+
+}
+
+.dados span{
+
+    opacity:.9;
+
+}
+
+/*==================================================
+                    BOTÕES
+==================================================*/
+
+.botoes{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-bottom:35px;
+
+}
+
+.btnAssistir{
+
+    background:#ffffff;
+
+    color:#111;
+
+    padding:15px 34px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    transition:.25s;
+
+}
+
+.btnAssistir:hover{
+
+    transform:translateY(-3px);
+
+    background:#ececec;
+
+}
+
+.btnFavorito{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    color:#fff;
+
+    padding:15px 28px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-size:17px;
+
+}
+
+.btnFavorito:hover{
+
+    background:#ff3d6d;
+
+}
+
+/*==================================================
+                    SINOPSE
+==================================================*/
+
+.informacoes h3{
+
+    margin-bottom:12px;
+
+    font-size:25px;
+
+}
+
+.informacoes p{
+
+    color:#d6d6d6;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+}
+
+/*==================================================
+                INFORMAÇÕES EXTRAS
+==================================================*/
+
+.extra{
+
+    margin-top:28px;
+
+    display:grid;
+
+    gap:12px;
+
+}
+
+.extra p{
+
+    font-size:17px;
+
+    color:#c6c6c6;
+
+}
+
+.extra strong{
+
+    color:#fff;
+
+}
+
+/*==================================================
+                CATEGORIA
+==================================================*/
+
+.categoria{
+
+    margin-top:30px;
+
+    padding:0 60px 60px;
+
+}
+
+.tituloCategoria h2{
+
+    font-size:28px;
+
+    margin-bottom:20px;
+
+}
+
+.listaFilmes{
+
+    display:flex;
+
+    gap:18px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    padding-bottom:12px;
+
+}
+
+.listaFilmes::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.listaFilmes::-webkit-scrollbar-thumb{
+
+    background:#444;
+
+    border-radius:20px;
+
+}
+
+/*==================================================
+                CARD
+==================================================*/
+
+.cardFilme{
+
+    flex:0 0 auto;
+
+}
+
+.cardFilme img{
+
+    width:185px;
+
+    border-radius:12px;
+
+    transition:.28s;
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.35);
+
+}
+
+.cardFilme img:hover{
+
+    transform:
+
+    scale(1.08)
+
+    translateY(-8px);
+
+}
+
+/*==================================================
+                BOTÕES DO SLIDER
+==================================================*/
+
+.slider{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.slider-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-size:22px;
+
+}
+
+.slider-btn:hover{
+
+    background:#ffffff;
+
+    color:#111;
+
+}
+
+/*==================================================
+                FOOTER
+==================================================*/
+
+footer{
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#888;
+
+}
+
+/*==================================================
+                RESPONSIVO
+==================================================*/
+
+@media(max-width:1000px){
+
+    .conteudoFilme{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+        margin-top:-120px;
+
+        padding:20px;
+
+    }
+
+    .poster img{
+
+        width:220px;
+
+    }
+
+    .informacoes h1{
+
+        font-size:38px;
+
+    }
+
+    .dados{
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+    }
+
+    .botoes{
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+    }
+
+    .categoria{
+
+        padding:20px;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .bannerFilme{
+
+        height:50vh;
+
+    }
+
+    .poster img{
+
+        width:180px;
+
+    }
+
+    .informacoes h1{
+
+        font-size:30px;
+
+    }
+
+    .informacoes p{
+
+        font-size:16px;
+
+    }
+
+    .cardFilme img{
+
+        width:140px;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==========================
+        FAVORITO
+==========================*/
+
+.btnFavorito.ativo{
+
+    background:#ff2d55;
+
+    color:white;
+
+    border:none;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.playerFilme{
+
+    width:100%;
+
+    max-width:1500px;
+
+    margin:40px auto;
+
+    padding:0 50px;
+
+}
+
+.playerFilme iframe{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    border:none;
+
+    border-radius:18px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+}
+
+
+
+
+
+
+
+
+
+
+

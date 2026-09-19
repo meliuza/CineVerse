@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="tituloPagina">CineVerse</title>
+
+<link rel="stylesheet" href="../css/filme.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/favoritos.css">
+
+    
+    <link rel="stylesheet" href="../css/novela.css">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.areaSerie{
+    width:min(1100px,92%);
+    margin:30px auto;
+    padding:25px;
+    background:#151515;
+    border-radius:16px;
+    box-sizing:border-box;
+}
+.areaSerie h2{margin-top:0}
+#temporadas{
+    width:100%;
+    max-width:320px;
+    padding:12px 14px;
+    border:1px solid #333;
+    border-radius:10px;
+    background:#222;
+    color:white;
+    font-size:16px;
+    margin-bottom:20px;
+}
+#episodios{display:flex;flex-direction:column;gap:10px}
+.episodio{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:15px;
+    background:#202020;
+    border:1px solid #2d2d2d;
+    border-radius:12px;
+}
+.episodio.assistindo{border-color:#8b5cf6;background:#25202f}
+.infoEp{min-width:0}
+.nomeEp{color:#ccc;margin-top:5px}
+.episodio button,.controlesSerie button{
+    border:0;
+    border-radius:9px;
+    padding:10px 14px;
+    background:#7c3aed;
+    color:white;
+    cursor:pointer;
+    white-space:nowrap;
+}
+.episodio button:hover,.controlesSerie button:hover{background:#8b5cf6}
+.controlesSerie{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:12px;
+}
+.controlesSerie button:disabled{opacity:.45;cursor:not-allowed}
+.semEpisodios{
+    padding:20px;
+    text-align:center;
+    color:#aaa;
+    background:#202020;
+    border-radius:10px;
+}
+@media(max-width:600px){
+    .areaSerie{padding:16px}
+    .episodio{align-items:flex-start;flex-direction:column}
+    .episodio button,.controlesSerie button{width:100%}
+    .controlesSerie{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="../index.html" class="logo">
+        <img src="../img/logo.png" alt="CineVerse">
+        <span>CineVerse</span>
+    </a>
+
+    <nav class="menu-desktop">
+        <a href="../index.html">Início</a>
+        <button id="btnCategorias">🎬 Categorias</button>
+    </nav>
+
+    <div class="search-box">
+        <input id="pesquisa" type="text" placeholder="Pesquisar filmes, séries...">
+        <button>🔍</button>
+        <button id="limparPesquisa">✖</button>
+        <div id="resultadoPesquisa"></div>
+    </div>
+
+    <div class="navbar-icons">
+        <button id="botaoTema" class="tema-btn">☀️</button>
+        <button id="menuMobile">☰</button>
+    </div>
+</header>
+
+<section id="hero" class="hero">
+    <div class="overlay"></div>
+
+    <div class="heroConteudo">
+        <img id="posterFilme" class="poster" alt="">
+
+        <div class="info">
+            <span id="categoria" class="categoria"></span>
+            <h1 id="nomeFilme"></h1>
+
+            <div class="detalhes">
+                <span id="ano"></span>
+                <span>•</span>
+                <span id="duracao"></span>
+                <span>•</span>
+                <span id="nota"></span>
+            </div>
+
+            <div id="generos" class="generos"></div>
+
+            <p id="sinopse"></p>
+
+            <div class="acoes">
+                <button id="btnAssistir">▶ Assistir</button>
+                <button id="btnFavoritoFilme" class="btnFavorito">
+                    🤍 Favoritar
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="playerArea" id="playerArea">
+
+    <iframe
+        id="player"
+        allowfullscreen
+        allow="autoplay"
+        title="Player da série">
+    </iframe>
+
+    <div class="controlesSerie">
+        <button id="btnAnterior" type="button">
+            ⏮ Episódio anterior
+        </button>
+
+        <button id="btnProximo" type="button">
+            Próximo episódio ⏭
+        </button>
+    </div>
+
+</section>
+
+<section id="areaSerie" class="areaSerie">
+    <h2>📺 Episódios</h2>
+    <select id="temporadas"></select>
+    <div id="episodios"></div>
+</section>
+
+<section class="bloco">
+    <h2>👥 Elenco</h2>
+    <div id="elenco"></div>
+</section>
+
+<section class="bloco">
+    <h2>🍿 Você também pode gostar</h2>
+    <div id="recomendados" class="sliderFilmes"></div>
+</section>
+
+<section id="colecaoArea" class="bloco">
+    <h2>🎬 Da mesma coleção</h2>
+    <div id="colecao" class="sliderFilmes"></div>
+</section>
+
+<script src="../js/catalogo.js"></script>
+<script src="../js/navbar.js"></script>
+<script src="../js/pesquisa.js"></script>
+<script src="../js/tema.js"></script>
+<script src="../js/favoritos.js"></script>
+<script src="../js/favoritos-page.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const params = new URLSearchParams(location.search);
+    const id = Number(params.get("id"));
+    const serie = catalogo.find(item => item.id === id);
+
+    if (!serie) {
+        document.body.innerHTML = `
+            <div style="
+                min-height:100vh;
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                gap:15px;
+                background:#090909;
+                color:white;
+                font-family:Arial,sans-serif;
+                text-align:center;
+            ">
+                <h1>📺</h1>
+                <h2>Série não encontrada 😢</h2>
+                <a href="../index.html" style="color:#a78bfa">
+                    Voltar para o início
+                </a>
+            </div>
+        `;
+        return;
+    }
+
+    document.title = serie.nome + " | CineVerse";
+
+    const hero = document.getElementById("hero");
+    if (hero && serie.banner) {
+        hero.style.backgroundImage = `url("${serie.banner}")`;
+        hero.style.backgroundSize = "cover";
+        hero.style.backgroundPosition = "center";
+    }
+
+    const poster = document.getElementById("posterFilme");
+    poster.src = serie.poster || "../img/sem-poster.png";
+    poster.alt = serie.nome;
+
+    document.getElementById("nomeFilme").textContent = serie.nome || "";
+    document.getElementById("categoria").textContent = serie.categoria || "Séries";
+    document.getElementById("ano").textContent = serie.ano || "";
+    document.getElementById("duracao").textContent = serie.duracao || "Série";
+    document.getElementById("nota").textContent =
+        serie.nota ? "⭐ " + serie.nota : "";
+    document.getElementById("sinopse").textContent =
+        serie.sinopse || "";
+
+    const generos = document.getElementById("generos");
+    generos.innerHTML = "";
+
+    if (Array.isArray(serie.genero)) {
+        serie.genero.forEach(g => {
+            generos.innerHTML += `<span class="tagGenero">${g}</span>`;
+        });
+    }
+
+    const elenco = document.getElementById("elenco");
+    if (Array.isArray(serie.elenco)) {
+        serie.elenco.forEach(nome => {
+            elenco.innerHTML += `<div class="ator">${nome}</div>`;
+        });
+    }
+
+    const favorito = document.getElementById("btnFavoritoFilme");
+
+    function atualizarFavorito() {
+        if (typeof favoritoExiste !== "function") return;
+
+        if (favoritoExiste(serie.id)) {
+            favorito.innerHTML = "❤️ Favoritado";
+            favorito.classList.add("ativo");
+        } else {
+            favorito.innerHTML = "🤍 Favoritar";
+            favorito.classList.remove("ativo");
+        }
+    }
+
+    favorito.dataset.id = serie.id;
+    atualizarFavorito();
+
+    favorito.onclick = () => {
+        if (typeof alternarFavorito === "function") {
+            alternarFavorito(serie.id);
+            atualizarFavorito();
+        }
+    };
+
+    const player = document.getElementById("player");
+    const select = document.getElementById("temporadas");
+    const lista = document.getElementById("episodios");
+    const btnAnterior = document.getElementById("btnAnterior");
+    const btnProximo = document.getElementById("btnProximo");
+
+    let temporadaAtual = 0;
+    let episodioAtual = 0;
+
+    function obterTemporadas() {
+        if (Array.isArray(serie.temporadas) && serie.temporadas.length) {
+            return serie.temporadas;
+        }
+
+        if (serie.video) {
+            return [{
+                nome: "Temporada 1",
+                episodios: [{
+                    numero: 1,
+                    nome: serie.nome,
+                    video: serie.video
+                }]
+            }];
+        }
+
+        return [];
+    }
+
+    const temporadas = obterTemporadas();
+
+    function carregarPlayer() {
+        const temporada = temporadas[temporadaAtual];
+        if (!temporada) {
+            player.removeAttribute("src");
+            return;
+        }
+
+        const ep = temporada.episodios?.[episodioAtual];
+        if (ep?.video) player.src = ep.video;
+    }
+
+    function atualizarBotoes() {
+        const temporada = temporadas[temporadaAtual];
+
+        if (!temporada) {
+            btnAnterior.disabled = true;
+            btnProximo.disabled = true;
+            return;
+        }
+
+        const ultimo = (temporada.episodios?.length || 1) - 1;
+
+        btnAnterior.disabled =
+            episodioAtual <= 0 && temporadaAtual <= 0;
+
+        btnProximo.disabled =
+            episodioAtual >= ultimo &&
+            temporadaAtual >= temporadas.length - 1;
+    }
+
+    function carregarEpisodios() {
+        lista.innerHTML = "";
+
+        const temporada = temporadas[temporadaAtual];
+
+        if (!temporada || !Array.isArray(temporada.episodios)) {
+            lista.innerHTML = `
+                <div class="semEpisodios">
+                    Nenhum episódio nesta temporada.
+                </div>
+            `;
+            atualizarBotoes();
+            return;
+        }
+
+        temporada.episodios.forEach((ep, index) => {
+            const card = document.createElement("div");
+            card.className = "episodio";
+
+            if (index === episodioAtual) {
+                card.classList.add("assistindo");
+            }
+
+            card.innerHTML = `
+                <div class="infoEp">
+                    <strong>
+                        Episódio ${ep.numero || index + 1}
+                    </strong>
+                    <div class="nomeEp">
+                        ${ep.nome || "Sem título"}
+                    </div>
+                </div>
+
+                <button type="button">
+                    ▶ Assistir
+                </button>
+            `;
+
+            card.querySelector("button").onclick = () => {
+                episodioAtual = index;
+                carregarPlayer();
+                carregarEpisodios();
+                player.scrollIntoView({behavior:"smooth"});
+            };
+
+            lista.appendChild(card);
+        });
+
+        atualizarBotoes();
+    }
+
+    select.onchange = () => {
+        temporadaAtual = Number(select.value);
+        episodioAtual = 0;
+        carregarPlayer();
+        carregarEpisodios();
+    };
+
+    btnAnterior.onclick = () => {
+        if (episodioAtual > 0) {
+            episodioAtual--;
+        } else if (temporadaAtual > 0) {
+            temporadaAtual--;
+            episodioAtual =
+                temporadas[temporadaAtual].episodios.length - 1;
+            select.value = temporadaAtual;
+        } else {
+            return;
+        }
+
+        carregarPlayer();
+        carregarEpisodios();
+    };
+
+    btnProximo.onclick = () => {
+        const temporada = temporadas[temporadaAtual];
+        if (!temporada) return;
+
+        if (episodioAtual < temporada.episodios.length - 1) {
+            episodioAtual++;
+        } else if (temporadaAtual < temporadas.length - 1) {
+            temporadaAtual++;
+            episodioAtual = 0;
+            select.value = temporadaAtual;
+        } else {
+            return;
+        }
+
+        carregarPlayer();
+        carregarEpisodios();
+    };
+
+    document.getElementById("btnAssistir").onclick = () => {
+        document.getElementById("playerArea").scrollIntoView({
+            behavior:"smooth"
+        });
+    };
+
+    const recomendados = document.getElementById("recomendados");
+    const generosSerie = Array.isArray(serie.genero) ? serie.genero : [];
+
+    catalogo
+        .filter(item =>
+            item.id !== serie.id &&
+            item.tipo === "Série" &&
+            Array.isArray(item.genero) &&
+            item.genero.some(g => generosSerie.includes(g))
+        )
+        .slice(0,12)
+        .forEach(item => {
+            recomendados.innerHTML += `
+                <a href="serie.html?id=${item.id}" class="cardFilme">
+                    <img
+                        src="${item.poster || "../img/sem-poster.png"}"
+                        alt="${item.nome}"
+                        loading="lazy">
+                </a>
+            `;
+        });
+
+    const colecao = document.getElementById("colecao");
+    const colecaoArea = document.getElementById("colecaoArea");
+
+    if (serie.colecao) {
+        catalogo
+            .filter(item =>
+                item.colecao === serie.colecao &&
+                item.id !== serie.id
+            )
+            .forEach(item => {
+                const pagina =
+                    item.tipo === "Série"
+                        ? `serie.html?id=${item.id}`
+                        : `filme.html?id=${item.id}`;
+
+                colecao.innerHTML += `
+                    <a href="${pagina}" class="cardFilme">
+                        <img
+                            src="${item.poster || "../img/sem-poster.png"}"
+                            alt="${item.nome}"
+                            loading="lazy">
+                    </a>
+                `;
+            });
+    } else {
+        colecaoArea.style.display = "none";
+    }
+
+    if (temporadas.length) {
+        temporadas.forEach((temporada, index) => {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent =
+                temporada.nome || `Temporada ${index + 1}`;
+            select.appendChild(option);
+        });
+    } else {
+        select.style.display = "none";
+        lista.innerHTML = `
+            <div class="semEpisodios">
+                Nenhum episódio cadastrado ainda.
+            </div>
+        `;
+    }
+
+    carregarPlayer();
+    carregarEpisodios();
+});
+</script>
+
+</body>
+</html>

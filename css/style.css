@@ -1,0 +1,303 @@
+/*=========================================
+            GOOGLE FONT
+=========================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*=========================================
+            RESET
+=========================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:#0f0f0f;
+
+    color:white;
+
+    overflow-x:hidden;
+
+}
+
+/*=========================================
+            VARIÁVEIS
+=========================================*/
+
+:root{
+
+    --cor-fundo:#0f0f0f;
+
+    --cor-navbar:#111111;
+
+    --cor-card:#1b1b1b;
+
+    --cor-card-hover:#242424;
+
+    --cor-borda:#2f2f2f;
+
+    --cor-texto:#ffffff;
+
+    --cor-texto2:#bfbfbf;
+
+    --cor-principal:#5f8dff;
+
+    --cor-principal-hover:#7aa2ff;
+
+    --radius:18px;
+
+}
+
+/*=========================================
+            LINKS
+=========================================*/
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/*=========================================
+            BOTÕES
+=========================================*/
+
+button{
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+}
+
+/*=========================================
+            IMAGENS
+=========================================*/
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+/*=========================================
+            MAIN
+=========================================*/
+
+main{
+
+    width:100%;
+
+    padding-top:100px;
+
+    padding-bottom:80px;
+
+}
+
+/*=========================================
+            TÍTULOS
+=========================================*/
+
+h1{
+
+    font-size:48px;
+
+    font-weight:700;
+
+}
+
+h2{
+
+    font-size:32px;
+
+    font-weight:700;
+
+}
+
+h3{
+
+    font-size:22px;
+
+}
+
+/*=========================================
+            PARÁGRAFOS
+=========================================*/
+
+p{
+
+    color:var(--cor-texto2);
+
+    line-height:1.7;
+
+}
+
+/*=========================================
+            SCROLLBAR
+=========================================*/
+
+::-webkit-scrollbar{
+
+    width:12px;
+
+    height:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0f0f0f;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#363636;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#505050;
+
+}
+
+/*=========================================
+            SELEÇÃO
+=========================================*/
+
+::selection{
+
+    background:var(--cor-principal);
+
+    color:white;
+
+}
+
+/*=========================================
+            LOADING
+=========================================*/
+
+#loading{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#0f0f0f;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999999;
+
+}
+
+.loader{
+
+    width:70px;
+
+    height:70px;
+
+    border:5px solid #2a2a2a;
+
+    border-top:5px solid var(--cor-principal);
+
+    border-radius:50%;
+
+    animation:girar 1s linear infinite;
+
+}
+
+@keyframes girar{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================
+            UTILIDADES
+=========================================*/
+
+.container{
+
+    width:min(1400px,95%);
+
+    margin:auto;
+
+}
+
+.oculto{
+
+    display:none !important;
+
+}
+
+/*=========================================
+            RESPONSIVO
+=========================================*/
+
+@media(max-width:900px){
+
+h1{
+
+    font-size:36px;
+
+}
+
+h2{
+
+    font-size:28px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+main{
+
+    padding-top:80px;
+
+}
+
+h1{
+
+    font-size:28px;
+
+}
+
+h2{
+
+    font-size:22px;
+
+}
+
+}

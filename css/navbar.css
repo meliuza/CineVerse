@@ -1,0 +1,333 @@
+/*=========================================
+            NAVBAR
+=========================================*/
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 35px;
+
+    background:rgba(15,15,15,.92);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    z-index:9999;
+
+}
+
+/*=========================================
+                LOGO
+=========================================*/
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+}
+
+.logo img{
+
+    width:45px;
+
+}
+
+.logo span{
+
+    color:#fff;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+/*=========================================
+            MENU DESKTOP
+=========================================*/
+
+.menu-desktop{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.menu-desktop a,
+.menu-desktop button{
+
+    background:none;
+
+    border:none;
+
+    color:#d5d5d5;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    padding:10px 15px;
+
+    border-radius:12px;
+
+}
+
+.menu-desktop a:hover,
+.menu-desktop button:hover{
+
+    color:#fff;
+
+    background:#232323;
+
+}
+
+/*=========================================
+            PESQUISA
+=========================================*/
+
+.search-box{
+
+    width:500px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    background:#1b1b1b;
+
+    border:1px solid #2d2d2d;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.search-box:hover{
+
+    border-color:#4a4a4a;
+
+}
+
+.search-box:focus-within{
+
+    border-color:#5f8dff;
+
+    box-shadow:0 0 18px rgba(95,141,255,.25);
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    height:100%;
+
+    border:none;
+
+    background:none;
+
+    color:#fff;
+
+    padding:0 18px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#8c8c8c;
+
+}
+
+.search-box button{
+
+    width:55px;
+
+    height:100%;
+
+    border:none;
+
+    background:#252525;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.search-box button:hover{
+
+    background:#343434;
+
+}
+
+/*=========================================
+            ÍCONES
+=========================================*/
+
+.navbar-icons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.navbar-icons button{
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#202020;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.navbar-icons button:hover{
+
+    transform:translateY(-2px);
+
+    background:#313131;
+
+}
+
+/*=========================================
+        MENU MOBILE
+=========================================*/
+
+#menuMobile{
+
+    display:none;
+
+}
+
+/*=========================================
+            RESPONSIVO
+=========================================*/
+
+@media(max-width:1200px){
+
+.search-box{
+
+    width:380px;
+
+}
+
+}
+
+@media(max-width:980px){
+
+.menu-desktop{
+
+    display:none;
+
+}
+
+#menuMobile{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.search-box{
+
+    width:260px;
+
+}
+
+.logo span{
+
+    display:none;
+
+}
+
+}
+
+@media(max-width:700px){
+
+.navbar{
+
+    padding:0 15px;
+
+}
+
+.search-box{
+
+    width:180px;
+
+}
+
+.search-box input{
+
+    font-size:14px;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.search-box{
+
+    display:none;
+
+}
+
+}

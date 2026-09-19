@@ -1,0 +1,493 @@
+/*====================================================
+                    NOVELA.CSS
+====================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:#0b0b0b;
+    color:#fff;
+    font-family:Inter,Arial,sans-serif;
+
+}
+
+/*====================================================
+                    HERO
+====================================================*/
+
+.hero{
+
+    position:relative;
+    width:100%;
+    min-height:950px;
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:flex-end;
+
+}
+
+.heroOverlay{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(to top,#0b0b0b 5%,transparent 45%),
+    linear-gradient(to right,#0b0b0bdd 18%,transparent 70%);
+
+}
+
+.heroConteudo{
+
+    position:relative;
+
+    width:min(1400px,92%);
+    margin:auto;
+
+    display:flex;
+    gap:35px;
+
+    align-items:flex-end;
+
+    padding-bottom:40px;
+
+    z-index:2;
+
+}
+
+.posterNovela{
+
+    width:230px;
+    height:340px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.6);
+
+    transition:.35s;
+
+}
+
+.posterNovela:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.infoNovela{
+
+    max-width:750px;
+
+}
+
+.tagNovela{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    background:#e50914;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.infoNovela h1{
+
+    font-size:58px;
+
+    margin-bottom:12px;
+
+}
+
+.meta{
+
+    display:flex;
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    color:#bdbdbd;
+
+    margin-bottom:18px;
+
+}
+
+#sinopseNovela{
+
+    color:#d5d5d5;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+/*====================================================
+                    BOTÕES
+====================================================*/
+
+.botoesHero{
+
+    display:flex;
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.botoesHero button{
+
+    border:none;
+
+    padding:14px 22px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+#btnContinuar{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+#btnFavorito{
+
+    background:#2b2b2b;
+
+    color:#fff;
+
+}
+
+#btnTrailer{
+
+    background:#2b2b2b;
+
+    color:#fff;
+
+}
+
+.botoesHero button:hover{
+
+    transform:translateY(-3px);
+
+    filter:brightness(1.1);
+
+}
+
+/*====================================================
+                    CONTAINER
+====================================================*/
+
+.container{
+
+    width:min(1500px,92%);
+
+    margin:auto;
+
+    padding:35px 0 80px;
+
+}
+
+/*====================================================
+                    PLAYER
+====================================================*/
+
+.playerArea{
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:#111;
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,.55);
+
+}
+
+.playerArea video{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/*====================================================
+            CONTROLES EPISÓDIOS
+====================================================*/
+
+.navegacaoEpisodios{
+
+    margin:30px 0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.navegacaoEpisodios button{
+
+    border:none;
+
+    background:#1b1b1b;
+
+    color:#fff;
+
+    padding:14px 20px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.navegacaoEpisodios button:hover{
+
+    background:#e50914;
+
+}
+
+.episodioAtual{
+
+    font-size:18px;
+
+    color:#d5d5d5;
+
+}
+
+/*====================================================
+                EPISÓDIOS
+====================================================*/
+
+.topoLista{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+#mostrarMais{
+
+    border:none;
+
+    background:#e50914;
+
+    color:#fff;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.listaEpisodios{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(85px,1fr));
+
+    gap:12px;
+
+}
+
+.cardEp{
+
+    background:#171717;
+
+    border:1px solid transparent;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    padding:18px 8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.cardEp:hover{
+
+    border-color:#e50914;
+
+    transform:translateY(-4px);
+
+}
+
+.cardEp h3{
+
+    font-size:15px;
+
+}
+
+.cardEp p{
+
+    display:none;
+
+}
+
+.assistindo{
+
+    background:#e50914;
+
+    border-color:#fff;
+
+}
+
+/*====================================================
+                RECOMENDADOS
+====================================================*/
+
+.recomendados{
+
+    margin-top:55px;
+
+}
+
+.recomendados h2{
+
+    margin-bottom:20px;
+
+}
+
+.sliderRecomendados{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+
+    gap:18px;
+
+}
+
+/*====================================================
+                RESPONSIVO
+====================================================*/
+
+@media(max-width:900px){
+
+.hero{
+
+    min-height:760px;
+
+}
+
+.heroConteudo{
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.posterNovela{
+
+    width:200px;
+    height:300px;
+
+}
+
+.infoNovela h1{
+
+    font-size:40px;
+
+}
+
+.meta{
+
+    justify-content:center;
+
+}
+
+.botoesHero{
+
+    justify-content:center;
+
+}
+
+.navegacaoEpisodios{
+
+    justify-content:center;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.listaEpisodios{
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+.posterNovela{
+
+    width:170px;
+    height:255px;
+
+}
+
+.infoNovela h1{
+
+    font-size:30px;
+
+}
+
+}

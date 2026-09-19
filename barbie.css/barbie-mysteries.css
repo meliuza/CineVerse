@@ -1,0 +1,540 @@
+/*==================================================
+                    GERAL
+==================================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #fff4fa;
+
+    color: #ffffff;
+
+    overflow-x: hidden;
+
+}
+
+/*==================================================
+                    BANNER
+==================================================*/
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.banner-img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+.overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(to top, #fff4fa 5%, transparent 40%),
+        linear-gradient(to right, rgba(255, 244, 250, .98) 18%, rgba(255, 244, 250, .2) 55%, rgba(255, 244, 250, .6) 100%);
+
+}
+
+/*==================================================
+                    CONTEÚDO
+==================================================*/
+
+.serie {
+
+    width: 90%;
+
+    max-width: 1450px;
+
+    margin: 40px auto 60px;
+
+    position: relative;
+
+    display: flex;
+
+    gap: 45px;
+
+    align-items: flex-end;
+
+    z-index: 10;
+
+}
+
+/*==================================================
+                    POSTER
+==================================================*/
+
+.poster {
+
+    flex-shrink: 0;
+
+}
+
+.poster img {
+
+    width: 300px;
+
+    border-radius: 22px;
+
+    transition: .35s;
+
+}
+
+.poster img:hover {
+
+    transform: scale(1.04);
+
+}
+
+/*==================================================
+                    INFORMAÇÕES
+==================================================*/
+
+.informacoes {
+
+    flex: 1;
+
+}
+
+.informacoes h1 {
+
+    font-size: 100px;
+
+    color: #ff2f92;
+
+    margin-bottom: 18px;
+
+    text-shadow:
+        0 0 15px rgba(255, 105, 180, .25);
+
+}
+
+.dados {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+
+}
+
+.dados span {
+
+    background: white;
+
+    color: #ff2f92;
+
+    border: 2px solid #ffd0e6;
+
+    padding: 8px 16px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+.informacoes p {
+
+    max-width: 900px;
+
+    color: #555;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+}
+
+/*==================================================
+                    BOTÕES
+==================================================*/
+
+.botoes {
+
+    display: flex;
+
+    gap: 18px;
+
+    margin-top: 35px;
+
+}
+
+.assistir {
+
+    border: none;
+
+    padding: 18px 40px;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: white;
+
+    background:
+        linear-gradient(135deg, #ff69b4, #ff2f92);
+
+    transition: .3s;
+
+}
+
+.assistir:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(255, 20, 147, .35);
+
+}
+
+.favorito {
+
+    border: 2px solid #ff69b4;
+
+    background: white;
+
+    color: #ff2f92;
+
+    padding: 18px 40px;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    transition: .3s;
+
+}
+
+.favorito:hover {
+
+    background: #ff69b4;
+
+    color: white;
+
+}
+
+/*==================================================
+                    TEMPORADAS
+==================================================*/
+
+.temporadas {
+
+    width: 90%;
+
+    max-width: 1450px;
+
+    margin: auto;
+
+    padding-bottom: 80px;
+
+}
+
+.temporadas h2 {
+
+    color: #ff2f92;
+
+    font-size: 36px;
+
+    margin-bottom: 30px;
+
+}
+
+#episodios {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+    gap: 25px;
+
+}
+
+/*==================================================
+                    CARD EPISÓDIO
+==================================================*/
+
+.episodio {
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, .08);
+
+    transition: .35s;
+
+}
+
+.episodio:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 40px rgba(255, 20, 147, .22);
+
+}
+
+.episodio img {
+
+    width: 100%;
+
+    height: 180px;
+
+    object-fit: cover;
+
+}
+
+.episodio-info {
+
+    padding: 18px;
+
+}
+
+.episodio-info h3 {
+
+    color: #ff2f92;
+
+    margin-bottom: 10px;
+
+}
+
+.episodio-info p {
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+.btn-episodio {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    border: none;
+
+    background:
+        linear-gradient(135deg, #ff69b4, #ff2f92);
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    transition: .3s;
+
+}
+
+.btn-episodio:hover {
+
+    transform: scale(1.03);
+
+}
+
+/*==================================================
+                    RESPONSIVO
+==================================================*/
+
+@media(max-width:900px) {
+
+    .serie {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+        margin-top: -130px;
+
+    }
+
+    .poster img {
+
+        width: 230px;
+
+    }
+
+    .informacoes h1 {
+
+        font-size: 40px;
+
+    }
+
+    .dados {
+
+        justify-content: center;
+
+    }
+
+    .botoes {
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.btn-assistido {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #ececec;
+    color: #555;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: bold;
+}
+
+.btn-assistido.assistido {
+    background: #ff5ca8;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Tema claro */
+
+body {
+
+    background: #f8f1f6;
+    color: #333;
+
+    transition: .4s;
+
+}
+
+/* Tema escuro */
+
+body.dark {
+
+    background: #181218;
+    color: white;
+
+}
+
+/* Cards */
+
+body.dark .card,
+body.dark .episodio,
+body.dark .banner {
+
+    background: #241b25;
+
+}
+
+/* Títulos */
+
+body.dark h1,
+body.dark h2,
+body.dark h3 {
+
+    color: #ff65af;
+
+}
+
+/* Texto */
+
+body.dark p {
+
+    color: #d8d8d8;
+
+}
+
+/* Botão */
+
+#tema {
+
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ff2f92;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    z-index: 999;
+
+}

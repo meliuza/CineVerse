@@ -1,0 +1,153 @@
+#loading {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: linear-gradient(180deg,
+            #fff8fc,
+            #ffe4f2,
+            #ffd8ee);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 99999;
+
+}
+
+#loading h1 {
+
+    color: #ff2d93;
+
+    font-size: 70px;
+
+    font-family: 'Fredoka', sans-serif;
+
+    margin: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+#loading p {
+
+    color: #8d4c74;
+
+    font-size: 22px;
+
+}
+
+.coroa {
+
+    font-size: 70px;
+
+    animation: pular 1.5s infinite;
+
+}
+
+@keyframes pular {
+
+    0% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-15px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+.barra {
+
+    width: 350px;
+
+    height: 14px;
+
+    background: #ffd3ea;
+
+    border-radius: 50px;
+
+    overflow: hidden;
+
+    margin-top: 30px;
+
+}
+
+.progresso {
+
+    width: 0;
+
+    height: 100%;
+
+    background: linear-gradient(90deg,
+            hotpink,
+            deeppink);
+
+    animation: carregar 2.5s linear infinite;
+
+}
+
+@keyframes carregar {
+
+    0% {
+
+        width: 0%;
+
+    }
+
+    100% {
+
+        width: 100%;
+
+    }
+
+}
+
+.brilhos {
+
+    margin-top: 35px;
+
+    font-size: 30px;
+
+    animation: piscar 1.2s infinite alternate;
+
+}
+
+@keyframes piscar {
+
+    from {
+
+        opacity: .3;
+
+        transform: scale(.9);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1.1);
+
+    }
+
+}
+
+
+

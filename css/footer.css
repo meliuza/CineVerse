@@ -1,0 +1,261 @@
+/*=========================================
+                FOOTER
+=========================================*/
+
+.footer{
+
+    margin-top:80px;
+
+    background:#111111;
+
+    border-top:1px solid #2a2a2a;
+
+    position:relative;
+
+}
+
+/*=========================================
+            LINHA SUPERIOR
+=========================================*/
+
+.footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:2px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #ff4fa3,
+        #7d5cff,
+        transparent
+    );
+
+}
+
+/*=========================================
+            CONTAINER
+=========================================*/
+
+.footer-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:60px 40px;
+
+    display:grid;
+
+    grid-template-columns:
+    2fr
+    1fr
+    1fr
+    1fr;
+
+    gap:40px;
+
+}
+
+/*=========================================
+                LOGO
+=========================================*/
+
+.footer-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+}
+
+.footer-logo img{
+
+    width:55px;
+
+}
+
+.footer-logo h2{
+
+    color:white;
+
+    font-size:28px;
+
+}
+
+.footer-text{
+
+    color:#a5a5a5;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+/*=========================================
+            TÍTULOS
+=========================================*/
+
+.footer h3{
+
+    color:white;
+
+    margin-bottom:20px;
+
+    font-size:18px;
+
+}
+
+/*=========================================
+            LINKS
+=========================================*/
+
+.footer-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.footer-links a{
+
+    color:#a9a9a9;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+    color:#ffffff;
+
+    padding-left:8px;
+
+}
+
+/*=========================================
+            REDES
+=========================================*/
+
+.footer-social{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:15px;
+
+}
+
+.footer-social a{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#1e1e1e;
+
+    border-radius:50%;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.footer-social a:hover{
+
+    background:#ff4fa3;
+
+    transform:translateY(-5px);
+
+}
+
+/*=========================================
+            COPYRIGHT
+=========================================*/
+
+.footer-bottom{
+
+    border-top:1px solid #252525;
+
+    text-align:center;
+
+    padding:20px;
+
+    color:#888;
+
+    font-size:14px;
+
+}
+
+/*=========================================
+            RESPONSIVO
+=========================================*/
+
+@media(max-width:1000px){
+
+.footer-container{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+@media(max-width:650px){
+
+.footer-container{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+.footer-logo{
+
+    justify-content:center;
+
+}
+
+.footer-social{
+
+    justify-content:center;
+
+}
+
+.footer-links{
+
+    align-items:center;
+
+}
+
+}
