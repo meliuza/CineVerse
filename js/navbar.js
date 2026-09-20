@@ -9,22 +9,82 @@ const overlayCategorias = document.getElementById("overlayCategorias");
 const menuMobile = document.getElementById("menuMobile");
 const mobileMenu = document.getElementById("mobileMenu");
 const overlayMobile = document.getElementById("overlayMobile");
+
 const fecharMobile = document.querySelector("#mobileMenu .fechar");
+const mobileCategorias = document.getElementById("mobileCategorias");
+
 
 /*=========================================
-        MENU CATEGORIAS
+        ABRIR / FECHAR CATEGORIAS
+=========================================*/
+
+function abrirCategorias(){
+
+    if(!categorias) return;
+
+    categorias.classList.add("ativo");
+
+    if(overlayCategorias){
+        overlayCategorias.classList.add("ativo");
+    }
+
+}
+
+
+function fecharCategorias(){
+
+    if(!categorias) return;
+
+    categorias.classList.remove("ativo");
+
+    if(overlayCategorias){
+        overlayCategorias.classList.remove("ativo");
+    }
+
+}
+
+
+/*=========================================
+        BOTÃO CATEGORIAS DESKTOP
 =========================================*/
 
 if(btnCategorias){
 
     btnCategorias.addEventListener("click",()=>{
 
-        categorias.classList.toggle("ativo");
-        overlayCategorias.classList.toggle("ativo");
+        if(categorias.classList.contains("ativo")){
+
+            fecharCategorias();
+
+        }else{
+
+            abrirCategorias();
+
+        }
 
     });
 
 }
+
+
+/*=========================================
+        BOTÃO CATEGORIAS MOBILE
+=========================================*/
+
+if(mobileCategorias){
+
+    mobileCategorias.addEventListener("click",()=>{
+
+        // Fecha o menu lateral
+        fecharMenu();
+
+        // Abre o painel de categorias
+        abrirCategorias();
+
+    });
+
+}
+
 
 /*=========================================
         FECHAR CATEGORIAS
@@ -34,15 +94,15 @@ if(overlayCategorias){
 
     overlayCategorias.addEventListener("click",()=>{
 
-        categorias.classList.remove("ativo");
-        overlayCategorias.classList.remove("ativo");
+        fecharCategorias();
 
     });
 
 }
 
+
 /*=========================================
-        MENU MOBILE
+            MENU MOBILE
 =========================================*/
 
 if(menuMobile){
@@ -50,51 +110,71 @@ if(menuMobile){
     menuMobile.addEventListener("click",()=>{
 
         mobileMenu.classList.add("ativo");
-        overlayMobile.classList.add("ativo");
+
+        if(overlayMobile){
+            overlayMobile.classList.add("ativo");
+        }
 
     });
 
 }
 
+
 /*=========================================
-        FECHAR MOBILE
+            FECHAR MOBILE
 =========================================*/
 
 if(fecharMobile){
 
-    fecharMobile.addEventListener("click",fecharMenu);
+    fecharMobile.addEventListener("click",()=>{
+
+        fecharMenu();
+
+    });
 
 }
+
 
 if(overlayMobile){
 
-    overlayMobile.addEventListener("click",fecharMenu);
+    overlayMobile.addEventListener("click",()=>{
+
+        fecharMenu();
+
+    });
 
 }
+
 
 function fecharMenu(){
 
-    mobileMenu.classList.remove("ativo");
-    overlayMobile.classList.remove("ativo");
+    if(mobileMenu){
+        mobileMenu.classList.remove("ativo");
+    }
+
+    if(overlayMobile){
+        overlayMobile.classList.remove("ativo");
+    }
 
 }
 
+
 /*=========================================
-        FECHAR COM ESC
+        FECHAR TUDO COM ESC
 =========================================*/
 
 document.addEventListener("keydown",(e)=>{
 
-    if(e.key==="Escape"){
+    if(e.key === "Escape"){
 
-        categorias.classList.remove("ativo");
-        overlayCategorias.classList.remove("ativo");
+        fecharCategorias();
 
         fecharMenu();
 
     }
 
 });
+
 
 /*=========================================
         FECHAR AO REDIMENSIONAR
@@ -102,7 +182,7 @@ document.addEventListener("keydown",(e)=>{
 
 window.addEventListener("resize",()=>{
 
-    if(window.innerWidth>900){
+    if(window.innerWidth > 900){
 
         fecharMenu();
 
@@ -110,24 +190,28 @@ window.addEventListener("resize",()=>{
 
 });
 
+
 /*=========================================
-        EFEITO NAVBAR
+            EFEITO NAVBAR
 =========================================*/
 
 window.addEventListener("scroll",()=>{
 
-    const navbar=document.querySelector(".navbar");
+    const navbar = document.querySelector(".navbar");
 
-    if(window.scrollY>40){
+    if(!navbar) return;
 
-        navbar.style.background="#0c0c0c";
-        navbar.style.borderBottom="1px solid #333";
+
+    if(window.scrollY > 40){
+
+        navbar.style.background = "#0c0c0c";
+        navbar.style.borderBottom = "1px solid #333";
 
     }else{
 
-        navbar.style.background="#111111";
-        navbar.style.borderBottom="1px solid #222";
+        navbar.style.background = "#111111";
+        navbar.style.borderBottom = "1px solid #222";
 
     }
 
-})
+});

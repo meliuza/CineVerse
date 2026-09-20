@@ -66,6 +66,16 @@ function filtrarCategoria(){
 
     }
 
+    // ================================
+    // ORDENAR DO MAIS NOVO AO MAIS ANTIGO
+    // ================================
+
+    lista.sort((a, b) =>
+        Number(b.ano || 0) -
+        Number(a.ano || 0)
+    );
+
+
     atualizarQuantidade();
 
     desenhar();
