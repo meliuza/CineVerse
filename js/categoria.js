@@ -268,13 +268,15 @@ function desenhar(){
 
         area.innerHTML += `
 
-        <a
+            <a
 
-            href="${pagina}?id=${item.id}"
+                href="${pagina}?id=${item.id}"
 
-            class="cardFilme"
+                class="cardFilme"
 
-        >
+                data-filme-id="${item.id}"
+
+            >
 
             <img
 
@@ -307,6 +309,48 @@ function desenhar(){
         </a>
 
         `;
+
+    });
+ativarPopupCategoria();
+}
+
+// =====================================================
+// POPUP NOS CARDS DA CATEGORIA
+// =====================================================
+
+function ativarPopupCategoria(){
+
+    const cards = document.querySelectorAll(
+        ".cardFilme[data-filme-id]"
+    );
+
+    cards.forEach(card => {
+
+        if(card.dataset.popupAtivo === "true"){
+            return;
+        }
+
+        card.dataset.popupAtivo = "true";
+
+        card.addEventListener("click", function(event){
+
+            event.preventDefault();
+
+            const id = this.dataset.filmeId;
+
+            if(typeof abrirPopupDetalhes === "function"){
+
+                abrirPopupDetalhes(id);
+
+            }else{
+
+                console.warn(
+                    "abrirPopupDetalhes() não foi encontrada."
+                );
+
+            }
+
+        });
 
     });
 

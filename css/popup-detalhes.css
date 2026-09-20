@@ -1,0 +1,654 @@
+/* =====================================================
+   POPUP DE DETALHES - CINEVERSE
+   ===================================================== */
+
+
+/* =========================================
+   BLOQUEAR SCROLL
+========================================= */
+
+body.popup-aberto{
+    overflow:hidden;
+}
+
+
+/* =========================================
+   FUNDO DO POPUP
+========================================= */
+
+.popup-detalhes-filme{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:24px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+
+}
+
+
+.popup-detalhes-filme.ativo{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+}
+
+
+/* =========================================
+   BACKDROP
+========================================= */
+
+.popup-detalhes-backdrop{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.78);
+
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(7px);
+
+}
+
+
+/* =========================================
+   CAIXA
+========================================= */
+
+.popup-detalhes-caixa{
+
+    position:relative;
+
+    width:min(
+        1050px,
+        100%
+    );
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:#111;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:18px;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.7);
+
+    transform:
+        translateY(25px)
+        scale(.97);
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+.popup-detalhes-filme.ativo
+.popup-detalhes-caixa{
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* =========================================
+   BOTÃO FECHAR
+========================================= */
+
+.popup-detalhes-fechar{
+
+    position:absolute;
+
+    top:14px;
+
+    right:14px;
+
+    z-index:20;
+
+    width:42px;
+
+    height:42px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:
+        rgba(0,0,0,.72);
+
+    color:#fff;
+
+    font-size:21px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+
+}
+
+
+.popup-detalhes-fechar:hover{
+
+    background:
+        rgba(255,255,255,.18);
+
+    transform:
+        scale(1.06);
+
+}
+
+
+/* =========================================
+   ÁREA DO TRAILER
+========================================= */
+
+.popup-detalhes-video{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:16 / 7;
+
+    min-height:280px;
+
+    overflow:hidden;
+
+    background:#050505;
+
+}
+
+
+/* IMAGEM DO BANNER */
+
+.popup-detalhes-video img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+/* IFRAME DO YOUTUBE */
+
+.popup-detalhes-video iframe{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    border:0;
+
+    z-index:3;
+
+}
+
+
+/* GRADIENTE */
+
+.popup-detalhes-video::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:4;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 45%,
+            rgba(17,17,17,.95) 100%
+        );
+
+}
+
+
+/* =========================================
+   SEM TRAILER
+========================================= */
+
+.popup-sem-trailer{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:2;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    color:#aaa;
+
+}
+
+
+.popup-sem-trailer span{
+
+    font-size:42px;
+
+}
+
+
+.popup-sem-trailer p{
+
+    margin:0;
+
+}
+
+
+/* =========================================
+   CONTEÚDO
+========================================= */
+
+.popup-detalhes-conteudo{
+
+    display:flex;
+
+    gap:24px;
+
+    padding:24px;
+
+}
+
+
+/* =========================================
+   POSTER
+========================================= */
+
+.popup-detalhes-poster{
+
+    flex:
+        0 0 180px;
+
+}
+
+
+.popup-detalhes-poster img{
+
+    width:100%;
+
+    aspect-ratio:2 / 3;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    background:#222;
+
+}
+
+
+/* =========================================
+   INFORMAÇÕES
+========================================= */
+
+.popup-detalhes-info{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+
+.popup-detalhes-info h2{
+
+    margin:
+        0 0 10px;
+
+    color:#fff;
+
+    font-size:30px;
+
+    line-height:1.1;
+
+}
+
+
+/* =========================================
+   META
+========================================= */
+
+.popup-detalhes-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:
+        7px 12px;
+
+    margin-bottom:12px;
+
+    color:#bbb;
+
+    font-size:14px;
+
+}
+
+
+.popup-detalhes-meta span{
+
+    white-space:nowrap;
+
+}
+
+
+/* =========================================
+   GÊNEROS
+========================================= */
+
+.popup-detalhes-generos{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-bottom:16px;
+
+}
+
+
+.popup-detalhes-generos span{
+
+    padding:
+        5px 10px;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:#ddd;
+
+    font-size:12px;
+
+}
+
+
+/* =========================================
+   SINOPSE
+========================================= */
+
+.popup-detalhes-sinopse{
+
+    margin:0;
+
+    color:#c7c7c7;
+
+    font-size:15px;
+
+    line-height:1.65;
+
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.popup-detalhes-botoes{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:22px;
+
+}
+
+
+.popup-btn-assistir,
+.popup-btn-favorito{
+
+    border:0;
+
+    border-radius:8px;
+
+    padding:
+        12px 18px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        filter .2s ease,
+        background .2s ease;
+
+}
+
+
+/* ASSISTIR */
+
+.popup-btn-assistir{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+
+.popup-btn-assistir:hover{
+
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(.9);
+
+}
+
+
+/* FAVORITO */
+
+.popup-btn-favorito{
+
+    background:
+        rgba(255,255,255,.1);
+
+    color:#fff;
+
+}
+
+
+.popup-btn-favorito:hover{
+
+    background:
+        rgba(255,255,255,.17);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:700px){
+
+    .popup-detalhes-filme{
+
+        padding:10px;
+
+    }
+
+
+    .popup-detalhes-caixa{
+
+        max-height:94vh;
+
+        border-radius:14px;
+
+    }
+
+
+    .popup-detalhes-video{
+
+        aspect-ratio:16 / 9;
+
+        min-height:0;
+
+    }
+
+
+    .popup-detalhes-conteudo{
+
+        gap:16px;
+
+        padding:17px;
+
+    }
+
+
+    .popup-detalhes-poster{
+
+        flex:
+            0 0 100px;
+
+    }
+
+
+    .popup-detalhes-info h2{
+
+        font-size:22px;
+
+    }
+
+
+    .popup-detalhes-meta{
+
+        font-size:12px;
+
+    }
+
+
+    .popup-detalhes-sinopse{
+
+        font-size:14px;
+
+        line-height:1.55;
+
+    }
+
+
+    .popup-detalhes-botoes{
+
+        flex-direction:column;
+
+    }
+
+
+    .popup-btn-assistir,
+    .popup-btn-favorito{
+
+        width:100%;
+
+    }
+
+}
+
+
+/* =========================================
+   CELULAR PEQUENO
+========================================= */
+
+@media(max-width:480px){
+
+    .popup-detalhes-conteudo{
+
+        flex-direction:column;
+
+    }
+
+
+    .popup-detalhes-poster{
+
+        display:none;
+
+    }
+
+
+    .popup-detalhes-info h2{
+
+        font-size:21px;
+
+    }
+
+}

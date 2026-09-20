@@ -396,6 +396,7 @@ const catalogo = [
     poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Barbie%20Escola%20de%20Princesas.png",
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Barbie%20Escola%20de%20Princesas.png",
     video:"https://screenapp.io/app/api/public/files/lI3trM26cll2nGWiTXrcwPoj",
+    trailer: "https://youtu.be/dgjKoFMB2rk?si=yRZESPqOsrSryLe9",
     sinopse:"Blair é convidada para estudar em uma escola onde aprende a ser princesa.",
     dublado:true,
     legendado:false,
@@ -472,6 +473,7 @@ const catalogo = [
     poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Barbie%20e%20as%20Sapatilhas%20Magicas.png",
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Barbie%20e%20As%20Sapatilhas%20Magicas.png",
     video:"https://screenapp.io/app/api/public/files/XfrE2Ry7Yqu0R-3d6ybLkQgr",
+    trailer: "https://youtu.be/O10GBqtXp4Y?si=OJBUdymxKEg4Gev3",
     sinopse:"Kristyn encontra um par de sapatilhas mágicas que a levam para mundos encantados.",
     dublado:true,
     legendado:false,
@@ -1469,6 +1471,7 @@ const catalogo = [
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Michael.png",
     sinopse:"Michael é uma cinebiografia musical sobre Michael Jackson, acompanhando sua trajetória desde a descoberta de seu talento extraordinário como líder do Jackson Five até sua ascensão como um dos maiores artistas do mundo. O filme também mostra sua vida fora dos palcos, suas ambições criativas e algumas das performances mais marcantes do início de sua carreira solo.",
     video:"https://screenapp.io/app/api/public/files/tqAfoTwgDZyTxzu3QnG_LHMn",
+    trailer: "https://youtu.be/14YXeHKOBUY?si=zZAsYo44pVaGHk6f",
     dublado:true,
     legendado:true,
     novo:true
@@ -1488,13 +1491,14 @@ const catalogo = [
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Interestelar%20364536.png",
     sinopse:"Em um futuro em que a Terra está se tornando cada vez mais inabitável, o ex-piloto da NASA Cooper é escolhido para liderar uma missão espacial em busca de um novo lar para a humanidade. Ao lado de outros astronautas, ele atravessa um buraco de minhoca e explora mundos distantes, enquanto enfrenta os efeitos do tempo, da distância e das escolhas que fez ao deixar sua família para trás.",
     video:"https://screenapp.io/app/api/public/files/RorFrXh1SUAWFMxwENaaMAb-",
+    trailer: "https://youtu.be/i6avfCqKcQo?si=A2GYm6vtbIu--eZn",
     dublado:true,
     legendado:true,
     novo:false
 },
 
 {
-    id:212,
+    id:82,
     nome:"Apocalipse",
     ano:2017,
     nota:4.6,
@@ -1514,7 +1518,7 @@ const catalogo = [
 },
 
 {
-    id:213,
+    id:83,
     nome:"A Força do Querer",
     ano:2017,
     nota:7.5,
@@ -1534,7 +1538,7 @@ const catalogo = [
 },
 
 {
-    id:214,
+    id:84,
     nome:"A Dona do Pedaço",
     tipo:"Novela",
     categoria:"Novelas",
@@ -1555,6 +1559,29 @@ const catalogo = [
     legendado:false,
     novo:false,
     sinopse:"Maria da Paz, criada em uma família de justiceiros no Espírito Santo, se apaixona por Amadeu, membro de uma família rival. Após uma tragédia no dia do casamento, ela foge para São Paulo, onde constrói uma fortuna com suas confeitarias. Anos depois, precisa enfrentar as armações da própria filha, Josiane."
+},
+
+{
+    id:85,
+    nome: "Mestres do Universo",
+    tipo: "Filme",
+    categoria: "Filmes",
+    colecao: "Mestres do Universo",
+    subcategoria: "Aventura",
+    ano: 2026,
+    duracao: "2h 20min",
+    genero: ["Ação", "Aventura", "Fantasia", "Ficção Científica"],
+    idioma: "🇺🇸 Inglês",
+    qualidade: "1080P",
+    classificacao: "14 anos",
+    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Mestres%20do%20Universo.png",
+    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Mestres%20do%20Universo.png",
+    video: "https://screenapp.io/app/api/public/files/csBJ29yosJUkEiINcdiKzi8Z",
+    trailer: "https://youtu.be/YLWDrS8qCiM?si=F82H04bn4Tq-rKrT",
+    dublado: true,
+    legendado: true,
+    novo: true,
+    sinopse: "Após perder a Espada do Poder e ser separado de Eternia ainda criança, Adam a recupera quase 20 anos depois e retorna ao seu planeta natal. Agora, com Eternia dominada pelo maligno Esqueleto, ele precisa descobrir seu verdadeiro passado, aceitar seu destino como He-Man e lutar ao lado de Teela e Duncan para salvar seu mundo."
 },
 
 ];

@@ -70,41 +70,30 @@ function criarCard(item){
 
     let pagina = "pages/filme.html";
 
-
     // NOVELA
     if(item.tipo === "Novela"){
-
         pagina = "pages/novela.html";
-
     }
-
 
     // SÉRIE
     if(item.tipo === "Série"){
-
         pagina = "pages/serie.html";
-
     }
 
-
     return `
-
-    <a
-        href="${pagina}?id=${item.id}"
-        class="cardFilme"
-    >
-
-        <img
-            src="${item.poster || "img/sem-poster.png"}"
-            alt="${item.nome}"
-            loading="lazy"
-            onerror="this.src='img/sem-poster.png'"
+        <a
+            href="${pagina}?id=${item.id}"
+            class="cardFilme"
+            data-filme-id="${item.id}"
         >
-
-    </a>
-
+            <img
+                src="${item.poster || "img/sem-poster.png"}"
+                alt="${item.nome || "Conteúdo"}"
+                loading="lazy"
+                onerror="this.src='img/sem-poster.png'"
+            >
+        </a>
     `;
-
 }
 
 
@@ -249,6 +238,724 @@ function carregarCatalogo(){
     });
 
 }
+
+/*=========================================
+        POPUP DE DETALHES
+=========================================*/
+
+function criarPopupDetalhes(){
+
+    if(document.getElementById("popupDetalhesFilme")){
+        return;
+    }
+
+    const popup = document.createElement("div");
+
+    popup.id = "popupDetalhesFilme";
+    popup.className = "popup-detalhes-filme";
+
+    popup.innerHTML = `
+        <div class="popup-detalhes-backdrop"></div>
+
+        <div class="popup-detalhes-caixa">
+
+            <button
+                class="popup-detalhes-fechar"
+                type="button"
+            >
+                ✕
+            </button>
+
+
+            <!-- TRAILER -->
+
+            <div
+                class="popup-detalhes-video"
+                id="popupTrailerArea"
+            >
+
+                <img
+                    id="popupTrailerPoster"
+                    src="img/sem-poster.png"
+                    alt=""
+                >
+
+                <div
+                    class="popup-sem-trailer"
+                    id="popupSemTrailer"
+                >
+                    <span>🎬</span>
+                    <p>Trailer não disponível</p>
+                </div>
+
+            </div>
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="popup-detalhes-conteudo">
+
+                <div class="popup-detalhes-poster">
+
+                    <img
+                        id="popupPoster"
+                        src="img/sem-poster.png"
+                        alt=""
+                    >
+
+                </div>
+
+
+                <div class="popup-detalhes-info">
+
+                    <h2 id="popupNome"></h2>
+
+
+                    <div
+                        class="popup-detalhes-meta"
+                        id="popupMeta"
+                    ></div>
+
+
+                    <div
+                        class="popup-detalhes-generos"
+                        id="popupGeneros"
+                    ></div>
+
+
+                    <p
+                        class="popup-detalhes-sinopse"
+                        id="popupSinopse"
+                    ></p>
+
+
+                    <div class="popup-detalhes-botoes">
+
+                        <button
+                            class="popup-btn-assistir"
+                            id="popupAssistir"
+                            type="button"
+                        >
+                            ▶ Assistir agora
+                        </button>
+
+
+                        <button
+                            class="popup-btn-favorito"
+                            id="popupFavoritar"
+                            type="button"
+                        >
+                            ♡ Favoritar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+
+
+    // FECHAR
+
+    popup
+        .querySelector(".popup-detalhes-fechar")
+        .addEventListener(
+            "click",
+            fecharPopupDetalhes
+        );
+
+
+    popup
+        .querySelector(".popup-detalhes-backdrop")
+        .addEventListener(
+            "click",
+            fecharPopupDetalhes
+        );
+
+
+    // ESC
+
+    document.addEventListener(
+        "keydown",
+        evento => {
+
+            if(evento.key === "Escape"){
+                fecharPopupDetalhes();
+            }
+
+        }
+    );
+
+}
+
+
+/*=========================================
+        CAMINHO DA PÁGINA
+=========================================*/
+
+function caminhoPaginaPopup(item){
+
+    let pagina = "pages/filme.html";
+
+
+    if(item.tipo === "Novela"){
+        pagina = "pages/novela.html";
+    }
+
+
+    if(item.tipo === "Série"){
+        pagina = "pages/serie.html";
+    }
+
+
+    /*
+        Se já estivermos dentro de /pages/,
+        precisa voltar uma pasta.
+    */
+
+    if(
+        window.location.pathname.includes("/pages/")
+    ){
+
+        return `../${pagina}?id=${item.id}`;
+
+    }
+
+
+    return `${pagina}?id=${item.id}`;
+
+}
+
+
+/*=========================================
+        ABRIR POPUP
+=========================================*/
+
+function abrirPopupDetalhes(id){
+
+    const filme = catalogo.find(
+        item =>
+            String(item.id) === String(id)
+    );
+
+
+    if(!filme){
+        return;
+    }
+
+
+    /*
+        Não abre conteúdo sem vídeo.
+    */
+
+    if(!temVideo(filme)){
+        return;
+    }
+
+
+    criarPopupDetalhes();
+
+
+    const popup =
+        document.getElementById(
+            "popupDetalhesFilme"
+        );
+
+
+    const poster =
+        filme.poster ||
+        "img/sem-poster.png";
+
+
+    const banner =
+        filme.banner ||
+        filme.poster ||
+        "img/sem-poster.png";
+
+
+    /* NOME */
+
+    document.getElementById(
+        "popupNome"
+    ).textContent =
+        filme.nome || "Sem título";
+
+
+    /* POSTER */
+
+    document.getElementById(
+        "popupPoster"
+    ).src = poster;
+
+
+    /* BANNER DO TRAILER */
+
+    document.getElementById(
+        "popupTrailerPoster"
+    ).src = banner;
+
+
+    /*=====================================
+            META
+    =====================================*/
+
+    const meta = [];
+
+
+    if(filme.ano){
+
+        meta.push(
+            `📅 ${filme.ano}`
+        );
+
+    }
+
+
+    if(filme.classificacao){
+
+        meta.push(
+            `🔞 ${filme.classificacao}`
+        );
+
+    }
+
+
+    if(filme.duracao){
+
+        meta.push(
+            `⏱️ ${filme.duracao}`
+        );
+
+    }
+
+
+    if(filme.tipo){
+
+        meta.push(
+            `🎬 ${filme.tipo}`
+        );
+
+    }
+
+
+    if(filme.idioma){
+
+        meta.push(
+            filme.idioma
+        );
+
+    }
+
+
+    document.getElementById(
+        "popupMeta"
+    ).innerHTML =
+
+        meta
+            .map(
+                item =>
+                    `<span>${item}</span>`
+            )
+            .join("");
+
+
+    /*=====================================
+            GÊNEROS
+    =====================================*/
+
+    const generos =
+        Array.isArray(filme.genero)
+            ? filme.genero
+            : [];
+
+
+    document.getElementById(
+        "popupGeneros"
+    ).innerHTML =
+
+        generos
+            .map(
+                genero =>
+                    `<span>${genero}</span>`
+            )
+            .join("");
+
+
+    /*=====================================
+            SINOPSE
+    =====================================*/
+
+    document.getElementById(
+        "popupSinopse"
+    ).textContent =
+
+        filme.sinopse ||
+        "Sinopse não disponível.";
+
+
+    /*=====================================
+            TRAILER
+    =====================================*/
+
+    const area =
+        document.getElementById(
+            "popupTrailerArea"
+        );
+
+
+    const posterTrailer =
+        document.getElementById(
+            "popupTrailerPoster"
+        );
+
+
+    const semTrailer =
+        document.getElementById(
+            "popupSemTrailer"
+        );
+
+
+    /*
+        Remove trailer anterior.
+    */
+
+    const antigo =
+        area.querySelector("iframe");
+
+
+    if(antigo){
+        antigo.remove();
+    }
+
+
+    semTrailer.style.display = "none";
+
+    posterTrailer.style.display = "block";
+
+
+    /*
+        Para colocar trailer no catálogo:
+
+        trailer:
+        "https://www.youtube.com/watch?v=XXXXXXXX"
+
+        OU somente:
+
+        trailer: "XXXXXXXX"
+    */
+
+    if(
+        typeof filme.trailer === "string" &&
+        filme.trailer.trim() !== ""
+    ){
+
+        const trailer =
+            filme.trailer.trim();
+
+
+        let videoId = "";
+
+
+        /* YouTube normal */
+
+        if(
+            trailer.includes(
+                "youtube.com/watch?v="
+            )
+        ){
+
+            videoId =
+                trailer
+                    .split("v=")[1]
+                    .split("&")[0];
+
+        }
+
+
+        /* YouTube curto */
+
+        else if(
+            trailer.includes("youtu.be/")
+        ){
+
+            videoId =
+                trailer
+                    .split("youtu.be/")[1]
+                    .split("?")[0];
+
+        }
+
+
+        /* Apenas ID */
+
+        else if(
+            !trailer.includes("/") &&
+            !trailer.includes("http")
+        ){
+
+            videoId = trailer;
+
+        }
+
+
+        if(videoId){
+
+            const iframe =
+                document.createElement(
+                    "iframe"
+                );
+
+
+            iframe.src =
+                `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+
+            iframe.title =
+                `Trailer de ${filme.nome}`;
+
+
+            iframe.allow =
+                "autoplay; encrypted-media; picture-in-picture";
+
+
+            iframe.allowFullscreen = true;
+
+
+            posterTrailer.style.display =
+                "none";
+
+
+            area.appendChild(iframe);
+
+        }
+        else{
+
+            semTrailer.style.display =
+                "flex";
+
+        }
+
+    }
+    else{
+
+        semTrailer.style.display =
+            "flex";
+
+    }
+
+
+    /*=====================================
+            BOTÃO ASSISTIR
+    =====================================*/
+
+    document.getElementById(
+        "popupAssistir"
+    ).onclick = () => {
+
+
+        fecharPopupDetalhes();
+
+
+        if(
+            typeof registrarFilme ===
+            "function"
+        ){
+
+            registrarFilme(filme);
+
+        }
+
+
+        window.location.href =
+            caminhoPaginaPopup(filme);
+
+    };
+
+
+    /*=====================================
+            BOTÃO FAVORITO
+    =====================================*/
+
+    document.getElementById(
+        "popupFavoritar"
+    ).onclick = () => {
+
+
+        let favoritos =
+            JSON.parse(
+                localStorage.getItem(
+                    "cineverse_favoritos"
+                )
+            ) || [];
+
+
+        const existe =
+            favoritos.some(
+                item =>
+                    String(item.id) ===
+                    String(filme.id)
+            );
+
+
+        if(!existe){
+
+            favoritos.push(filme);
+
+
+            localStorage.setItem(
+                "cineverse_favoritos",
+                JSON.stringify(favoritos)
+            );
+
+        }
+
+
+        document.getElementById(
+            "popupFavoritar"
+        ).textContent =
+            "♥ Favoritado";
+
+    };
+
+
+    /*=====================================
+            MOSTRAR POPUP
+    =====================================*/
+
+    popup.classList.add("ativo");
+
+
+    document.body.classList.add(
+        "popup-aberto"
+    );
+
+}
+
+
+/*=========================================
+        FECHAR POPUP
+=========================================*/
+
+function fecharPopupDetalhes(){
+
+    const popup =
+        document.getElementById(
+            "popupDetalhesFilme"
+        );
+
+
+    if(!popup){
+        return;
+    }
+
+
+    popup.classList.remove(
+        "ativo"
+    );
+
+
+    document.body.classList.remove(
+        "popup-aberto"
+    );
+
+
+    const iframe =
+        popup.querySelector("iframe");
+
+
+    if(iframe){
+        iframe.remove();
+    }
+
+}
+
+
+/*=========================================
+        ATIVAR POPUP NOS CARDS
+=========================================*/
+
+function ativarPopupNosCards(){
+
+    document.addEventListener(
+        "click",
+        evento => {
+
+
+            const card =
+                evento.target.closest(
+                    ".cardFilme"
+                );
+
+
+            if(!card){
+                return;
+            }
+
+
+            const id =
+                card.dataset.filmeId;
+
+
+            if(!id){
+                return;
+            }
+
+
+            const filme =
+                catalogo.find(
+                    item =>
+                        String(item.id) ===
+                        String(id)
+                );
+
+
+            if(
+                !filme ||
+                !temVideo(filme)
+            ){
+
+                return;
+
+            }
+
+
+            /*
+                Impede o link normal
+                do card.
+
+                Agora abre o popup.
+            */
+
+            evento.preventDefault();
+
+
+            abrirPopupDetalhes(id);
+
+        }
+    );
+
+}
+
+
+/*=========================================
+        INICIAR POPUP
+=========================================*/
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        criarPopupDetalhes();
+
+        ativarPopupNosCards();
+
+    }
+);
 
 
 /*=========================================
