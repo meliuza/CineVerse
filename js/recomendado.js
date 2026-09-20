@@ -5,7 +5,6 @@
 function carregarRecomendadoUsuario(){
 
     const lista = document.getElementById("recomendadoUsuario");
-
     const categoria = document.getElementById("recomendadoUsuarioCategoria");
 
     if(!lista || !categoria) return;
@@ -14,37 +13,72 @@ function carregarRecomendadoUsuario(){
 
     const historico = obterHistorico();
 
-    if(historico.length === 0){
+    if(!historico || historico.length === 0){
 
         categoria.style.display = "none";
 
         return;
-
     }
 
     let filmesRecomendados = [];
 
-    historico.forEach(item=>{
+    historico.forEach(item => {
 
-        catalogo.forEach(filme=>{
+        const filmeAssistido = catalogo.find(
+            f => f.id === item.id
+        );
+
+        if(!filmeAssistido) return;
+
+        /*
+            Procura conteúdos semelhantes
+        */
+
+        catalogo.forEach(filme => {
+
+            if(filme.id === filmeAssistido.id){
+                return;
+            }
+
+            /*
+                Não recomenda conteúdo sem vídeo.
+            */
 
             if(
+                typeof temVideo === "function" &&
+                !temVideo(filme)
+            ){
+                return;
+            }
 
-                filme.id !== item.id &&
+            if(
+                !Array.isArray(filme.genero) ||
+                !Array.isArray(filmeAssistido.genero)
+            ){
+                return;
+            }
 
+            const temGeneroParecido =
                 filme.genero.some(
+                    genero =>
+                        filmeAssistido.genero.includes(genero)
+                );
 
-                    genero=>item.genero.includes(genero)
+            if(!temGeneroParecido){
+                return;
+            }
 
+            /*
+                Evita duplicados.
+            */
+
+            if(
+                !filmesRecomendados.find(
+                    f => f.id === filme.id
                 )
-
             ){
 
-                if(!filmesRecomendados.find(f=>f.id===filme.id)){
-
-                    filmesRecomendados.push(filme);
-
-                }
+                filmesRecomendados.push(filme);
 
             }
 
@@ -52,19 +86,19 @@ function carregarRecomendadoUsuario(){
 
     });
 
-    filmesRecomendados = filmesRecomendados.slice(0,20);
+    filmesRecomendados =
+        filmesRecomendados.slice(0,20);
 
-    if(filmesRecomendados.length===0){
+    if(filmesRecomendados.length === 0){
 
-        categoria.style.display="none";
+        categoria.style.display = "none";
 
         return;
-
     }
 
-    categoria.style.display="block";
+    categoria.style.display = "block";
 
-    filmesRecomendados.forEach(filme=>{
+    filmesRecomendados.forEach(filme => {
 
         lista.innerHTML += criarCard(filme);
 

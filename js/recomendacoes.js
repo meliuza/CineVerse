@@ -5,9 +5,7 @@
 function carregarRecomendacoes(){
 
     const lista = document.getElementById("recomendados");
-
     const titulo = document.getElementById("tituloRecomendado");
-
     const categoria = document.getElementById("recomendadoCategoria");
 
     if(!lista || !titulo || !categoria) return;
@@ -16,30 +14,81 @@ function carregarRecomendacoes(){
 
     const historico = obterHistorico();
 
-    if(historico.length === 0){
+    if(!historico || historico.length === 0){
 
         categoria.style.display = "none";
 
         return;
-
     }
+
+    /*
+        Pega o último conteúdo assistido
+    */
 
     const ultimo = historico[0];
 
-    titulo.innerHTML = `❤️ Porque você assistiu ${ultimo.nome}`;
+    /*
+        Se o último conteúdo não possui mais
+        vídeo, procuramos outro do histórico
+        que possua vídeo.
+    */
 
-    let recomendados = catalogo.filter(filme=>{
+    let referencia = null;
+
+    for(const item of historico){
+
+        const filme = catalogo.find(
+            f => f.id === item.id
+        );
+
+        if(!filme) continue;
+
+        if(typeof temVideo === "function" && !temVideo(filme)){
+            continue;
+        }
+
+        referencia = filme;
+
+        break;
+    }
+
+    if(!referencia){
+
+        categoria.style.display = "none";
+
+        return;
+    }
+
+    titulo.innerHTML =
+        `❤️ Porque você assistiu ${referencia.nome}`;
+
+    let recomendados = catalogo.filter(filme => {
+
+        if(filme.id === referencia.id){
+            return false;
+        }
+
+        /*
+            Só recomenda conteúdo que tenha vídeo.
+        */
+
+        if(
+            typeof temVideo === "function" &&
+            !temVideo(filme)
+        ){
+            return false;
+        }
 
         return (
 
-            filme.id !== ultimo.id &&
+            filme.categoria === referencia.categoria ||
 
             (
-
-                filme.categoria === ultimo.categoria ||
-
-                filme.genero.some(g=>ultimo.genero.includes(g))
-
+                Array.isArray(filme.genero) &&
+                Array.isArray(referencia.genero) &&
+                filme.genero.some(
+                    genero => referencia.genero.includes(genero)
+                )
             )
 
         );
@@ -53,12 +102,11 @@ function carregarRecomendacoes(){
         categoria.style.display = "none";
 
         return;
-
     }
 
     categoria.style.display = "block";
 
-    recomendados.forEach(filme=>{
+    recomendados.forEach(filme => {
 
         lista.innerHTML += criarCard(filme);
 

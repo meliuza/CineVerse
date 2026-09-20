@@ -1,26 +1,42 @@
 /*====================================================
-                HISTORICO.JS
-        Sistema Universal CineVerse
+                 HISTORICO.JS
+         Sistema Universal CineVerse
 ====================================================*/
 
 const CHAVE_HISTORICO = "cineverse_historico";
 
+
 /*====================================================
-            CARREGAR HISTÓRICO
+             CARREGAR HISTÓRICO
 ====================================================*/
 
 function obterHistorico(){
 
-    return JSON.parse(
+    try{
 
-        localStorage.getItem(CHAVE_HISTORICO)
+        const salvo = localStorage.getItem(CHAVE_HISTORICO);
 
-    ) || [];
+        if(!salvo){
+            return [];
+        }
+
+        const lista = JSON.parse(salvo);
+
+        return Array.isArray(lista) ? lista : [];
+
+    }catch(erro){
+
+        console.error("Erro ao carregar histórico:", erro);
+
+        return [];
+
+    }
 
 }
 
+
 /*====================================================
-            SALVAR HISTÓRICO
+             SALVAR HISTÓRICO
 ====================================================*/
 
 function salvarHistorico(lista){
@@ -35,8 +51,9 @@ function salvarHistorico(lista){
 
 }
 
+
 /*====================================================
-        REGISTRAR PROGRESSO
+         REGISTRAR PROGRESSO
 ====================================================*/
 
 function registrarProgresso({
@@ -44,6 +61,12 @@ function registrarProgresso({
     id,
 
     tipo,
+
+    nome = "",
+
+    categoria = "",
+
+    genero = [],
 
     episodio = null,
 
@@ -55,11 +78,13 @@ function registrarProgresso({
 
     let historico = obterHistorico();
 
+
     const indice = historico.findIndex(
 
         item => item.id == id
 
     );
+
 
     const dados = {
 
@@ -67,19 +92,32 @@ function registrarProgresso({
 
         tipo,
 
+        nome,
+
+        categoria,
+
+        genero: Array.isArray(genero) ? genero : [],
+
         episodio,
 
         tempo,
 
         duracao,
 
-        atualizado:Date.now()
+        atualizado: Date.now()
 
     };
 
+
     if(indice >= 0){
 
-        historico[indice] = dados;
+        historico[indice] = {
+
+            ...historico[indice],
+
+            ...dados
+
+        };
 
     }else{
 
@@ -87,12 +125,89 @@ function registrarProgresso({
 
     }
 
+
     salvarHistorico(historico);
 
 }
 
+
 /*====================================================
-        OBTER PROGRESSO
+             REGISTRAR FILME
+====================================================*/
+
+function registrarFilme(filme){
+
+    if(!filme) return;
+
+
+    let historico = obterHistorico();
+
+
+    const indice = historico.findIndex(
+
+        item => item.id == filme.id
+
+    );
+
+
+    const dados = {
+
+        id: filme.id,
+
+        tipo: filme.tipo,
+
+        nome: filme.nome || "",
+
+        categoria: filme.categoria || "",
+
+        genero: Array.isArray(filme.genero)
+
+            ? filme.genero
+
+            : [],
+
+        episodio: null,
+
+        tempo: 0,
+
+        duracao: 0,
+
+        atualizado: Date.now()
+
+    };
+
+
+    if(indice >= 0){
+
+        historico[indice] = {
+
+            ...historico[indice],
+
+            ...dados
+
+        };
+
+    }else{
+
+        historico.unshift(dados);
+
+    }
+
+
+    historico.sort(
+
+        (a,b) => b.atualizado - a.atualizado
+
+    );
+
+
+    salvarHistorico(historico);
+
+}
+
+
+/*====================================================
+             OBTER PROGRESSO
 ====================================================*/
 
 function obterProgresso(id){
@@ -105,8 +220,9 @@ function obterProgresso(id){
 
 }
 
+
 /*====================================================
-        REMOVER PROGRESSO
+             REMOVER PROGRESSO
 ====================================================*/
 
 function removerHistorico(id){
@@ -117,37 +233,41 @@ function removerHistorico(id){
 
     );
 
+
     salvarHistorico(lista);
 
 }
 
+
 /*====================================================
-        LISTA ORDENADA
+             LISTA ORDENADA
 ====================================================*/
 
 function listarHistorico(){
 
     return obterHistorico()
 
-    .sort(
+        .sort(
 
-        (a,b)=>b.atualizado-a.atualizado
+            (a,b) => b.atualizado - a.atualizado
 
-    );
+        );
 
 }
 
+
 /*====================================================
-        PORCENTAGEM
+             PORCENTAGEM
 ====================================================*/
 
 function porcentagemAssistida(item){
 
-    if(!item.duracao) return 0;
+    if(!item || !item.duracao) return 0;
+
 
     return Math.floor(
 
-        (item.tempo/item.duracao)*100
+        (item.tempo / item.duracao) * 100
 
     );
 
