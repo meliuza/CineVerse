@@ -1745,8 +1745,8 @@ const catalogo = [
     idioma: "🇺🇸 Inglês",
     qualidade: "1080P",
     classificacao: "18 anos",
-    poster: "",
-    banner: "",
+    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Sandman.png",
+    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Sandman.png",
     nota: 7.7,
     sinopse: "Após anos aprisionado, Morpheus, o Rei dos Sonhos, embarca em uma jornada entre mundos para recuperar o que lhe foi roubado e restaurar seu poder.",
     temporadas: [
