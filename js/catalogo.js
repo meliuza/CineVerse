@@ -339,6 +339,7 @@ const catalogo = [
     poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Barbie%20em%20Vida%20de%20Sereia.png",
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/Barbie%20em%20Vida%20de%20Sereia.png",
     video:"https://screenapp.io/app/api/public/files/Po-dxsUe_6HOpl4omAe826wU",
+    trailer: "",
     sinopse:"Merliah descobre que é metade sereia e precisa salvar o reino submarino.",
     dublado:true,
     legendado:false,
@@ -396,7 +397,7 @@ const catalogo = [
     poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Barbie%20Escola%20de%20Princesas.png",
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Barbie%20Escola%20de%20Princesas.png",
     video:"https://screenapp.io/app/api/public/files/lI3trM26cll2nGWiTXrcwPoj",
-    trailer: "https://youtu.be/dgjKoFMB2rk?si=yRZESPqOsrSryLe9",
+    trailer: "",
     sinopse:"Blair é convidada para estudar em uma escola onde aprende a ser princesa.",
     dublado:true,
     legendado:false,
@@ -1582,6 +1583,299 @@ const catalogo = [
     legendado: true,
     novo: true,
     sinopse: "Após perder a Espada do Poder e ser separado de Eternia ainda criança, Adam a recupera quase 20 anos depois e retorna ao seu planeta natal. Agora, com Eternia dominada pelo maligno Esqueleto, ele precisa descobrir seu verdadeiro passado, aceitar seu destino como He-Man e lutar ao lado de Teela e Duncan para salvar seu mundo."
+},
+
+{
+    id: 215,
+    nome: "Round 6",
+    tipo: "Série",
+    categoria: "Séries",
+    colecao: "Round 6",
+    subcategoria: "Suspense",
+    ano: 2021,
+    duracao: "3 temporadas",
+    genero: ["Suspense", "Drama", "Sobrevivência"],
+    idioma: "🇰🇷 Coreano",
+    qualidade: "1080P",
+    classificacao: "18 anos",
+    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/round%206.png",
+    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20round%206.png",
+    trailer: "https://youtu.be/dtXsgpZOUkg?si=xcE5Zw5QZM7ihIJX",
+    nota: 8.0,
+    sinopse: "Centenas de jogadores endividados aceitam um estranho convite para participar de jogos misteriosos. Um prêmio milionário está em jogo, mas as consequências são fatais.",
+    temporadas: [
+        {
+            numero: 1,
+            episodios: [
+                {
+                    numero: 1,
+                    nome: "Batatinha frita 1, 2, 3",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x01.mp4"
+                },
+                {
+                    numero: 2,
+                    nome: "Inferno",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x02.mp4"
+                },
+                {
+                    numero: 3,
+                    nome: "O homem do guarda-chuva",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x03.mp4"
+                },
+                {
+                    numero: 4,
+                    nome: "Fiquem juntos",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x04.mp4"
+                },
+                {
+                    numero: 5,
+                    nome: "Um mundo justo",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x05.mp4"
+                },
+                {
+                    numero: 6,
+                    nome: "Gganbu",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x06.mp4"
+                },
+                {
+                    numero: 7,
+                    nome: "VIPs",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x07.mp4"
+                },
+                {
+                    numero: 8,
+                    nome: "O líder",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x08.mp4"
+                },
+                {
+                    numero: 9,
+                    nome: "Um dia de sorte",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
+                },
+            ]
+        },
+        {
+            numero: 2,
+            episodios: [
+                {
+                    numero: 1,
+                    nome: "Pão e loteria",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
+                },
+                {
+                    numero: 2,
+                    nome: "Festa de Halloween",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
+                },
+                {
+                    numero: 3,
+                    nome: "001",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
+                },
+                {
+                    numero: 4,
+                    nome: "Seis pernas",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
+                },
+                {
+                    numero: 5,
+                    nome: "Mais um jogo",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
+                },
+                {
+                    numero: 6,
+                    nome: "O X",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
+                },
+                {
+                    numero: 7,
+                    nome: "Amigos ou inimigos?",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
+                },
+            ]
+        },
+        {
+            numero: 3,
+            episodios: [
+                {
+                    numero: 1,
+                    nome: "Chaves e facas",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x01.mp4"
+                },
+                {
+                    numero: 2,
+                    nome: "Noite estrelada",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x02.mp4"
+                },
+                {
+                    numero: 3,
+                    nome: "Não é culpa sua",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x03.mp4"
+                },
+                {
+                    numero: 4,
+                    nome: "222",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x04.mp4"
+                },
+                {
+                    numero: 5,
+                    nome: "○△□",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x05.mp4"
+                },
+                {
+                    numero: 6,
+                    nome: "Humanos",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x06.mp4"
+                },
+            ]
+        }
+    ]
+},
+
+{
+    id: 216,
+    nome: "Sandman",
+    tipo: "Série",
+    categoria: "Séries",
+    colecao: "Sandman",
+    subcategoria: "Fantasia",
+    ano: 2022,
+    duracao: "2 temporadas",
+    genero: ["Fantasia", "Drama", "Suspense"],
+    idioma: "🇺🇸 Inglês",
+    qualidade: "1080P",
+    classificacao: "18 anos",
+    poster: "",
+    banner: "",
+    nota: 7.7,
+    sinopse: "Após anos aprisionado, Morpheus, o Rei dos Sonhos, embarca em uma jornada entre mundos para recuperar o que lhe foi roubado e restaurar seu poder.",
+    temporadas: [
+        {
+            numero: 1,
+            episodios: [
+                {
+                    numero: 1,
+                    nome: "O sono dos justos",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x01.mp4"
+                },
+                {
+                    numero: 2,
+                    nome: "Anfitriões imperfeitos",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x02.mp4"
+                },
+                {
+                    numero: 3,
+                    nome: "Sonhe comigo",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x02.mp4"
+                },
+                {
+                    numero: 4,
+                    nome: "Uma esperança no inferno",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x03.mp4"
+                },
+                {
+                    numero: 5,
+                    nome: "Sem parar",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x04.mp4"
+                },
+                {
+                    numero: 6,
+                    nome: "O som de suas asas",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x05.mp4"
+                },
+                {
+                    numero: 7,
+                    nome: "Casa de bonecas",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x06.mp4"
+                },
+                {
+                    numero: 8,
+                    nome: "Brincando de casinha",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x07.mp4"
+                },
+                {
+                    numero: 9,
+                    nome: "Colecionadores",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x08.mp4"
+                },
+                {
+                    numero: 10,
+                    nome: "Corações perdidos",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x09.mp4"
+                },
+                {
+                    numero: 11,
+                    nome: "Sonho de Mil Gatos / Calíope",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x10.mp4"
+                }
+            ]
+        },
+        {
+            numero: 2,
+            episodios: [
+                {
+                    numero: 1,
+                    nome: "Temporada 2 - Episódio 1",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x01.mp4"
+                },
+                {
+                    numero: 2,
+                    nome: "Temporada 2 - Episódio 2",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x02.mp4"
+                },
+                {
+                    numero: 3,
+                    nome: "Temporada 2 - Episódio 3",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x03.mp4"
+                },
+                {
+                    numero: 4,
+                    nome: "Temporada 2 - Episódio 4",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x04.mp4"
+                },
+                {
+                    numero: 5,
+                    nome: "Temporada 2 - Episódio 5",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x05.mp4"
+                },
+                {
+                    numero: 6,
+                    nome: "Temporada 2 - Episódio 6",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x06.mp4"
+                },
+                {
+                    numero: 7,
+                    nome: "Temporada 2 - Episódio 7",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x07.mp4"
+                },
+                {
+                    numero: 8,
+                    nome: "Temporada 2 - Episódio 8",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x08.mp4"
+                },
+                {
+                    numero: 9,
+                    nome: "Temporada 2 - Episódio 9",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x09.mp4"
+                },
+                {
+                    numero: 10,
+                    nome: "Temporada 2 - Episódio 10",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x10.mp4"
+                },
+                {
+                    numero: 11,
+                    nome: "Temporada 2 - Episódio 11",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x11.mp4"
+                },
+                {
+                    numero: 12,
+                    nome: "Episódio bônus",
+                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x12.mp4"
+                }
+            ]
+        }
+    ]
 },
 
 ];
