@@ -30,7 +30,7 @@ function carregarContinuarAssistindo(){
     historico.forEach(item => {
 
         const filme = catalogo.find(
-            f => f.id === item.id
+            f => Number(f.id) === Number(item.id)
         );
 
         if(!filme) return;

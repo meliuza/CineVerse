@@ -38,7 +38,7 @@ function carregarRecomendacoes(){
     for(const item of historico){
 
         const filme = catalogo.find(
-            f => f.id === item.id
+            f => Number(f.id) === Number(item.id)
         );
 
         if(!filme) continue;
@@ -64,7 +64,7 @@ function carregarRecomendacoes(){
 
     let recomendados = catalogo.filter(filme => {
 
-        if(filme.id === referencia.id){
+        if(Number(filme.id) === Number(referencia.id)){
             return false;
         }
 

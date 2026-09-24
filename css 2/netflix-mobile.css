@@ -1,0 +1,472 @@
+/* =========================================================
+   CINEVERSE — NETFLIX MOBILE
+   ========================================================= */
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    main {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+
+    /* -------------------------
+       NAVBAR
+       ------------------------- */
+
+    .navbar {
+        height: 60px;
+        padding: 0 3%;
+    }
+
+    .logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .logo span {
+        font-size: 18px;
+    }
+
+    .menu-desktop {
+        display: none;
+    }
+
+
+    /* -------------------------
+       BANNER
+       ------------------------- */
+
+    .bannerPrincipal {
+        min-height: 560px;
+        height: 72vh;
+    }
+
+    .banner-info {
+        width: 65%;
+        max-width: 560px;
+    }
+
+    .banner-info h1 {
+        font-size: clamp(30px, 5vw, 48px);
+    }
+
+    .banner-info p {
+        font-size: 15px;
+        line-height: 1.45;
+    }
+
+
+    /* -------------------------
+       BOTÕES
+       ------------------------- */
+
+    .banner-botoes {
+        gap: 8px;
+    }
+
+    .banner-botoes button {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+
+    /* -------------------------
+       CATEGORIAS
+       ------------------------- */
+
+    .categoria {
+        margin-bottom: 30px;
+    }
+
+    .tituloCategoria h2 {
+        font-size: 19px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+
+        overflow-x: hidden;
+    }
+
+
+    /* =====================================================
+       MAIN
+       ===================================================== */
+
+    main {
+        width: 100%;
+
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    .navbar {
+        height: 56px;
+
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .logo {
+        gap: 7px;
+    }
+
+    .logo img {
+        width: 31px;
+        height: 31px;
+    }
+
+    .logo span {
+        font-size: 17px;
+    }
+
+    .search-box {
+        position: absolute;
+
+        left: 3%;
+        right: 3%;
+
+        top: 58px;
+
+        width: auto;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .navbar-icons {
+        gap: 5px;
+    }
+
+    .favoritos {
+        width: 36px;
+        height: 36px;
+
+        font-size: 16px;
+    }
+
+    #menuMobile {
+        width: 36px;
+        height: 36px;
+
+        font-size: 21px;
+    }
+
+
+    /* =====================================================
+       BANNER
+       ===================================================== */
+
+    .bannerPrincipal {
+        height: 70vh;
+        min-height: 500px;
+
+        margin-top: 0;
+    }
+
+    .banner-info {
+        width: 90%;
+
+        left: 5%;
+        bottom: 12%;
+
+        max-width: none;
+    }
+
+    .banner-info h1 {
+        max-width: 100%;
+
+        font-size: clamp(28px, 9vw, 42px);
+
+        line-height: 1.05;
+
+        margin-bottom: 12px;
+    }
+
+    .banner-info p {
+        max-width: 95%;
+
+        font-size: 14px;
+        line-height: 1.45;
+
+        margin-bottom: 18px;
+    }
+
+
+    /* =====================================================
+       BOTÕES DO BANNER
+       ===================================================== */
+
+    .banner-botoes {
+        display: flex;
+
+        width: 100%;
+
+        gap: 8px;
+    }
+
+    .banner-botoes button {
+        min-height: 40px;
+
+        padding: 9px 14px;
+
+        border-radius: 4px;
+
+        font-size: 12px;
+    }
+
+    .banner-botoes .assistir {
+        flex: 1;
+    }
+
+    .banner-botoes .info {
+        flex: 1;
+    }
+
+
+    /* =====================================================
+       TÍTULOS
+       ===================================================== */
+
+    .tituloCategoria {
+        margin-bottom: 8px;
+    }
+
+    .tituloCategoria h2 {
+        font-size: 17px;
+    }
+
+
+    /* =====================================================
+       FILEIRAS
+       ===================================================== */
+
+    .listaFilmes {
+        width: calc(100vw - 6%);
+
+        margin-left: 0;
+
+        gap: 6px;
+
+        padding-top: 7px;
+        padding-bottom: 15px;
+
+        overflow-x: auto;
+        overflow-y: visible;
+
+        scroll-snap-type: x proximity;
+    }
+
+    .listaFilmes .cardFilme {
+        scroll-snap-align: start;
+    }
+
+
+    /* =====================================================
+       CARDS
+       ===================================================== */
+
+    .cardFilme {
+        width: 135px;
+
+        min-width: 135px;
+
+        border-radius: 3px;
+    }
+
+    .cardFilme:hover {
+        transform: scale(1.03);
+    }
+
+
+    /* =====================================================
+       CONTINUAR ASSISTINDO
+       ===================================================== */
+
+    #continuarAssistindo .cardFilme {
+        width: 200px;
+        min-width: 200px;
+
+        aspect-ratio: 16 / 9;
+    }
+
+
+    /* =====================================================
+       RECOMENDAÇÕES
+       ===================================================== */
+
+    #recomendados .cardFilme,
+    #recomendadoUsuario .cardFilme {
+        width: 135px;
+        min-width: 135px;
+    }
+
+
+    /* =====================================================
+       CARD INFO
+       ===================================================== */
+
+    .cardInfo {
+        padding: 30px 8px 8px;
+    }
+
+    .cardInfo h3 {
+        font-size: 12px;
+    }
+
+    .cardInfo p {
+        font-size: 10px;
+    }
+
+
+    /* =====================================================
+       PLAY
+       ===================================================== */
+
+    .cardFilme::after {
+        width: 32px;
+        height: 32px;
+
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       CATEGORIAS
+       ===================================================== */
+
+    .categoria {
+        margin-bottom: 25px;
+    }
+
+
+    /* =====================================================
+       MENU MOBILE
+       ===================================================== */
+
+    #menuMobile {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        border: 0;
+        background: transparent;
+
+        color: #fff;
+
+        cursor: pointer;
+    }
+
+
+    /* =====================================================
+       POPUP DE PESQUISA
+       ===================================================== */
+
+    #resultadoPesquisa {
+        width: 100%;
+
+        max-height: 65vh;
+
+        overflow-y: auto;
+    }
+
+
+    /* =====================================================
+       CATEGORIAS MOBILE
+       ===================================================== */
+
+    #menuCategorias,
+    .categoriasOverlay {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       ESCONDER ELEMENTOS DESNECESSÁRIOS
+       ===================================================== */
+
+    .slider-prev,
+    .slider-next {
+        display: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .logo span {
+        font-size: 15px;
+    }
+
+    .bannerPrincipal {
+        min-height: 470px;
+    }
+
+    .banner-info {
+        bottom: 10%;
+    }
+
+    .banner-info h1 {
+        font-size: 27px;
+    }
+
+    .banner-info p {
+        font-size: 13px;
+    }
+
+    .banner-botoes button {
+        padding: 8px 10px;
+
+        font-size: 11px;
+    }
+
+    .cardFilme {
+        width: 120px;
+        min-width: 120px;
+    }
+
+    #continuarAssistindo .cardFilme {
+        width: 180px;
+        min-width: 180px;
+    }
+
+    #recomendados .cardFilme,
+    #recomendadoUsuario .cardFilme {
+        width: 120px;
+        min-width: 120px;
+    }
+
+}

@@ -80,9 +80,7 @@ function registrarProgresso({
 
 
     const indice = historico.findIndex(
-
-        item => item.id == id
-
+        item => Number(item.id) === Number(id)
     );
 
 
@@ -144,9 +142,7 @@ function registrarFilme(filme){
 
 
     const indice = historico.findIndex(
-
-        item => item.id == filme.id
-
+        item => Number(item.id) === Number(filme.id)
     );
 
 
@@ -213,9 +209,7 @@ function registrarFilme(filme){
 function obterProgresso(id){
 
     return obterHistorico().find(
-
-        item => item.id == id
-
+        item => Number(item.id) === Number(id)
     );
 
 }
@@ -228,9 +222,7 @@ function obterProgresso(id){
 function removerHistorico(id){
 
     const lista = obterHistorico().filter(
-
-        item => item.id != id
-
+        item => Number(item.id) !== Number(id)
     );
 
 

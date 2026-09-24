@@ -66,29 +66,27 @@ function temVideo(item){
         CRIAR CARD
 =========================================*/
 
-function criarCard(item){
+function criarCard(filme){
 
     let pagina = "pages/filme.html";
 
-    // NOVELA
-    if(item.tipo === "Novela"){
+    if(filme.tipo === "Novela"){
         pagina = "pages/novela.html";
     }
 
-    // SÉRIE
-    if(item.tipo === "Série"){
+    if(filme.tipo === "Série"){
         pagina = "pages/serie.html";
     }
 
     return `
         <a
-            href="${pagina}?id=${item.id}"
+            href="${pagina}?id=${filme.id}"
             class="cardFilme"
-            data-filme-id="${item.id}"
+            data-filme-id="${filme.id}"
         >
             <img
-                src="${item.poster || "img/sem-poster.png"}"
-                alt="${item.nome || "Conteúdo"}"
+                src="${filme.poster || "img/sem-poster.png"}"
+                alt="${filme.nome}"
                 loading="lazy"
                 onerror="this.src='img/sem-poster.png'"
             >
@@ -103,19 +101,34 @@ function criarCard(item){
 
 function carregarCatalogo(){
 
-    const emAlta = document.getElementById("emAlta");
+const emAlta = document.getElementById("emAlta");
+const filmes = document.getElementById("filmes");
+const series = document.getElementById("series");
+const barbie = document.getElementById("barbie");
+const novelas = document.getElementById("novelas");
+const infantil = document.getElementById("infantil");
 
-    const filmes = document.getElementById("filmes");
+const romance = document.getElementById("romance");
+const comedia = document.getElementById("comedia");
+const terror = document.getElementById("terror");
+const acao = document.getElementById("acao");
+const ficcaoCientifica = document.getElementById("ficcaoCientifica");
+const fantasia = document.getElementById("fantasia");
 
-    const series = document.getElementById("series");
+const filmesJaExibidos = new Set();
 
-    const barbie = document.getElementById("barbie");
+function adicionarFilmeUnico(elemento, filme){
+    if(!elemento) return;
 
-    const novelas = document.getElementById("novelas");
+    const id = Number(filme.id);
 
-    const infantil = document.getElementById("infantil");
+    if(filmesJaExibidos.has(id)){
+        return;
+    }
 
-
+    filmesJaExibidos.add(id);
+    elemento.innerHTML += criarCard(filme);
+}
     /*---------------------------------------
         LIMPAR ÁREAS
     ---------------------------------------*/
@@ -138,6 +151,23 @@ function carregarCatalogo(){
     if(infantil)
         infantil.innerHTML = "";
 
+    if(romance)
+        romance.innerHTML = "";
+
+    if(comedia)
+        comedia.innerHTML = "";
+
+    if(terror)
+        terror.innerHTML = "";
+
+    if(acao)
+        acao.innerHTML = "";
+
+    if(ficcaoCientifica)
+        ficcaoCientifica.innerHTML = "";
+
+    if(fantasia)
+        fantasia.innerHTML = "";
 
     /*---------------------------------------
         PERCORRER CATÁLOGO
@@ -145,23 +175,9 @@ function carregarCatalogo(){
 
     catalogo.forEach(filme => {
 
-
-        /*
-        =====================================
-        IMPORTANTE
-
-        SE NÃO TIVER VÍDEO:
-
-        NÃO APARECE NO SITE
-        =====================================
-        */
-
         if(!temVideo(filme)){
-
             return;
-
         }
-
 
         /*-----------------------------------
             EM ALTA
@@ -170,28 +186,7 @@ function carregarCatalogo(){
         if(emAlta && filme.novo){
 
             emAlta.innerHTML += criarCard(filme);
-
-        }
-
-
-        /*-----------------------------------
-            FILMES
-        -----------------------------------*/
-
-        if(filmes && filme.tipo === "Filme"){
-
-            filmes.innerHTML += criarCard(filme);
-
-        }
-
-
-        /*-----------------------------------
-            SÉRIES
-        -----------------------------------*/
-
-        if(series && filme.tipo === "Série"){
-
-            series.innerHTML += criarCard(filme);
+            return;
 
         }
 
@@ -203,6 +198,19 @@ function carregarCatalogo(){
         if(novelas && filme.tipo === "Novela"){
 
             novelas.innerHTML += criarCard(filme);
+            return;
+
+        }
+
+
+        /*-----------------------------------
+            SÉRIES
+        -----------------------------------*/
+
+        if(series && filme.tipo === "Série"){
+
+            series.innerHTML += criarCard(filme);
+            return;
 
         }
 
@@ -217,6 +225,7 @@ function carregarCatalogo(){
         ){
 
             barbie.innerHTML += criarCard(filme);
+            return;
 
         }
 
@@ -232,6 +241,115 @@ function carregarCatalogo(){
         ){
 
             infantil.innerHTML += criarCard(filme);
+            return;
+
+        }
+
+
+        /*-----------------------------------
+            ROMANCE
+        -----------------------------------*/
+
+        if(
+            romance &&
+            Array.isArray(filme.genero) &&
+            filme.genero.includes("Romance")
+        ){
+
+            romance.innerHTML += criarCard(filme);
+            return;
+
+        }
+
+
+        /*-----------------------------------
+            COMÉDIA
+        -----------------------------------*/
+
+        if(
+            comedia &&
+            Array.isArray(filme.genero) &&
+            filme.genero.includes("Comédia")
+        ){
+
+            comedia.innerHTML += criarCard(filme);
+            return;
+
+        }
+
+
+        /*-----------------------------------
+            TERROR
+        -----------------------------------*/
+
+        if(
+            terror &&
+            Array.isArray(filme.genero) &&
+            filme.genero.includes("Terror")
+        ){
+
+            terror.innerHTML += criarCard(filme);
+            return;
+
+        }
+
+
+        /*-----------------------------------
+            AÇÃO
+        -----------------------------------*/
+
+        if(
+            acao &&
+            Array.isArray(filme.genero) &&
+            filme.genero.includes("Ação")
+        ){
+
+            acao.innerHTML += criarCard(filme);
+            return;
+
+        }
+
+
+        /*-----------------------------------
+            FICÇÃO CIENTÍFICA
+        -----------------------------------*/
+
+        if(
+            ficcaoCientifica &&
+            Array.isArray(filme.genero) &&
+            filme.genero.includes("Ficção Científica")
+        ){
+
+            ficcaoCientifica.innerHTML += criarCard(filme);
+            return;
+
+        }
+
+
+        /*-----------------------------------
+            FANTASIA
+        -----------------------------------*/
+
+        if(
+            fantasia &&
+            Array.isArray(filme.genero) &&
+            filme.genero.includes("Fantasia")
+        ){
+
+            fantasia.innerHTML += criarCard(filme);
+            return;
+
+        }
+
+
+        /*-----------------------------------
+            FILMES
+        -----------------------------------*/
+
+        if(filmes && filme.tipo === "Filme"){
+
+            filmes.innerHTML += criarCard(filme);
+            return;
 
         }
 
@@ -1120,31 +1238,24 @@ window.addEventListener("load", () => {
 
 window.addEventListener("load", () => {
 
-    carregarCatalogo();
+    if(typeof carregarCatalogo === "function"){
+        carregarCatalogo();
+    }
 
-    bannerPrincipal();
-
+    if(typeof bannerPrincipal === "function"){
+        bannerPrincipal();
+    }
 
     if(typeof carregarContinuarAssistindo === "function"){
-
         carregarContinuarAssistindo();
-
     }
-
 
     if(typeof carregarRecomendacoes === "function"){
-
         carregarRecomendacoes();
-
     }
-
 
     if(typeof carregarRecomendadoUsuario === "function"){
-
         carregarRecomendadoUsuario();
-
     }
-carregarContinuarAssistindo();
-carregarRecomendacoes();
-carregarRecomendadoUsuario();
+
 });

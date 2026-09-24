@@ -6,7 +6,9 @@ const params = new URLSearchParams(window.location.search);
 
 const id = Number(params.get("id"));
 
-const novela = catalogo.find(item => item.id === id);
+const novela = catalogo.find(
+    item => Number(item.id) === Number(id)
+);
 
 if (!novela) {
 
@@ -214,31 +216,46 @@ document.getElementById("btnAnterior")
         FAVORITO
 ====================================================*/
 
-const btnFavorito = document.getElementById("btnFavorito");
+const btnFavorito =
+    document.getElementById("btnFavorito");
 
 function atualizarFavorito(){
 
-    if(favoritoExiste(novela.id)){
+    if(!btnFavorito) return;
 
-        btnFavorito.innerHTML="❤️ Favoritado";
+    const favorito =
+        typeof isFavorito === "function" &&
+        isFavorito(novela.id);
 
-    }else{
+    btnFavorito.innerHTML =
+        favorito
+            ? "❤️ Favoritado"
+            : "🤍 Favoritar";
 
-        btnFavorito.innerHTML="🤍 Favoritar";
-
-    }
+    btnFavorito.classList.toggle(
+        "ativo",
+        favorito
+    );
 
 }
 
 atualizarFavorito();
 
-btnFavorito.onclick=()=>{
+if(btnFavorito){
 
-    alternarFavorito(novela.id);
+    btnFavorito.onclick = () => {
 
-    atualizarFavorito();
+        if(typeof alternarFavorito === "function"){
 
-};
+            alternarFavorito(novela);
+
+            atualizarFavorito();
+
+        }
+
+    };
+
+}
 
 /*====================================================
         PLAYER TERMINOU

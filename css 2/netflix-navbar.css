@@ -1,0 +1,506 @@
+/* =========================================================
+   CINEVERSE — NETFLIX NAVBAR
+   ========================================================= */
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 68px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 4%;
+
+    z-index: 1000;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.95),
+            rgba(0, 0, 0, 0.65),
+            transparent
+        );
+
+    transition:
+        background 0.3s ease,
+        height 0.3s ease;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+
+    color: #fff;
+
+    font-size: 1.45rem;
+    font-weight: 800;
+
+    letter-spacing: -0.04em;
+}
+
+.navbar .logo img {
+    width: 34px;
+    height: 34px;
+
+    object-fit: contain;
+}
+
+.navbar .logo span {
+    color: #fff;
+}
+
+
+/* =========================================================
+   MENU DESKTOP
+   ========================================================= */
+
+.menu-desktop {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    margin-left: 35px;
+}
+
+.menu-desktop a,
+.menu-desktop button {
+    display: flex;
+    align-items: center;
+
+    background: transparent;
+
+    color: #e5e5e5;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.menu-desktop a:hover,
+.menu-desktop button:hover {
+    color: #fff;
+}
+
+
+/* =========================================================
+   REMOVE VISUAL DE EMOJI DO BOTÃO CATEGORIAS
+   ========================================================= */
+
+#btnCategorias {
+    gap: 5px;
+}
+
+
+/* =========================================================
+   PESQUISA
+   ========================================================= */
+
+.navbar .search-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+
+    width: 240px;
+
+    z-index: 1100;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.navbar .search-box input {
+    width: 100%;
+    height: 36px;
+
+    padding: 0 38px 0 13px;
+
+    border: 1px solid transparent;
+    border-radius: 2px;
+
+    outline: none;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    color: #fff;
+
+    font-size: 0.85rem;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        width 0.25s ease;
+}
+
+.navbar .search-box input::placeholder {
+    color: #aaa;
+}
+
+.navbar .search-box input:focus {
+    border-color: #777;
+
+    background: #111;
+}
+
+
+/* =========================================================
+   BOTÕES DA BUSCA
+   ========================================================= */
+
+.navbar .search-box > button {
+    position: absolute;
+
+    right: 8px;
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 0.85rem;
+}
+
+.navbar .search-box > button:first-of-type {
+    right: 8px;
+}
+
+.navbar .search-box #limparPesquisa {
+    right: 36px;
+
+    display: none;
+
+    color: #aaa;
+}
+
+.navbar .search-box #limparPesquisa:hover {
+    color: #fff;
+}
+
+
+/* =========================================================
+   RESULTADOS DA PESQUISA
+   ========================================================= */
+
+#resultadoPesquisa {
+    position: absolute;
+
+    top: 44px;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1200;
+}
+
+
+/* =========================================================
+   ÍCONES DA NAVBAR
+   ========================================================= */
+
+.navbar-icons {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-left: 18px;
+}
+
+
+/* =========================================================
+   FAVORITOS
+   ========================================================= */
+
+.navbar-icons a {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-icons .favoritos {
+    position: relative;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 1.15rem;
+
+    transition: transform 0.2s ease;
+}
+
+.navbar-icons .favoritos:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   CONTADOR DE FAVORITOS
+   ========================================================= */
+
+#contadorFavoritos {
+    position: absolute;
+
+    top: 1px;
+    right: -1px;
+
+    min-width: 16px;
+    height: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 4px;
+
+    border-radius: 50%;
+
+    background: #e50914;
+
+    color: #fff;
+
+    font-size: 0.62rem;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   MENU MOBILE — ESCONDIDO NO DESKTOP
+   ========================================================= */
+
+#menuMobile {
+    display: none;
+
+    width: 38px;
+    height: 38px;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 1.3rem;
+}
+
+
+/* =========================================================
+   EFEITO AO ROLAR
+   ========================================================= */
+
+.navbar.scrolled {
+    height: 62px;
+
+    background: rgba(0, 0, 0, 0.96);
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        height: 60px;
+
+        padding: 0 4%;
+    }
+
+    .navbar .logo {
+        font-size: 1.2rem;
+    }
+
+    .navbar .logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu-desktop {
+        display: none;
+    }
+
+    .navbar .search-box {
+        width: 190px;
+
+        margin-left: auto;
+    }
+
+    .navbar-icons {
+        margin-left: 8px;
+    }
+
+    #menuMobile {
+        display: flex;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 56px;
+
+        padding: 0 4%;
+    }
+
+    .navbar .logo span {
+        display: none;
+    }
+
+    .navbar .logo img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .navbar .search-box {
+        width: 38px;
+
+        margin-left: auto;
+    }
+
+    .navbar .search-box input {
+        width: 38px;
+
+        padding: 0;
+
+        border: 0;
+
+        background: transparent;
+
+        color: transparent;
+
+        cursor: pointer;
+    }
+
+    .navbar .search-box input:focus {
+        position: absolute;
+
+        right: 0;
+
+        width: 210px;
+
+        padding: 0 38px 0 13px;
+
+        border: 1px solid #555;
+
+        background: #111;
+
+        color: #fff;
+
+        cursor: text;
+    }
+
+    .navbar .search-box input::placeholder {
+        color: transparent;
+    }
+
+    .navbar .search-box input:focus::placeholder {
+        color: #888;
+    }
+
+    .navbar .search-box > button {
+        pointer-events: none;
+    }
+
+    .navbar-icons {
+        gap: 4px;
+
+        margin-left: 4px;
+    }
+
+    .navbar-icons .favoritos {
+        width: 34px;
+        height: 34px;
+
+        font-size: 1rem;
+    }
+
+    #menuMobile {
+        width: 34px;
+        height: 34px;
+
+        font-size: 1.15rem;
+    }
+
+    #contadorFavoritos {
+        top: 0;
+        right: -2px;
+
+        min-width: 14px;
+        height: 14px;
+
+        font-size: 0.55rem;
+    }
+}
+
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .navbar {
+        padding: 0 3%;
+    }
+
+    .navbar .search-box input:focus {
+        width: 180px;
+    }
+}

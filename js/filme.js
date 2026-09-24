@@ -147,37 +147,45 @@ if (Array.isArray(filme.elenco)) {
         FAVORITOS
 =========================================*/
 
-const btnFavorito = document.getElementById("btnFavoritoFilme");
+// 2. FAVORITOS — substitua TODO o bloco atual
 
-btnFavorito.dataset.id = filme.id;
-
-atualizarFavorito();
-
-btnFavorito.onclick = () => {
-
-    console.log("Cliquei");
-
-    alternarFavorito(filme.id);
-
-    atualizarFavorito();
-
-};
+const btnFavorito =
+    document.getElementById("btnFavoritoFilme");
 
 function atualizarFavorito(){
 
-    if(favoritoExiste(filme.id)){
+    if(!btnFavorito) return;
 
-        btnFavorito.innerHTML="❤️ Favoritado";
+    const favorito =
+        typeof isFavorito === "function" &&
+        isFavorito(filme.id);
 
-        btnFavorito.classList.add("ativo");
+    btnFavorito.innerHTML =
+        favorito
+            ? "❤️ Favoritado"
+            : "🤍 Favoritar";
 
-    }else{
+    btnFavorito.classList.toggle(
+        "ativo",
+        favorito
+    );
+}
 
-        btnFavorito.innerHTML="🤍 Favoritar";
+atualizarFavorito();
 
-        btnFavorito.classList.remove("ativo");
+if(btnFavorito){
 
-    }
+    btnFavorito.onclick = () => {
+
+        if(typeof alternarFavorito === "function"){
+
+            alternarFavorito(filme);
+
+            atualizarFavorito();
+
+        }
+
+    };
 
 }
 
@@ -201,39 +209,50 @@ document.getElementById("btnAssistir").onclick=()=>{
 
 const recomendados = document.getElementById("recomendados");
 
+// 3. RECOMENDADOS — substitua o bloco catalogo.filter(...) inteiro
+
 catalogo
+    .filter(f => {
 
-.filter(f=>
+        if(Number(f.id) === Number(filme.id)){
+            return false;
+        }
 
-    f.id!==filme.id &&
+        if(typeof temVideo === "function" && !temVideo(f)){
+            return false;
+        }
 
-    f.genero.some(g=>filme.genero.includes(g))
+        if(!Array.isArray(f.genero) || !Array.isArray(filme.genero)){
+            return false;
+        }
 
-)
+        return f.genero.some(
+            g => filme.genero.includes(g)
+        );
 
-.slice(0,12)
+    })
+    .slice(0,12)
+    .forEach(item => {
 
-.forEach(item=>{
+        recomendados.innerHTML += `
 
-    recomendados.innerHTML += `
+            <a
+                href="filme.html?id=${item.id}"
+                class="cardFilme"
+                data-filme-id="${item.id}"
+            >
 
-        <a
+                <img
+                    src="${item.poster || "../img/sem-poster.png"}"
+                    alt="${item.nome}"
+                    onerror="this.src='../img/sem-poster.png'"
+                >
 
-            href="filme.html?id=${item.id}"
+            </a>
 
-            class="cardFilme">
+        `;
 
-            <img
-
-                src="${item.poster}"
-
-                alt="${item.nome}">
-
-        </a>
-
-    `;
-
-});
+    });
 
 /*=========================================
         COLEÇÃO
@@ -247,23 +266,29 @@ if(filme.colecao!=""){
 
     catalogo
 
-    .filter(f=>f.colecao==filme.colecao)
+    // 4. COLEÇÃO — dentro do filtro
+
+.filter(f =>
+    f.colecao === filme.colecao &&
+    typeof temVideo === "function" &&
+    temVideo(f)
+)
 
     .forEach(item=>{
 
-        areaColecao.innerHTML+=`
+        areaColecao.innerHTML += `
 
             <a
-
                 href="filme.html?id=${item.id}"
-
-                class="cardFilme">
+                class="cardFilme"
+                data-filme-id="${item.id}"
+            >
 
                 <img
-
-                    src="${item.poster}"
-
-                    alt="${item.nome}">
+                    src="${item.poster || "../img/sem-poster.png"}"
+                    alt="${item.nome}"
+                    onerror="this.src='../img/sem-poster.png'"
+                >
 
             </a>
 

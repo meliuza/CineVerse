@@ -91,7 +91,7 @@ const catalogo = [
     genero:["Princesas","Musical"],
     poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Barbie%20em%20a%20Princesa%20e%20a%20Plebeia.png",
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Barbie%20A%20Princesa%20e%20a%20Plebeia.png",
-    video:"",
+    video:"https://screenapp.io/app/api/public/files/eJuN2ccTZZq4ev3wcvDBjnTl",
     sinopse:"Uma princesa e uma garota comum descobrem que são idênticas e trocam de lugar.",
     dublado:true,
     legendado:false,
@@ -167,7 +167,7 @@ const catalogo = [
     genero:["Infantil","Drama"],
     poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/O%20Diario%20da%20Barbie%205234.png",
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20O%20Diario%20da%20Barbie.png",
-    video:"",
+    video:"https://screenapp.io/app/api/public/files/jrvLwfzZUQ9hOKUvk9Kh5tjo",
     sinopse:"Barbie vive os desafios da escola enquanto escreve em seu diário.",
     dublado:true,
     legendado:false,
@@ -186,7 +186,7 @@ const catalogo = [
     genero:["Princesas","Fantasia"],
     poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Barbie%20As%2012%20Princesas%20Bailarinas.png",
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Barbie%20em%20As%2012%20Princesas%20Bailarinas.png",
-    video:"",
+    video:"https://screenapp.io/app/api/public/files/99C9iCYestvaej1_wIrwoiY3",
     sinopse:"Doze irmãs descobrem um reino mágico escondido.",
     dublado:true,
     legendado:false,
@@ -281,7 +281,7 @@ const catalogo = [
     genero:["Natal","Fantasia"],
     poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Barbie%20Em%20A%20Cancao%20De%20Natal.png",
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Barbie%20Em%20A%20Cancao%20De%20Natal.png",
-    video:"",
+    video:"https://screenapp.io/app/api/public/files/08VDDkJ3eE0RMUVktTnsXJM-",
     sinopse:"Barbie interpreta uma adaptação encantadora do clássico Conto de Natal.",
     dublado:true,
     legendado:false,
@@ -300,7 +300,7 @@ const catalogo = [
     genero:["Fadas","Fantasia"],
     poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/4a7d8114438a0ca78cdcc526d790a8ef695669413e4419dc238462c81d3097fb.jpg",
     banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Barbie%20Em%20A%20Pequena%20Polegar.png",
-    video:"",
+    video:"https://screenapp.io/app/api/public/files/KKhcL2l4NLniZx--nJwnRC1z",
     sinopse:"Polegarzinha descobre que até os menores podem fazer grandes diferenças.",
     dublado:true,
     legendado:false,
@@ -1231,99 +1231,10 @@ const catalogo = [
 
 
 /*=========================================
-            NOVELAS
-=========================================*/
-
-{
-    id:69,
-    nome:"Avenida Brasil",
-    ano:2012,
-    nota:9.4,
-    duracao:"179 capítulos",
-    genero:["Drama"],
-    categoria:"Novelas",
-    colecao:"Avenida Brasil",
-    tipo:"Novela",
-    poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/Videos/Novela%20Avenida%20Brasil.png",
-    banner:"https://image.tmdb.org/t/p/original/xxxxxxxx.jpg",
-    pagina:"pages/avenida-brasil.html",
-    dublado:true,
-    legendado:false,
-    novo:false
-},
-
-{
-    id:70,
-    nome:"Pantanal",
-    ano:2022,
-    nota:8.1,
-    duracao:"167 capítulos",
-    genero:["Drama","Romance","Faroeste"],
-    categoria:"Novelas",
-    colecao:"Pantanal",
-    tipo:"Novela",
-    poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Pantanal.png",
-    banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Pantanal.png",
-    sinopse:"A novela acompanha a saga das famílias Leôncio e Marruá no Pantanal. José Leôncio, um poderoso pecuarista, enfrenta conflitos familiares enquanto seu filho Jove retorna ao Pantanal e se apaixona por Juma Marruá. A história mistura disputas familiares, romance, natureza e elementos místicos ligados à região.",
-    totalEpisodios:167,
-    baseVideo:"https://23rzv4udpdbv8t6.cdn-novflix.com/storage7/PAN/PAN-",
-    dublado:true,
-    legendado:false,
-    novo:false
-},
-
-
-{
-    id:71,
-    nome:"Coração Acelerado",
-    ano:2025,
-    nota:9.0,
-    duracao:"161 capítulos",
-    genero:["Drama"],
-    categoria:"Novelas",
-    colecao:"Globo",
-    tipo:"Novela",
-    poster:"https://onacaokuwgiflhliitlt.supabase.co/storage/v1/object/public/filme/Coracao%20Acelerado.png",
-    banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/Videos/banner%20coracao%20acelerado.png",
-    sinopse:"A nova novela das sete da Globo.",
-    totalEpisodios:161,
-    baseVideo:"https://23rzv4udpdbv8t6.cdn-novflix.com/storage1/CORACE/CORACE-",
-    novo:true
-},
-
-{
-    id:72,
-    nome:"Maria do Bairro",
-    ano:1995,
-    nota:8.1,
-    duracao:"185 capítulos",
-    genero:["Drama","Romance"],
-    categoria:"Novelas",
-    colecao:"Maria do Bairro",
-    tipo:"Novela",
-    poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Maria%20do%20Bairro.png",
-    banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Maria%20do%20Bairro.png",
-    sinopse:"Maria do Bairro é uma jovem humilde que, após ser acolhida por uma família rica, enfrenta diferenças sociais, conflitos familiares e uma história de amor cheia de reviravoltas.",
-    totalEpisodios:185,
-    baseVideo:"https://23rzv4udpdbv8t6.cdn-novflix.com/storage3/MDB/MDBzJ8ZbkUekz24eeeVxdBUi",
-    dublado:true,
-    legendado:false,
-    novo:false
-},
-/*=========================================
-            NOVELAS
-=========================================*/
-
-
-
-
-
-
-/*=========================================
             FILMES
 =========================================*/
 {
-    id: 73,
+    id: 69,
     nome: "Obsessão",
     ano: 2025,
     nota: 7.8,
@@ -1342,7 +1253,7 @@ const catalogo = [
 },
 
 {
-    id:74,
+    id:70,
     nome:"Um Tira no Jardim da Infância",
     ano:1990,
     nota:6.3,
@@ -1361,7 +1272,7 @@ const catalogo = [
 },
 
 {
-    id:75,
+    id:71,
     nome:"Burlesque",
     ano:2010,
     nota:6.4,
@@ -1380,7 +1291,7 @@ const catalogo = [
 },
 
 {
-    id:76,
+    id:72,
     nome:"V de Vingança",
     ano:2005,
     nota:8.1,
@@ -1399,7 +1310,7 @@ const catalogo = [
 },
 
 {
-    id:77,
+    id:73,
     nome:"Um Marido Fiel",
     ano:2022,
     nota:6.5,
@@ -1418,7 +1329,7 @@ const catalogo = [
 },
 
 {
-    id:78,
+    id:74,
     nome:"Na Trilha da Fama",
     ano:2004,
     nota:5.8,
@@ -1437,7 +1348,7 @@ const catalogo = [
 },
 
 {
-    id:79,
+    id:75,
     nome:"Os Intocáveis",
     ano:1987,
     nota:7.8,
@@ -1456,7 +1367,7 @@ const catalogo = [
 },
 
 {
-    id:80,
+    id:76,
     nome:"Michael",
     ano:2026,
     nota:7.4,
@@ -1476,7 +1387,7 @@ const catalogo = [
 },
 
 {
-    id:81,
+    id:77,
     nome:"Interestelar",
     ano:2014,
     nota:8.7,
@@ -1496,71 +1407,7 @@ const catalogo = [
 },
 
 {
-    id:82,
-    nome:"Apocalipse",
-    ano:2017,
-    nota:4.6,
-    duracao:"155 capítulos",
-    genero:["Drama","Fantasia","Suspense"],
-    categoria:"Novelas",
-    colecao:"Apocalipse",
-    tipo:"Novela",
-    poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Apocalipse.png",
-    banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Apocalipse.png",
-    sinopse:"A novela acompanha Benjamin, um renomado cientista, e Zoe, uma jornalista que se reencontra com ele anos depois. Enquanto eles vivem uma história de amor, a trama mistura mistério, espiritualidade, catástrofes e acontecimentos ligados ao fim dos tempos.",
-    totalEpisodios:155,
-    baseVideo:"https://23rzv4udpdbv8t6.cdn-novflix.com/storage2/APO/APOzJ8ZbkUekz24eeeVxdBUi",
-    dublado:true,
-    legendado:false,
-    novo:false
-},
-
-{
-    id:83,
-    nome:"A Força do Querer",
-    ano:2017,
-    nota:7.5,
-    duracao:"172 capítulos",
-    genero:["Drama","Crime","Romance","Suspense"],
-    categoria:"Novelas",
-    colecao:"A Força do Querer",
-    tipo:"Novela",
-    poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/A%20Forca%20do%20Querer.png",
-    banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20A%20Forca%20do%20Querer.png",
-    sinopse:"A trama acompanha Bibi, Caio, Rubinho, Jeiza, Ritinha, Zeca e outros personagens cujas histórias se cruzam em meio a relacionamentos, conflitos familiares, tráfico de drogas, vício em jogos e questões de identidade de gênero. Bibi abandona seus planos de uma vida tranquila ao lado de Rubinho e acaba entrando no mundo do crime, enquanto Caio retorna ao Brasil anos depois e reencontra a antiga paixão.",
-    totalEpisodios:172,
-    baseVideo:"https://23rzv4udpdbv8t6.cdn-novflix.com/storage5/AFDQ/AFDQ-",
-    dublado:true,
-    legendado:false,
-    novo:false
-},
-
-{
-    id:84,
-    nome:"A Dona do Pedaço",
-    tipo:"Novela",
-    categoria:"Novelas",
-    colecao:"A Dona do Pedaço",
-    subcategoria:"Drama",
-    ano:2019,
-    nota:7.0,
-    duracao:"161 capítulos",
-    genero:["Drama","Romance"],
-    idioma:"🇧🇷 Dublado",
-    qualidade:"1080P",
-    classificacao:"14 anos",
-    poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/A%20Dona%20do%20Pedaco.png",
-    banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20A%20Dona%20do%20Pedaco.png",
-    baseVideo:"https://23rzv4udpdbv8t6.cdn-novflix.com/storage7/ADP/ADP-",
-    totalEpisodios:161,
-    dublado:true,
-    legendado:false,
-    novo:false,
-    sinopse:"Maria da Paz, criada em uma família de justiceiros no Espírito Santo, se apaixona por Amadeu, membro de uma família rival. Após uma tragédia no dia do casamento, ela foge para São Paulo, onde constrói uma fortuna com suas confeitarias. Anos depois, precisa enfrentar as armações da própria filha, Josiane."
-},
-
-{
-    id:85,
+    id:78,
     nome: "Mestres do Universo",
     tipo: "Filme",
     categoria: "Filmes",
@@ -1583,300 +1430,7 @@ const catalogo = [
 },
 
 {
-    id: 86,
-    nome: "Round 6",
-    tipo: "Série",
-    categoria: "Séries",
-    colecao: "Round 6",
-    subcategoria: "Suspense",
-    ano: 2021,
-    duracao: "3 temporadas",
-    genero: ["Suspense", "Drama", "Sobrevivência"],
-    idioma: "🇰🇷 Coreano",
-    qualidade: "1080P",
-    classificacao: "18 anos",
-    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/round%206.png",
-    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20round%206.png",
-    trailer: "https://youtu.be/dtXsgpZOUkg?si=xcE5Zw5QZM7ihIJX",
-    nota: 8.0,
-    sinopse: "Centenas de jogadores endividados aceitam um estranho convite para participar de jogos misteriosos. Um prêmio milionário está em jogo, mas as consequências são fatais.",
-    temporadas: [
-        {
-            numero: 1,
-            episodios: [
-                {
-                    numero: 1,
-                    nome: "Batatinha frita 1, 2, 3",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x01.mp4"
-                },
-                {
-                    numero: 2,
-                    nome: "Inferno",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x02.mp4"
-                },
-                {
-                    numero: 3,
-                    nome: "O homem do guarda-chuva",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x03.mp4"
-                },
-                {
-                    numero: 4,
-                    nome: "Fiquem juntos",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x04.mp4"
-                },
-                {
-                    numero: 5,
-                    nome: "Um mundo justo",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x05.mp4"
-                },
-                {
-                    numero: 6,
-                    nome: "Gganbu",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x06.mp4"
-                },
-                {
-                    numero: 7,
-                    nome: "VIPs",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x07.mp4"
-                },
-                {
-                    numero: 8,
-                    nome: "O líder",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x08.mp4"
-                },
-                {
-                    numero: 9,
-                    nome: "Um dia de sorte",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
-                },
-            ]
-        },
-        {
-            numero: 2,
-            episodios: [
-                {
-                    numero: 1,
-                    nome: "Pão e loteria",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
-                },
-                {
-                    numero: 2,
-                    nome: "Festa de Halloween",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
-                },
-                {
-                    numero: 3,
-                    nome: "001",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
-                },
-                {
-                    numero: 4,
-                    nome: "Seis pernas",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
-                },
-                {
-                    numero: 5,
-                    nome: "Mais um jogo",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
-                },
-                {
-                    numero: 6,
-                    nome: "O X",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
-                },
-                {
-                    numero: 7,
-                    nome: "Amigos ou inimigos?",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND61x09.mp4"
-                },
-            ]
-        },
-        {
-            numero: 3,
-            episodios: [
-                {
-                    numero: 1,
-                    nome: "Chaves e facas",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x01.mp4"
-                },
-                {
-                    numero: 2,
-                    nome: "Noite estrelada",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x02.mp4"
-                },
-                {
-                    numero: 3,
-                    nome: "Não é culpa sua",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x03.mp4"
-                },
-                {
-                    numero: 4,
-                    nome: "222",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x04.mp4"
-                },
-                {
-                    numero: 5,
-                    nome: "○△□",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x05.mp4"
-                },
-                {
-                    numero: 6,
-                    nome: "Humanos",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/ROUND6/ROUND63x06.mp4"
-                },
-            ]
-        }
-    ]
-},
-
-{
-    id: 87,
-    nome: "Sandman",
-    tipo: "Série",
-    categoria: "Séries",
-    colecao: "Sandman",
-    subcategoria: "Fantasia",
-    ano: 2022,
-    duracao: "2 temporadas",
-    genero: ["Fantasia", "Drama", "Suspense"],
-    idioma: "🇺🇸 Inglês",
-    qualidade: "1080P",
-    classificacao: "18 anos",
-    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Sandman.png",
-    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Sandman.png",
-    nota: 7.7,
-    sinopse: "Após anos aprisionado, Morpheus, o Rei dos Sonhos, embarca em uma jornada entre mundos para recuperar o que lhe foi roubado e restaurar seu poder.",
-    temporadas: [
-        {
-            numero: 1,
-            episodios: [
-                {
-                    numero: 1,
-                    nome: "O sono dos justos",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x01.mp4"
-                },
-                {
-                    numero: 2,
-                    nome: "Anfitriões imperfeitos",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x02.mp4"
-                },
-                {
-                    numero: 3,
-                    nome: "Sonhe comigo",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x02.mp4"
-                },
-                {
-                    numero: 4,
-                    nome: "Uma esperança no inferno",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x03.mp4"
-                },
-                {
-                    numero: 5,
-                    nome: "Sem parar",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x04.mp4"
-                },
-                {
-                    numero: 6,
-                    nome: "O som de suas asas",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x05.mp4"
-                },
-                {
-                    numero: 7,
-                    nome: "Casa de bonecas",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x06.mp4"
-                },
-                {
-                    numero: 8,
-                    nome: "Brincando de casinha",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x07.mp4"
-                },
-                {
-                    numero: 9,
-                    nome: "Colecionadores",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x08.mp4"
-                },
-                {
-                    numero: 10,
-                    nome: "Corações perdidos",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x09.mp4"
-                },
-                {
-                    numero: 11,
-                    nome: "Sonho de Mil Gatos / Calíope",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM1x10.mp4"
-                }
-            ]
-        },
-        {
-            numero: 2,
-            episodios: [
-                {
-                    numero: 1,
-                    nome: "Temporada 2 - Episódio 1",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x01.mp4"
-                },
-                {
-                    numero: 2,
-                    nome: "Temporada 2 - Episódio 2",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x02.mp4"
-                },
-                {
-                    numero: 3,
-                    nome: "Temporada 2 - Episódio 3",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x03.mp4"
-                },
-                {
-                    numero: 4,
-                    nome: "Temporada 2 - Episódio 4",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x04.mp4"
-                },
-                {
-                    numero: 5,
-                    nome: "Temporada 2 - Episódio 5",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x05.mp4"
-                },
-                {
-                    numero: 6,
-                    nome: "Temporada 2 - Episódio 6",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x06.mp4"
-                },
-                {
-                    numero: 7,
-                    nome: "Temporada 2 - Episódio 7",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x07.mp4"
-                },
-                {
-                    numero: 8,
-                    nome: "Temporada 2 - Episódio 8",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x08.mp4"
-                },
-                {
-                    numero: 9,
-                    nome: "Temporada 2 - Episódio 9",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x09.mp4"
-                },
-                {
-                    numero: 10,
-                    nome: "Temporada 2 - Episódio 10",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x10.mp4"
-                },
-                {
-                    numero: 11,
-                    nome: "Temporada 2 - Episódio 11",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x11.mp4"
-                },
-                {
-                    numero: 12,
-                    nome: "Episódio bônus",
-                    video: "https://23rzv4udpdbv8t6.cdn-novflix.com/storagePSN/SERIES/SANDAM/SANDAM2x12.mp4"
-                }
-            ]
-        }
-    ]
-},
-
-{
-    id:88,
+    id:79,
     nome: "Supergirl",
     tipo: "Filme",
     categoria: "Filmes",
@@ -1899,7 +1453,7 @@ const catalogo = [
 },
 
 {
-    id: 89,
+    id: 80,
     nome: "Piratas do Caribe: O Baú da Morte",
     tipo: "Filme",
     categoria: "Filmes",
@@ -1920,107 +1474,7 @@ const catalogo = [
 },
 
 {
-    id: 90,
-    nome: "Era Uma Vez...",
-    tipo: "Novela",
-    categoria: "Novelas",
-    colecao: "Era Uma Vez...",
-    subcategoria: "Romance",
-    ano: 1998,
-    duracao: "160 capítulos",
-    genero: [ "Romance", "Drama" ],
-    idioma: "🇧🇷 Português",
-    qualidade: "1080P",
-    classificacao: "Livre",
-    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Era%20Uma%20Vez.png",
-    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Era%20Uma%20Vez.png",
-    nota: 7.2,
-    trailer: "",
-    baseVideo: "https://23rzv4udpdbv8t6.cdn-novflix.com/storage4/EUV/EUVzJ8ZbkUekz24eeeVxdBUi",
-    totalEpisodios: 160,
-    dublado: false,
-    legendado: false,
-    novo: false,
-    sinopse: "Na fictícia Nova Esperança, o viúvo Álvaro vive com seus filhos e se envolve com Bruna, mas sua vida muda com a chegada de Madalena, uma doce governanta que passa a trabalhar na casa de Xistus. A chegada de Madalena movimenta os relacionamentos e desperta uma nova paixão em Álvaro."
-},
-
-{
-    id: 91,
-    nome: "Império",
-    tipo: "Novela",
-    categoria: "Novelas",
-    colecao: "Império",
-    subcategoria: "Drama",
-    ano: 2014,
-    duracao: "203 capítulos",
-    genero: [ "Drama", "Romance", "Família" ],
-    idioma: "🇧🇷 Português",
-    qualidade: "1080P",
-    classificacao: "14 anos",
-    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/imperio.png",
-    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20imperio.png",
-    nota: 8.1,
-    trailer: "",
-    baseVideo: "https://23rzv4udpdbv8t6.cdn-novflix.com/storage6/IMP/IMP-",
-    totalEpisodios: 203,
-    dublado: false,
-    legendado: false,
-    novo: false,
-    sinopse: "José Alfredo de Medeiros constrói uma grande rede de joalherias e se torna conhecido como o Comendador. Casado com Maria Marta e pai de três filhos, ele precisa lidar com as disputas da família pelo controle de sua fortuna, enquanto antigos segredos e novos conflitos ameaçam seu império."
-},
-
-{
-    id: 92,
-    nome: "Gabriela",
-    tipo: "Novela",
-    categoria: "Novelas",
-    colecao: "Gabriela",
-    subcategoria: "Romance",
-    ano: 2012,
-    duracao: "77 capítulos",
-    genero: [ "Drama", "Romance", "Comédia" ],
-    idioma: "🇧🇷 Português",
-    qualidade: "1080P",
-    classificacao: "16 anos",
-    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/gabriela.png",
-    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20gabriela.png",
-    nota: 8.0,
-    trailer: "",
-    baseVideo: "https://23rzv4udpdbv8t6.cdn-novflix.com/storage7/GAB/GAB-",
-    totalEpisodios: 77,
-    dublado: false,
-    legendado: false,
-    novo: false,
-    sinopse: "Em 1925, Gabriela deixa o sertão castigado pela seca e chega a Ilhéus. No mercado dos retirantes, conhece Nacib, dono do Bar Vesúvio, que lhe oferece trabalho como cozinheira. A chegada de Gabriela transforma a vida de Nacib e movimenta a sociedade de Ilhéus, marcada pelo poder dos coronéis e pelos conflitos entre tradição e mudança."
-},
-
-{
-    id: 93,
-    nome: "Chocolate com Pimenta",
-    tipo: "Novela",
-    categoria: "Novelas",
-    colecao: "Chocolate com Pimenta",
-    subcategoria: "Comédia Romântica",
-    ano: 2003,
-    duracao: "209 capítulos",
-    genero: [ "Comédia", "Romance", "Drama" ],
-    idioma: "🇧🇷 Português",
-    qualidade: "1080P",
-    classificacao: "Livre",
-    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Chocolate%20com%20Pimenta.png",
-    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Chocolate%20com%20Pimenta.png",
-    nota: 8.0,
-    trailer: "",
-    baseVideo: "https://23rzv4udpdbv8t6.cdn-novflix.com/storage5/CCP/CCP-",
-    totalEpisodios: 209,
-    dublado: false,
-    legendado: false,
-    novo: false,
-    sinopse: "Ana Francisca, uma jovem humilde, perde o pai e vai morar com parentes na pequena cidade de Ventura. Lá, ela conhece Danilo e os dois se apaixonam, mas as armações de Olga e Bárbara acabam separando o casal. Anos depois, rica e transformada, Ana retorna a Ventura decidida a se vingar de todos que a humilharam.",
-},
-
-{
-    id: 94,
+    id: 81,
     nome: "Avatar",
     tipo: "Filme",
     categoria: "Filmes",
@@ -2041,7 +1495,7 @@ const catalogo = [
 },
 
 {
-    id: 95,
+    id: 82,
     nome: "Avatar: O Caminho da Água",
     tipo: "Filme",
     categoria: "Filmes",
@@ -2060,4 +1514,110 @@ const catalogo = [
     video: "https://screenapp.io/app/api/public/files/t5EEOqTvfaqilw_ZhZ7dIquX",
     sinopse: "Mais de uma década após os acontecimentos do primeiro filme, Jake Sully e Neytiri vivem em Pandora com seus filhos. Quando uma antiga ameaça retorna, a família precisa deixar seu lar e buscar refúgio entre um novo povo Na'vi, enquanto enfrenta perigos nos oceanos de Pandora."
 },
+
+{
+    id: 83,
+    nome: "Truque de Mestre",
+    tipo: "Filme",
+    categoria: "Filmes",
+    colecao: "Truque de Mestre",
+    subcategoria: "Suspense",
+    ano: 2013,
+    duracao: "2h 05min",
+    genero: ["Suspense", "Crime", "Mistério"],
+    idioma: "🇺🇸 Inglês",
+    qualidade: "1080P",
+    classificacao: "12 anos",
+    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/truque%20de%20mestre.png",
+    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20truque%20de%20mestre.png",
+    nota: 7.2,
+    trailer: "",
+    video: "https://screenapp.io/app/api/public/files/aUL-bmQOZwm3lv-VVKfkLMbt",
+    sinopse: "Um grupo de ilusionistas conhecido como Os Quatro Cavaleiros realiza espetáculos impressionantes enquanto também executa ousados assaltos a bancos. Um agente do FBI e uma detetive da Interpol tentam descobrir como os mágicos conseguem realizar seus crimes e desvendar o verdadeiro segredo por trás dos truques."
+},
+
+{
+    id: 84,
+    nome: "Truque de Mestre: O 2º Ato",
+    tipo: "Filme",
+    categoria: "Filmes",
+    colecao: "Truque de Mestre",
+    subcategoria: "Suspense",
+    ano: 2016,
+    duracao: "2h 09min",
+    genero: ["Ação", "Aventura", "Comédia", "Crime", "Mistério", "Suspense"],
+    idioma: "🇺🇸 Inglês",
+    qualidade: "1080P",
+    classificacao: "12 anos",
+    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/truque%20de%20mestre%20o%202o%20ato.png",
+    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20truque%20de%20mestre%20o%202o%20ato.png",
+    nota: 6.4,
+    trailer: "",
+    video: "https://screenapp.io/app/api/public/files/rtlHr6GTp3J8nciIywSUMR5p",
+    sinopse: "Um ano após despistar o FBI, os Quatro Cavaleiros retornam para realizar um novo espetáculo. O plano envolve expor as práticas de um poderoso magnata da tecnologia, mas a apresentação é interrompida e o grupo acaba sendo levado para uma missão envolvendo um misterioso gênio da tecnologia."
+},
+
+{
+    id: 85,
+    nome: "Enola Holmes",
+    tipo: "Filme",
+    categoria: "Filmes",
+    colecao: "Enola Holmes",
+    subcategoria: "Mistério",
+    ano: 2020,
+    duracao: "2h 03min",
+    genero: ["Mistério", "Aventura", "Ação", "Crime", "Drama"],
+    idioma: "🇺🇸 Inglês",
+    qualidade: "1080P",
+    classificacao: "12 anos",
+    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Enola%20Holmes.png",
+    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Enola%20Holmes%20645645756.png",
+    nota: 6.7,
+    trailer: "https://youtu.be/rcV1I-397Wg?si=k4I5MSSv-62DHX6L",
+    video: "https://screenapp.io/app/api/public/files/5frYiQlkmTu_-Z6Nrygd1qL6",
+    sinopse: "Quando sua mãe desaparece misteriosamente no aniversário de 16 anos, Enola Holmes parte em uma aventura para encontrá-la. Enquanto foge dos planos de seus irmãos Sherlock e Mycroft, ela acaba envolvida na busca por um jovem lorde fugitivo e descobre uma conspiração que pode mudar o futuro do país."
+},
+
+{
+    id: 86,
+    nome: "Enola Holmes 2",
+    tipo: "Filme",
+    categoria: "Filmes",
+    colecao: "Enola Holmes",
+    subcategoria: "Mistério",
+    ano: 2022,
+    duracao: "2h 09min",
+    genero: ["Mistério", "Aventura", "Ação", "Crime", "Drama"],
+    idioma: "🇺🇸 Inglês",
+    qualidade: "1080P",
+    classificacao: "14 anos",
+    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/enola%20holmes%202.png",
+    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20enola%20holmes%202.png",
+    nota: 6.8,
+    trailer: "https://www.youtube.com/watch?v=3t0F8Dg3Fvw",
+    video: "https://screenapp.io/app/api/public/files/0kExCBR2yMEzvQ0GbpOoSxKn",
+    sinopse: "Em seu primeiro caso oficial como detetive, Enola Holmes é contratada para encontrar uma menina desaparecida. A investigação logo revela uma conspiração muito maior, levando Enola a percorrer as ruas de Londres e a contar com a ajuda de seus amigos e de seu irmão, Sherlock Holmes."
+},
+
+{
+    id: 87,
+    nome: "Enola Holmes 3",
+    tipo: "Filme",
+    categoria: "Filmes",
+    colecao: "Enola Holmes",
+    subcategoria: "Mistério",
+    ano: 2026,
+    duracao: "1h 45min",
+    genero: ["Mistério", "Aventura", "Ação", "Drama"],
+    idioma: "🇺🇸 Inglês",
+    qualidade: "1080P",
+    classificacao: "14 anos",
+    poster: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/enola%20holmes%203.png",
+    banner: "https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20enola%20holmes%203.png",
+    nota: 7.0,
+    trailer: "https://www.youtube.com/watch?v=n_pEJjq-9xQ",
+    video: "https://screenapp.io/app/api/public/files/ylu7iHxLJWqduqeoI6PmUINE",
+    sinopse: "A detetive Enola Holmes viaja para Malta, onde seus planos de se casar com Lorde Tewkesbury são interrompidos quando seu irmão Sherlock desaparece. Enquanto procura por ele, Enola se envolve em um novo e perigoso mistério, repleto de pistas, conspirações e segredos."
+},
+
 ];

@@ -1,7 +1,3 @@
-/*=========================================
-        FAVORITOS PAGE
-=========================================*/
-
 const listaFavoritos =
     document.getElementById("listaFavoritos");
 
@@ -15,32 +11,20 @@ const limpar =
     document.getElementById("limparFavoritos");
 
 
-/*=========================================
-        DESCOBRIR PÁGINA DO ITEM
-=========================================*/
-
 function paginaDoFavorito(filme){
 
     if(filme.tipo === "Novela"){
-
         return `pages/novela.html?id=${filme.id}`;
-
     }
 
     if(filme.tipo === "Série"){
-
         return `pages/serie.html?id=${filme.id}`;
-
     }
 
     return `pages/filme.html?id=${filme.id}`;
 
 }
 
-
-/*=========================================
-        CARREGAR FAVORITOS
-=========================================*/
 
 function carregarPaginaFavoritos(filtro = ""){
 
@@ -49,47 +33,38 @@ function carregarPaginaFavoritos(filtro = ""){
     listaFavoritos.innerHTML = "";
 
     const favoritosSalvos =
-        JSON.parse(
-            localStorage.getItem("favoritos")
-        ) || [];
-
+        typeof obterFavoritos === "function"
+            ? obterFavoritos()
+            : [];
 
     const filmes = catalogo.filter(filme => {
 
         const salvo =
-            favoritosSalvos.includes(filme.id);
+            favoritosSalvos.some(item =>
+                Number(item.id) === Number(filme.id)
+            );
 
         const pesquisaOk =
             filme.nome
-            .toLowerCase()
-            .includes(
-                filtro.toLowerCase()
-            );
+                .toLowerCase()
+                .includes(filtro.toLowerCase());
 
         return salvo && pesquisaOk;
 
     });
 
 
-    /* CONTADOR */
-
     if(typeof atualizarContadorFavoritos === "function"){
-
         atualizarContadorFavoritos();
-
     }
 
-
-    /* NENHUM FAVORITO */
 
     if(filmes.length === 0){
 
         listaFavoritos.style.display = "none";
 
         if(vazio){
-
             vazio.style.display = "block";
-
         }
 
         return;
@@ -97,14 +72,10 @@ function carregarPaginaFavoritos(filtro = ""){
     }
 
 
-    /* MOSTRAR LISTA */
-
     listaFavoritos.style.display = "grid";
 
     if(vazio){
-
         vazio.style.display = "none";
-
     }
 
 
@@ -112,7 +83,6 @@ function carregarPaginaFavoritos(filtro = ""){
 
         const pagina =
             paginaDoFavorito(filme);
-
 
         const card =
             document.createElement("div");
@@ -134,18 +104,15 @@ function carregarPaginaFavoritos(filtro = ""){
 
             </a>
 
-
             <div class="infoFavorito">
 
                 <h3>
                     ${filme.nome}
                 </h3>
 
-
                 <p>
                     ${filme.ano} • ${filme.tipo}
                 </p>
-
 
                 <div class="acoesFavorito">
 
@@ -156,7 +123,6 @@ function carregarPaginaFavoritos(filtro = ""){
                         ▶ Assistir
 
                     </button>
-
 
                     <button
                         class="btnRemover"
@@ -173,8 +139,6 @@ function carregarPaginaFavoritos(filtro = ""){
         `;
 
 
-        /* BOTÃO ASSISTIR */
-
         const btnAssistir =
             card.querySelector(".btnAssistir");
 
@@ -189,8 +153,6 @@ function carregarPaginaFavoritos(filtro = ""){
         );
 
 
-        /* BOTÃO REMOVER */
-
         const btnRemover =
             card.querySelector(".btnRemover");
 
@@ -199,7 +161,6 @@ function carregarPaginaFavoritos(filtro = ""){
             (e) => {
 
                 e.preventDefault();
-
                 e.stopPropagation();
 
                 removerFavoritoPagina(
@@ -217,47 +178,13 @@ function carregarPaginaFavoritos(filtro = ""){
 }
 
 
-/*=========================================
-        REMOVER FAVORITO
-=========================================*/
-
 function removerFavoritoPagina(id){
 
-    if(typeof favoritos !== "undefined"){
+    if(typeof removerFavorito === "function"){
 
-        favoritos =
-            favoritos.filter(
-                f => Number(f) !== Number(id)
-            );
-
-    }else{
-
-        favoritos =
-            JSON.parse(
-                localStorage.getItem("favoritos")
-            ) || [];
-
-        favoritos =
-            favoritos.filter(
-                f => Number(f) !== Number(id)
-            );
+        removerFavorito(id);
 
     }
-
-
-    if(typeof salvarFavoritos === "function"){
-
-        salvarFavoritos();
-
-    }else{
-
-        localStorage.setItem(
-            "favoritos",
-            JSON.stringify(favoritos)
-        );
-
-    }
-
 
     carregarPaginaFavoritos(
         pesquisa ? pesquisa.value : ""
@@ -265,10 +192,6 @@ function removerFavoritoPagina(id){
 
 }
 
-
-/*=========================================
-        PESQUISA
-=========================================*/
 
 if(pesquisa){
 
@@ -286,10 +209,6 @@ if(pesquisa){
 }
 
 
-/*=========================================
-        LIMPAR TODOS
-=========================================*/
-
 if(limpar){
 
     limpar.addEventListener(
@@ -301,26 +220,15 @@ if(limpar){
                     "Deseja remover TODOS os favoritos?"
                 );
 
-
             if(!confirmar) return;
 
-
-            favoritos = [];
-
+            const lista = [];
 
             if(typeof salvarFavoritos === "function"){
 
-                salvarFavoritos();
-
-            }else{
-
-                localStorage.setItem(
-                    "favoritos",
-                    JSON.stringify([])
-                );
+                salvarFavoritos(lista);
 
             }
-
 
             carregarPaginaFavoritos();
 
@@ -329,10 +237,6 @@ if(limpar){
 
 }
 
-
-/*=========================================
-        INICIAR
-=========================================*/
 
 document.addEventListener(
     "DOMContentLoaded",

@@ -2,115 +2,166 @@
             FAVORITOS.JS
 =========================================*/
 
-let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+const CHAVE_FAVORITOS = "cineverse_favoritos";
 
-/*=========================================
-        SALVAR FAVORITOS
-=========================================*/
+function obterFavoritos(){
 
-function salvarFavoritos(){
+    try{
 
-    localStorage.setItem(
-        "favoritos",
-        JSON.stringify(favoritos)
-    );
+        return JSON.parse(
+            localStorage.getItem(CHAVE_FAVORITOS)
+        ) || [];
 
-    atualizarIcones();
+    }catch{
 
-    atualizarContadorFavoritos();
-
-    if(typeof carregarPaginaFavoritos === "function"){
-
-        carregarPaginaFavoritos();
+        return [];
 
     }
 
 }
 
-/*=========================================
-        VERIFICAR FAVORITO
-=========================================*/
+function salvarFavoritos(lista){
+
+    localStorage.setItem(
+        CHAVE_FAVORITOS,
+        JSON.stringify(lista)
+    );
+
+    if(typeof atualizarIcones === "function"){
+        atualizarIcones();
+    }
+
+    if(typeof atualizarContadorFavoritos === "function"){
+        atualizarContadorFavoritos();
+    }
+
+    if(typeof carregarPaginaFavoritos === "function"){
+        carregarPaginaFavoritos();
+    }
+
+}
+
+function isFavorito(id){
+
+    return obterFavoritos().some(item =>
+        Number(item.id) === Number(id)
+    );
+
+}
 
 function favoritoExiste(id){
 
-    return favoritos.includes(id);
+    return isFavorito(id);
 
 }
 
-/*=========================================
-        ADICIONAR / REMOVER
-=========================================*/
+function adicionarFavorito(filme){
 
-function alternarFavorito(id){
+    if(!filme) return;
 
-    if(favoritoExiste(id)){
+    const favoritos = obterFavoritos();
 
-        favoritos = favoritos.filter(f => f != id);
-
-    }else{
-
-        favoritos.push(id);
-
+    if(
+        favoritos.some(item =>
+            Number(item.id) === Number(filme.id)
+        )
+    ){
+        return;
     }
 
-    salvarFavoritos();
+    favoritos.push({
 
-    atualizarIcones();
-
-}
-
-/*=========================================
-        ATUALIZAR ÍCONES
-=========================================*/
-
-function atualizarIcones(){
-
-    document.querySelectorAll(".btnFavorito").forEach(botao=>{
-
-        const id = Number(botao.dataset.id);
-
-        if(favoritoExiste(id)){
-
-            botao.classList.add("ativo");
-
-            botao.innerHTML = "❤️";
-
-        }else{
-
-            botao.classList.remove("ativo");
-
-            botao.innerHTML = "🤍";
-
-        }
+        id: filme.id,
+        nome: filme.nome || "",
+        tipo: filme.tipo || "",
+        categoria: filme.categoria || "",
+        poster: filme.poster || "",
+        ano: filme.ano || "",
+        nota: filme.nota || 0
 
     });
 
+    salvarFavoritos(favoritos);
+
 }
 
-/*=========================================
-        QUANTIDADE
-=========================================*/
+function removerFavorito(id){
 
-function atualizarContadorFavoritos(){
+    const favoritos =
+        obterFavoritos().filter(item =>
+            Number(item.id) !== Number(id)
+        );
 
-    const contador = document.getElementById("contadorFavoritos");
+    salvarFavoritos(favoritos);
 
-    if(contador){
+}
 
-        contador.textContent = favoritos.length;
+function alternarFavorito(filme){
+
+    if(!filme) return;
+
+    if(isFavorito(filme.id)){
+
+        removerFavorito(filme.id);
+
+    }else{
+
+        adicionarFavorito(filme);
 
     }
 
 }
 
-/*=========================================
-        INICIAR
-=========================================*/
+function listarFavoritos(){
 
-document.addEventListener("DOMContentLoaded",()=>{
+    return obterFavoritos();
 
-    atualizarIcones();
+}
 
-    atualizarContadorFavoritos();
+function atualizarIcones(){
 
-});
+    document
+        .querySelectorAll(".btnFavorito")
+        .forEach(botao => {
+
+            const id = Number(botao.dataset.id);
+
+            if(isFavorito(id)){
+
+                botao.classList.add("ativo");
+                botao.innerHTML = "❤️";
+
+            }else{
+
+                botao.classList.remove("ativo");
+                botao.innerHTML = "🤍";
+
+            }
+
+        });
+
+}
+
+function atualizarContadorFavoritos(){
+
+    const contador =
+        document.getElementById("contadorFavoritos");
+
+    if(contador){
+
+        contador.textContent =
+            obterFavoritos().length;
+
+    }
+
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        atualizarIcones();
+        atualizarContadorFavoritos();
+
+    }
+);

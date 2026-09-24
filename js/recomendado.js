@@ -25,7 +25,7 @@ function carregarRecomendadoUsuario(){
     historico.forEach(item => {
 
         const filmeAssistido = catalogo.find(
-            f => f.id === item.id
+            f => Number(f.id) === Number(item.id)
         );
 
         if(!filmeAssistido) return;
@@ -36,7 +36,7 @@ function carregarRecomendadoUsuario(){
 
         catalogo.forEach(filme => {
 
-            if(filme.id === filmeAssistido.id){
+            if(Number(filme.id) === Number(filmeAssistido.id)){
                 return;
             }
 

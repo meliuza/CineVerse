@@ -1,0 +1,427 @@
+/* =========================================================
+   CINEVERSE — NETFLIX SLIDERS
+   ========================================================= */
+
+
+/* =========================================================
+   ÁREA DA CATEGORIA
+   ========================================================= */
+
+.categoria {
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 42px;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   TÍTULO DA CATEGORIA
+   ========================================================= */
+
+.tituloCategoria {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+
+    position: relative;
+    z-index: 5;
+}
+
+.tituloCategoria h2 {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   ÁREA DOS FILMES
+   ========================================================= */
+
+.listaFilmes {
+    position: relative;
+
+    display: flex;
+
+    gap: 8px;
+
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: visible;
+
+    padding: 8px 4px 18px;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.listaFilmes::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   ESPAÇO LATERAL
+   ========================================================= */
+
+.listaFilmes::before,
+.listaFilmes::after {
+    content: "";
+
+    flex: 0 0 0;
+}
+
+
+/* =========================================================
+   SETAS DO SLIDER
+   ========================================================= */
+
+.categoria {
+    --seta-tamanho: 42px;
+}
+
+.categoria .slider-prev,
+.categoria .slider-next {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 30;
+
+    width: var(--seta-tamanho);
+    height: var(--seta-tamanho);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(20, 20, 20, 0.85);
+
+    color: #fff;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transform: translateY(-35%);
+
+    transition:
+        opacity 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.categoria:hover .slider-prev,
+.categoria:hover .slider-next {
+    opacity: 1;
+}
+
+.categoria .slider-prev:hover,
+.categoria .slider-next:hover {
+    background: rgba(255, 255, 255, 0.95);
+
+    color: #111;
+
+    transform: translateY(-35%) scale(1.08);
+}
+
+.categoria .slider-prev {
+    left: -5px;
+}
+
+.categoria .slider-next {
+    right: -5px;
+}
+
+
+/* =========================================================
+   INDICADOR QUANDO NÃO HÁ SCROLL
+   ========================================================= */
+
+.categoria .slider-prev[disabled],
+.categoria .slider-next[disabled] {
+    display: none;
+}
+
+
+/* =========================================================
+   SOMBRA LATERAL
+   ========================================================= */
+
+.categoria::before,
+.categoria::after {
+    content: "";
+
+    position: absolute;
+
+    top: 42px;
+    bottom: 0;
+
+    width: 70px;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+.categoria::before {
+    left: 0;
+
+    background: linear-gradient(
+        to right,
+        #000,
+        transparent
+    );
+}
+
+.categoria::after {
+    right: 0;
+
+    background: linear-gradient(
+        to left,
+        #000,
+        transparent
+    );
+}
+
+
+/* =========================================================
+   HOVER NA CATEGORIA
+   ========================================================= */
+
+.categoria:hover::before,
+.categoria:hover::after {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   CARDS DENTRO DO SLIDER
+   ========================================================= */
+
+.listaFilmes .cardFilme {
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   ESPAÇO PARA O ZOOM DOS CARDS
+   ========================================================= */
+
+.listaFilmes {
+    padding-top: 12px;
+    padding-bottom: 25px;
+}
+
+.listaFilmes .cardFilme:hover {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+
+/* =========================================================
+   SCROLLBAR DE SEGURANÇA
+   ========================================================= */
+
+.listaFilmes {
+    scrollbar-color: transparent transparent;
+}
+
+
+/* =========================================================
+   SEÇÕES ESPECIAIS
+   ========================================================= */
+
+#continuarAssistindo,
+#recomendados,
+#recomendadoUsuario,
+#emAlta,
+#novelas,
+#filmes,
+#series,
+#infantil {
+    min-height: 20px;
+}
+
+
+/* =========================================================
+   CONTINUAR ASSISTINDO
+   ========================================================= */
+
+#continuarAssistindo .cardFilme {
+    width: 250px;
+
+    aspect-ratio: 16 / 9;
+}
+
+#continuarAssistindo .cardFilme img {
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   RECOMENDAÇÕES
+   ========================================================= */
+
+#recomendados .cardFilme,
+#recomendadoUsuario .cardFilme {
+    width: 180px;
+}
+
+
+/* =========================================================
+   EFEITO DE ENTRADA DOS CARDS
+   ========================================================= */
+
+.listaFilmes .cardFilme {
+    animation: aparecerCard 0.35s ease both;
+}
+
+@keyframes aparecerCard {
+    from {
+        opacity: 0;
+
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ATRASO PROGRESSIVO
+   ========================================================= */
+
+.listaFilmes .cardFilme:nth-child(2) {
+    animation-delay: 0.03s;
+}
+
+.listaFilmes .cardFilme:nth-child(3) {
+    animation-delay: 0.06s;
+}
+
+.listaFilmes .cardFilme:nth-child(4) {
+    animation-delay: 0.09s;
+}
+
+.listaFilmes .cardFilme:nth-child(5) {
+    animation-delay: 0.12s;
+}
+
+.listaFilmes .cardFilme:nth-child(6) {
+    animation-delay: 0.15s;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .categoria {
+        margin-bottom: 32px;
+    }
+
+    .tituloCategoria {
+        margin-bottom: 10px;
+    }
+
+    .tituloCategoria h2 {
+        font-size: 19px;
+    }
+
+    .categoria .slider-prev,
+    .categoria .slider-next {
+        display: none;
+    }
+
+    .categoria::before,
+    .categoria::after {
+        display: none;
+    }
+
+    .listaFilmes {
+        gap: 7px;
+
+        padding-top: 8px;
+        padding-bottom: 15px;
+    }
+
+    #continuarAssistindo .cardFilme {
+        width: 220px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .categoria {
+        margin-bottom: 26px;
+    }
+
+    .tituloCategoria h2 {
+        font-size: 17px;
+    }
+
+    .listaFilmes {
+        gap: 6px;
+
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    #continuarAssistindo .cardFilme {
+        width: 200px;
+    }
+
+    #recomendados .cardFilme,
+    #recomendadoUsuario .cardFilme {
+        width: 135px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .tituloCategoria h2 {
+        font-size: 16px;
+    }
+
+    #continuarAssistindo .cardFilme {
+        width: 180px;
+    }
+
+}

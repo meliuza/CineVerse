@@ -1,0 +1,360 @@
+/* =========================================================
+   CINEVERSE — NETFLIX CARDS
+   ========================================================= */
+
+
+/* =========================================================
+   ÁREA DOS CARDS
+   ========================================================= */
+
+.cardFilme {
+    position: relative;
+    display: block;
+
+    flex: 0 0 auto;
+
+    width: 180px;
+    aspect-ratio: 2 / 3;
+
+    border-radius: 4px;
+    overflow: hidden;
+
+    background: #181818;
+
+    text-decoration: none;
+    color: white;
+
+    cursor: pointer;
+
+    transform: scale(1);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        z-index 0.25s ease;
+}
+
+
+/* =========================================================
+   IMAGEM
+   ========================================================= */
+
+.cardFilme img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.cardFilme:hover {
+    z-index: 20;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.75);
+}
+
+.cardFilme:hover img {
+    transform: scale(1.04);
+
+    filter: brightness(0.72);
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DO CARD
+   ========================================================= */
+
+.cardInfo {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 45px 12px 12px;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95),
+        rgba(0, 0, 0, 0.75),
+        transparent
+    );
+
+    opacity: 0;
+
+    transform: translateY(8px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.cardFilme:hover .cardInfo {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.cardInfo h3 {
+    margin: 0 0 5px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    color: #fff;
+
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+/* =========================================================
+   NOTA
+   ========================================================= */
+
+.cardInfo p {
+    margin: 0;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #ffd700;
+}
+
+
+/* =========================================================
+   BADGE DE TIPO
+   ========================================================= */
+
+.cardFilme::before {
+    content: attr(data-tipo);
+
+    position: absolute;
+
+    top: 8px;
+    left: 8px;
+
+    z-index: 3;
+
+    padding: 4px 7px;
+
+    border-radius: 3px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    color: #fff;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.cardFilme:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   INDICADOR DE CONTEÚDO DISPONÍVEL
+   ========================================================= */
+
+.cardFilme::after {
+    content: "▶";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transform: translate(-50%, -50%) scale(0.75);
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: #111;
+
+    font-size: 15px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.cardFilme:hover::after {
+    opacity: 1;
+
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+/* =========================================================
+   CARDS SEM IMAGEM
+   ========================================================= */
+
+.cardFilme img[src*="sem-poster"] {
+    object-fit: contain;
+
+    padding: 20px;
+
+    background: #202020;
+}
+
+
+/* =========================================================
+   EFEITO DE CARREGAMENTO
+   ========================================================= */
+
+.cardFilme img {
+    background: linear-gradient(
+        110deg,
+        #181818 8%,
+        #242424 18%,
+        #181818 33%
+    );
+
+    background-size: 200% 100%;
+}
+
+
+/* =========================================================
+   FOCO — TECLADO
+   ========================================================= */
+
+.cardFilme:focus-visible {
+    outline: 3px solid #fff;
+
+    outline-offset: 3px;
+
+    transform: scale(1.05);
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   CARD ATIVO
+   ========================================================= */
+
+.cardFilme.ativo {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 0 2px #fff,
+        0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .cardFilme {
+        width: 165px;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .cardFilme {
+        width: 150px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .cardFilme {
+        width: 135px;
+
+        border-radius: 3px;
+    }
+
+    .cardFilme:hover {
+        transform: scale(1.04);
+    }
+
+    .cardInfo {
+        padding: 35px 8px 8px;
+
+        opacity: 1;
+
+        transform: none;
+    }
+
+    .cardInfo h3 {
+        font-size: 12px;
+    }
+
+    .cardInfo p {
+        font-size: 11px;
+    }
+
+    .cardFilme::before {
+        display: none;
+    }
+
+    .cardFilme::after {
+        width: 34px;
+        height: 34px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .cardFilme {
+        width: 120px;
+    }
+
+}

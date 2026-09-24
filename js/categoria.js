@@ -119,86 +119,77 @@ function temVideo(item){
 
 function filtrarCategoria(){
 
+    const normalizar = texto =>
+        String(texto || "")
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/\+/g, " ")
+            .trim()
+            .toLowerCase();
 
-    /*---------------------------------------
-        FILTRAR POR CATEGORIA
-    ---------------------------------------*/
+    const busca = normalizar(categoria);
 
-    if(categoria === "Filmes"){
+    if(busca === "em alta"){
 
-        lista =
-            catalogo.filter(
-                item => item.tipo === "Filme"
-            );
-
-    }
-
-
-    else if(categoria === "Séries"){
-
-        lista =
-            catalogo.filter(
-                item => item.tipo === "Série"
-            );
+        lista = catalogo.filter(item =>
+            item.novo === true
+        );
 
     }
+    else if(busca === "filmes"){
 
-
-    else if(categoria === "Novelas"){
-
-        lista =
-            catalogo.filter(
-                item => item.tipo === "Novela"
-            );
+        lista = catalogo.filter(item =>
+            normalizar(item.tipo) === "filme"
+        );
 
     }
+    else if(busca === "series"){
 
+        lista = catalogo.filter(item =>
+            normalizar(item.tipo) === "serie"
+        );
 
+    }
+    else if(busca === "novelas"){
+
+        lista = catalogo.filter(item =>
+            normalizar(item.tipo) === "novela"
+        );
+
+    }
     else{
 
-        lista =
-            catalogo.filter(item =>
+        lista = catalogo.filter(item => {
 
-                item.colecao === categoria ||
+            const colecao = normalizar(item.colecao);
+            const categoriaItem = normalizar(item.categoria);
+            const nome = normalizar(item.nome);
 
-                item.categoria === categoria ||
+            const generos = Array.isArray(item.genero)
+                ? item.genero.map(g => normalizar(g))
+                : [];
 
-                (
-                    item.genero &&
-                    item.genero.includes(categoria)
-                )
-
+            return (
+                colecao === busca ||
+                categoriaItem === busca ||
+                generos.includes(busca) ||
+                nome === busca
             );
+
+        });
 
     }
 
+    lista = lista.filter(item => temVideo(item));
 
-    /*---------------------------------------
-        REMOVER SEM VÍDEO
-    ---------------------------------------*/
-
-    lista =
-        lista.filter(item => temVideo(item));
-
-
-    /*---------------------------------------
-        MAIS NOVOS PRIMEIRO
-    ---------------------------------------*/
-
-    lista.sort((a,b) =>
-
-        Number(b.ano || 0) -
-        Number(a.ano || 0)
-
+    lista.sort((a, b) =>
+        Number(b.ano || 0) - Number(a.ano || 0)
     );
 
-
     atualizarQuantidade();
-
     desenhar();
 
 }
-
 
 /*=========================================
         QUANTIDADE
@@ -247,18 +238,12 @@ function desenhar(){
 
         let pagina = "filme.html";
 
-
         if(item.tipo === "Novela"){
-
             pagina = "novela.html";
-
         }
 
-
         if(item.tipo === "Série"){
-
             pagina = "serie.html";
-
         }
 
 
@@ -280,7 +265,7 @@ function desenhar(){
 
             <img
 
-                src="${item.poster || "img/sem-poster.png"}"
+                src="${item.poster || "../img/sem-poster.png"}"
 
                 alt="${item.nome}"
 
@@ -320,35 +305,20 @@ ativarPopupCategoria();
 
 function ativarPopupCategoria(){
 
-    const cards = document.querySelectorAll(
-        ".cardFilme[data-filme-id]"
-    );
+    document.querySelectorAll(".cardFilme").forEach(card => {
 
-    cards.forEach(card => {
+        card.addEventListener("click", function(e){
 
-        if(card.dataset.popupAtivo === "true"){
-            return;
-        }
+            e.preventDefault();
 
-        card.dataset.popupAtivo = "true";
-
-        card.addEventListener("click", function(event){
-
-            event.preventDefault();
-
-            const id = this.dataset.filmeId;
+            const id = Number(this.dataset.filmeId);
 
             if(typeof abrirPopupDetalhes === "function"){
-
                 abrirPopupDetalhes(id);
-
-            }else{
-
-                console.warn(
-                    "abrirPopupDetalhes() não foi encontrada."
-                );
-
+                return;
             }
+
+            window.location.href = this.href;
 
         });
 

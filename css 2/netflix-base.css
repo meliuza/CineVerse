@@ -1,0 +1,332 @@
+/* =========================================================
+   CINEVERSE — NETFLIX BASE
+   Base visual da nova interface
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HTML / BODY
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+    background: #000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #000;
+    color: #fff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 16px;
+    line-height: 1.5;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+button {
+    font-family: inherit;
+    border: 0;
+    outline: 0;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   IMAGENS
+   ========================================================= */
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   SELEÇÃO DE TEXTO
+   ========================================================= */
+
+::selection {
+    background: #e50914;
+    color: #fff;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+
+main {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0 4%;
+}
+
+
+/* =========================================================
+   SEÇÕES DE CATEGORIA
+   ========================================================= */
+
+.categoria {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 28px 0 10px;
+}
+
+
+/* =========================================================
+   TÍTULO DAS FILEIRAS
+   ========================================================= */
+
+.tituloCategoria {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 12px;
+}
+
+.tituloCategoria h2 {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: 1.35rem;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.02em;
+}
+
+
+/* =========================================================
+   TEXTO SECUNDÁRIO
+   ========================================================= */
+
+.categoria p {
+    color: #b3b3b3;
+}
+
+
+/* =========================================================
+   ESTADO OCULTO
+   ========================================================= */
+
+.oculto {
+    display: none !important;
+}
+
+
+/* =========================================================
+   FADE / TRANSIÇÕES GERAIS
+   ========================================================= */
+
+a,
+button,
+img {
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* =========================================================
+   FOCO PARA TECLADO
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   ÁREA DE CONTEÚDO
+   ========================================================= */
+
+section {
+    position: relative;
+}
+
+
+/* =========================================================
+   CONTAINER PADRÃO
+   ========================================================= */
+
+.container {
+    width: 100%;
+    max-width: 1600px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   TEXTO DE "SEM RESULTADOS"
+   ========================================================= */
+
+.semResultado {
+    width: 100%;
+
+    padding: 60px 20px;
+
+    color: #aaa;
+
+    text-align: center;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    main {
+        padding: 0 3%;
+    }
+
+    .categoria {
+        padding-top: 24px;
+    }
+
+    .tituloCategoria h2 {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    main {
+        padding: 0 4%;
+    }
+
+    .categoria {
+        padding-top: 20px;
+    }
+
+    .tituloCategoria {
+        margin-bottom: 10px;
+    }
+
+    .tituloCategoria h2 {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    main {
+        padding: 0 3%;
+    }
+
+    .tituloCategoria h2 {
+        font-size: 1rem;
+    }
+}
