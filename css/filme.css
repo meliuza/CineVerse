@@ -638,3 +638,270 @@ box-shadow:0 0 25px #E50914;
     transform:scale(1.05);
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   CINEVERSE — CARDS DE RECOMENDADOS / COLEÇÃO
+   Tamanho totalmente padronizado
+===================================================== */
+
+#recomendados,
+#colecao,
+.sliderFilmes {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    padding: 8px 4px 16px;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: thin;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+#recomendados .cardFilme,
+#colecao .cardFilme,
+.sliderFilmes .cardFilme {
+
+    flex: 0 0 145px;
+
+    width: 145px;
+
+    height: 218px;
+
+    min-width: 145px;
+
+    max-width: 145px;
+
+    display: block;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background: #151515;
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+
+    touch-action: manipulation;
+}
+
+
+
+
+/* =====================================================
+   IMAGEM — TAMANHO OBRIGATORIAMENTE IGUAL
+===================================================== */
+
+#recomendados .cardFilme img,
+#colecao .cardFilme img,
+.sliderFilmes .cardFilme img {
+
+    display: block;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    min-width: 100%;
+
+    min-height: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    margin: 0;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   HOVER — DESKTOP
+===================================================== */
+
+@media (hover: hover) {
+
+    #recomendados .cardFilme:hover,
+    #colecao .cardFilme:hover,
+    .sliderFilmes .cardFilme:hover {
+
+        transform: translateY(-5px) scale(1.02);
+
+        box-shadow:
+            0 8px 22px rgba(0,0,0,.45);
+
+        z-index: 5;
+    }
+
+}
+
+
+/* =====================================================
+   TOQUE — SEM EFEITO ESTRANHO
+===================================================== */
+
+@media (hover: none) {
+
+    #recomendados .cardFilme:active,
+    #colecao .cardFilme:active,
+    .sliderFilmes .cardFilme:active {
+
+        transform: scale(.97);
+
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    #recomendados .cardFilme,
+    #colecao .cardFilme,
+    .sliderFilmes .cardFilme {
+
+        flex-basis: 135px;
+
+        width: 135px;
+
+        min-width: 135px;
+
+        max-width: 135px;
+
+        height: 203px;
+
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    #recomendados,
+    #colecao,
+    .sliderFilmes {
+
+        gap: 10px;
+
+        padding-left: 2px;
+
+        padding-right: 2px;
+
+    }
+
+
+    #recomendados .cardFilme,
+    #colecao .cardFilme,
+    .sliderFilmes .cardFilme {
+
+        flex-basis: 115px;
+
+        width: 115px;
+
+        min-width: 115px;
+
+        max-width: 115px;
+
+        height: 173px;
+
+        border-radius: 7px;
+
+    }
+
+
+    #recomendados .cardFilme img,
+    #colecao .cardFilme img,
+    .sliderFilmes .cardFilme img {
+
+        border-radius: 7px;
+
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR PEQUENO
+===================================================== */
+
+@media (max-width: 380px) {
+
+    #recomendados .cardFilme,
+    #colecao .cardFilme,
+    .sliderFilmes .cardFilme {
+
+        flex-basis: 105px;
+
+        width: 105px;
+
+        min-width: 105px;
+
+        max-width: 105px;
+
+        height: 158px;
+
+    }
+
+}
+
