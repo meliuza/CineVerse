@@ -255,50 +255,74 @@ catalogo
     });
 
 /*=========================================
-        COLEÇÃO
+        DA MESMA COLEÇÃO
 =========================================*/
 
-const areaColecao=document.getElementById("colecao");
+const areaColecao =
+    document.getElementById("colecao");
 
-const bloco=document.getElementById("colecaoArea");
+const blocoColecao =
+    document.getElementById("colecaoArea");
 
-if(filme.colecao!=""){
+if(areaColecao && blocoColecao){
 
-    catalogo
+    areaColecao.innerHTML = "";
 
-    // 4. COLEÇÃO — dentro do filtro
+    const nomeColecao =
+        String(filme.colecao || "").trim();
 
-.filter(f =>
-    f.colecao === filme.colecao &&
-    typeof temVideo === "function" &&
-    temVideo(f)
-)
+    if(nomeColecao !== ""){
 
-    .forEach(item=>{
+        const filmesDaColecao =
+            catalogo.filter(item => {
 
-        areaColecao.innerHTML += `
+                if(Number(item.id) === Number(filme.id)){
+                    return false;
+                }
 
-            <a
-                href="filme.html?id=${item.id}"
-                class="cardFilme"
-                data-filme-id="${item.id}"
-            >
+                const colecaoItem =
+                    String(item.colecao || "").trim();
 
-                <img
-                    src="${item.poster || "../img/sem-poster.png"}"
-                    alt="${item.nome}"
-                    onerror="this.src='../img/sem-poster.png'"
+                return colecaoItem === nomeColecao;
+
+            });
+
+        filmesDaColecao.forEach(item => {
+
+            areaColecao.innerHTML += `
+
+                <a
+                    href="filme.html?id=${item.id}"
+                    class="cardFilme"
                 >
 
-            </a>
+                    <img
+                        src="${item.poster || "../img/sem-poster.png"}"
+                        alt="${item.nome}"
+                        loading="lazy"
+                    >
 
-        `;
+                </a>
 
-    });
+            `;
 
-}else{
+        });
 
-    bloco.style.display="none";
+        if(filmesDaColecao.length === 0){
+
+            blocoColecao.style.display = "none";
+
+        }else{
+
+            blocoColecao.style.display = "";
+
+        }
+
+    }else{
+
+        blocoColecao.style.display = "none";
+
+    }
 
 }
 
