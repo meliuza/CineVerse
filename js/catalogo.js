@@ -1777,4 +1777,28 @@ const catalogo = [
     legendado:true,
     novo:true
 },
+
+{
+    id:95,
+    nome:"Missão: Impossível - O Acerto Final",
+    tipo:"Filme",
+    categoria:"Filmes",
+    colecao:"Missão: Impossível",
+    subcategoria:"Ação",
+    ano:2025,
+    duracao:"2h 49min",
+    genero:["Ação","Aventura","Suspense"],
+    idioma:"🇺🇸 Inglês",
+    qualidade:"1080P",
+    classificacao:"14 anos",
+    poster:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/poster/Missao%20Impossivel%20%20O%20Acerto%20Final.png",
+    banner:"https://zwgzxewhpmxyksfripti.supabase.co/storage/v1/object/public/banner/banner%20Missao%20Impossivel%20%20O%20Acerto%20Final.png",
+    nota:7.1,
+    trailer:"https://youtu.be/uo1GEL7pVRk?si=hCsULLlXA7e1VMsh",
+    video:"https://screenapp.io/app/api/public/files/2ts8qgs0AjlKaF7GNuaqeKCH",
+    sinopse:"Ethan Hunt e sua equipe enfrentam uma corrida contra o tempo para encontrar e destruir a Entity, uma poderosa inteligência artificial que ameaça o mundo. Perseguidos por governos e forças do passado, eles precisam enfrentar perigos extremos em uma missão que pode decidir o destino da humanidade.",
+    dublado:true,
+    legendado:true,
+    novo:true
+},
 ];
