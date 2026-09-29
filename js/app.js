@@ -78,18 +78,122 @@ function criarCard(filme){
         pagina = "pages/serie.html";
     }
 
+    /*=====================================
+        PEGAR PROGRESSO
+    =====================================*/
+
+    let progresso = 0;
+    let tempoAssistido = 0;
+    let duracaoTotal = 0;
+
+    if(typeof obterHistorico === "function"){
+
+        const historico =
+            obterHistorico() || [];
+
+        const registro =
+            historico.find(item =>
+                Number(item.id) === Number(filme.id)
+            );
+
+        if(registro){
+
+            tempoAssistido =
+                Number(registro.tempo) || 0;
+
+            duracaoTotal =
+                Number(registro.duracao) || 0;
+
+            if(
+                duracaoTotal > 0 &&
+                tempoAssistido > 0
+            ){
+
+                progresso =
+                    (tempoAssistido / duracaoTotal) * 100;
+
+                progresso =
+                    Math.min(
+                        100,
+                        Math.max(0, progresso)
+                    );
+            }
+        }
+    }
+
+
+    /*=====================================
+        TEXTO DO PROGRESSO
+    =====================================*/
+
+    let textoProgresso = "";
+
+    if(progresso > 0){
+
+        const restante =
+            Math.max(
+                0,
+                duracaoTotal - tempoAssistido
+            );
+
+        const minutosRestantes =
+            Math.ceil(restante / 60);
+
+        if(minutosRestantes > 0){
+
+            textoProgresso =
+                `Faltam ${minutosRestantes} min`;
+
+        }else{
+
+            textoProgresso =
+                "Quase terminado";
+
+        }
+    }
+
+
+    /*=====================================
+        CARD
+    =====================================*/
+
     return `
         <a
             href="${pagina}?id=${filme.id}"
             class="cardFilme"
             data-filme-id="${filme.id}"
         >
-            <img
-                src="${filme.poster || "img/sem-poster.png"}"
-                alt="${filme.nome}"
-                loading="lazy"
-                onerror="this.src='img/sem-poster.png'"
-            >
+
+            <div class="cardPoster">
+
+                <img
+                    src="${filme.poster || "img/sem-poster.png"}"
+                    alt="${filme.nome}"
+                    loading="lazy"
+                    onerror="this.src='img/sem-poster.png'"
+                >
+
+                ${
+                    progresso > 0
+                    ? `
+                        <div class="progressoCard">
+
+                            <div
+                                class="progressoCardBarra"
+                                style="width:${progresso}%"
+                            ></div>
+
+                        </div>
+
+                        <div class="progressoCardTexto">
+                            ${Math.round(progresso)}% • ${textoProgresso}
+                        </div>
+                    `
+                    : ""
+                }
+
+            </div>
+
         </a>
     `;
 }

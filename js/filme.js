@@ -121,7 +121,37 @@ if (Array.isArray(filme.genero)) {
         PLAYER
 =========================================*/
 
-document.getElementById("player").src = filme.video;
+/*=========================================
+        PLAYER + LEGENDA AUTOMÁTICA
+=========================================*/
+
+const player = document.getElementById("player");
+
+if(player){
+
+    player.src = filme.video;
+
+    // Remove tracks antigas
+    player
+        .querySelectorAll("track")
+        .forEach(track => track.remove());
+
+    // Cria legenda em português automaticamente
+    const legendaPT =
+        document.createElement("track");
+
+    legendaPT.kind = "subtitles";
+
+    legendaPT.label = "🇧🇷 Português";
+
+    legendaPT.srclang = "pt-BR";
+
+    legendaPT.src =
+        `../legendas/${filme.id}.vtt`;
+
+    player.appendChild(legendaPT);
+
+}
 
 /*=========================================
         ELENCO

@@ -173,3 +173,92 @@
     pointer-events:none;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================
+    PROGRESSO NO CARD
+=========================================*/
+
+.cardPoster{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cardPoster img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* BARRA */
+
+.progressoCard{
+    position: absolute;
+    left: 7px;
+    right: 7px;
+    bottom: 8px;
+
+    height: 4px;
+
+    background: rgba(255,255,255,.28);
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    z-index: 5;
+}
+
+
+/* PARTE ASSISTIDA */
+
+.progressoCardBarra{
+    height: 100%;
+
+    background: #ffffff;
+
+    border-radius: 999px;
+
+    transition:
+        width .3s ease;
+}
+
+
+/* TEXTO */
+
+.progressoCardTexto{
+    position: absolute;
+
+    left: 8px;
+    bottom: 16px;
+
+    z-index: 6;
+
+    padding: 3px 7px;
+
+    border-radius: 5px;
+
+    background: rgba(0,0,0,.72);
+
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}

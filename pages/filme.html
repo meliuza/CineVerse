@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="../css/pesquisa.css">
 
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/player.css">
 
 </head>
 
@@ -126,13 +128,19 @@
             PLAYER
 ================================ -->
 
-    <section class="playerArea" id="playerArea">
+<!-- ===============================
+        PLAYER CINEVERSE
+================================ -->
 
-        <iframe id="player" allowfullscreen allow="autoplay">
+<section class="playerArea" id="playerArea">
 
-        </iframe>
+    <video
+        id="player"
+        playsinline
+        preload="metadata"
+    ></video>
 
-    </section>
+</section>
 
     <!-- ===============================
             ELENCO
@@ -202,6 +210,8 @@
     <script src="../js/favoritos-page.js"></script>
 
     <script src="../js/filme.js"></script>
+
+    <script src="../js/player.js"></script>
 
 
 </body>

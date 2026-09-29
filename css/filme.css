@@ -905,3 +905,57 @@ box-shadow:0 0 25px #E50914;
 
 }
 
+
+
+
+
+
+
+
+
+
+/* =========================================
+   CINEVERSE — LEGENDA PREMIUM
+========================================= */
+
+#player::cue {
+
+    color: #ffffff;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 1.15em;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    background: rgba(0, 0, 0, 0.48);
+
+    padding: 0.18em 0.45em;
+
+    border-radius: 6px;
+
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.95),
+        0 1px 2px rgba(0, 0, 0, 1);
+
+}
+
+@media (max-width: 600px){
+
+    #player::cue {
+
+        font-size: 1em;
+
+        padding: 0.15em 0.35em;
+
+        border-radius: 5px;
+
+    }
+
+}
