@@ -2,7 +2,6 @@
             CATEGORIA.JS
 =========================================*/
 
-
 const parametros =
     new URLSearchParams(window.location.search);
 
@@ -39,7 +38,13 @@ const ordenacao =
         HERO
 =========================================*/
 
-titulo.innerHTML = categoria;
+if(titulo){
+    titulo.innerHTML = categoria;
+}
+
+if(tipo){
+    tipo.innerHTML = "Categoria";
+}
 
 document.title =
     categoria + " | CineVerse";
@@ -49,7 +54,21 @@ document.title =
         VERIFICAR VÍDEO
 =========================================*/
 
-function temVideo(item){
+/*=========================================
+        VERIFICAR VÍDEO
+=========================================*/
+
+function temVideoCategoria(item){
+
+    if(item.tipo === "Filme"){
+
+        return (
+            typeof item.video === "string" &&
+            item.video.trim() !== "" &&
+            item.video.trim() !== "0"
+        );
+
+    }
 
     /*---------------------------------------
         FILME
@@ -57,10 +76,14 @@ function temVideo(item){
 
     if(item.tipo === "Filme"){
 
-        return (
-            typeof item.video === "string" &&
-            item.video.trim() !== ""
-        );
+        /*
+            O filme aparece na categoria
+            mesmo sem vídeo cadastrado.
+
+            O vídeo pode ser colocado depois.
+        */
+
+        return true;
 
     }
 
@@ -71,10 +94,11 @@ function temVideo(item){
 
     if(item.tipo === "Novela"){
 
-        return (
-            typeof item.baseVideo === "string" &&
-            item.baseVideo.trim() !== ""
-        );
+        /*
+            Novelas usam episódios.
+        */
+
+        return true;
 
     }
 
@@ -85,25 +109,45 @@ function temVideo(item){
 
     if(item.tipo === "Série"){
 
-        if(!Array.isArray(item.temporadas)){
+        if(
+            !Array.isArray(item.temporadas)
+        ){
 
             return false;
 
         }
 
+        return item.temporadas.some(
+            temporada =>
 
-        return item.temporadas.some(temporada =>
+                Array.isArray(
+                    temporada.episodios
+                ) &&
 
-            Array.isArray(temporada.episodios) &&
-
-            temporada.episodios.some(episodio =>
-
-                typeof episodio.video === "string" &&
-                episodio.video.trim() !== ""
-
-            )
-
+                temporada.episodios.length > 0
         );
+
+    }
+
+
+    /*---------------------------------------
+        ANIME
+    ---------------------------------------*/
+
+    if(item.tipo === "Anime"){
+
+        return true;
+
+    }
+
+
+    /*---------------------------------------
+        DORAMA
+    ---------------------------------------*/
+
+    if(item.tipo === "Dorama"){
+
+        return true;
 
     }
 
@@ -114,88 +158,194 @@ function temVideo(item){
 
 
 /*=========================================
-        FILTRAR
+        FILTRAR CATEGORIA
 =========================================*/
 
 function filtrarCategoria(){
 
     const normalizar = texto =>
+
         String(texto || "")
             .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
+            .replace(
+                /[\u0300-\u036f]/g,
+                ""
+            )
             .replace(/\+/g, " ")
             .trim()
             .toLowerCase();
 
-    const busca = normalizar(categoria);
 
-    if(busca === "em alta"){
+    const busca =
+        normalizar(categoria);
 
-        lista = catalogo.filter(item =>
-            item.novo === true
-        );
 
-    }
-    else if(busca === "filmes"){
+    /*---------------------------------------
+        FILMES
+    ---------------------------------------*/
 
-        lista = catalogo.filter(item =>
-            normalizar(item.tipo) === "filme"
-        );
+    if(busca === "filmes"){
 
-    }
-    else if(busca === "series"){
+        lista =
+            catalogo.filter(item =>
 
-        lista = catalogo.filter(item =>
-            normalizar(item.tipo) === "serie"
-        );
+                normalizar(item.tipo)
+                === "filme"
 
-    }
-    else if(busca === "novelas"){
-
-        lista = catalogo.filter(item =>
-            normalizar(item.tipo) === "novela"
-        );
-
-    }
-    else{
-
-        lista = catalogo.filter(item => {
-
-            const colecao = normalizar(item.colecao);
-            const categoriaItem = normalizar(item.categoria);
-            const nome = normalizar(item.nome);
-
-            const generos = Array.isArray(item.genero)
-                ? item.genero.map(g => normalizar(g))
-                : [];
-
-            return (
-                colecao === busca ||
-                categoriaItem === busca ||
-                generos.includes(busca) ||
-                nome === busca
             );
 
-        });
+    }
+
+
+    /*---------------------------------------
+        SERIES
+    ---------------------------------------*/
+
+    else if(
+        busca === "series"
+    ){
+
+        lista =
+            catalogo.filter(item =>
+
+                normalizar(item.tipo)
+                === "serie"
+
+            );
 
     }
 
-    lista = lista.filter(item => temVideo(item));
 
-    lista.sort((a, b) =>
-        Number(b.ano || 0) - Number(a.ano || 0)
+    /*---------------------------------------
+        NOVELAS
+    ---------------------------------------*/
+
+    else if(
+        busca === "novelas"
+    ){
+
+        lista =
+            catalogo.filter(item =>
+
+                normalizar(item.tipo)
+                === "novela"
+
+            );
+
+    }
+
+
+    /*---------------------------------------
+        EM ALTA
+    ---------------------------------------*/
+
+    else if(
+        busca === "em alta"
+    ){
+
+        lista =
+            catalogo.filter(item =>
+
+                item.novo === true
+
+            );
+
+    }
+
+
+    /*---------------------------------------
+        OUTRAS CATEGORIAS
+    ---------------------------------------*/
+
+    else{
+
+        lista =
+            catalogo.filter(item => {
+
+                const colecao =
+                    normalizar(
+                        item.colecao
+                    );
+
+                const categoriaItem =
+                    normalizar(
+                        item.categoria
+                    );
+
+                const nome =
+                    normalizar(
+                        item.nome
+                    );
+
+                const generos =
+                    Array.isArray(item.genero)
+
+                        ? item.genero.map(
+                            g => normalizar(g)
+                        )
+
+                        : [];
+
+
+                return (
+
+                    colecao === busca ||
+
+                    categoriaItem === busca ||
+
+                    generos.includes(busca) ||
+
+                    nome === busca
+
+                );
+
+            });
+
+    }
+
+
+    /*---------------------------------------
+        FILTRAR CONTEÚDOS VÁLIDOS
+    ---------------------------------------*/
+
+    lista =
+        lista.filter(
+            item =>
+                temVideoCategoria(item)
+        );
+
+
+    /*---------------------------------------
+        MAIS NOVOS PRIMEIRO
+    ---------------------------------------*/
+
+    lista.sort(
+        (a, b) =>
+
+            Number(b.ano || 0) -
+            Number(a.ano || 0)
+
     );
 
+
     atualizarQuantidade();
+
     desenhar();
 
 }
+
 
 /*=========================================
         QUANTIDADE
 =========================================*/
 
 function atualizarQuantidade(){
+
+    if(!quantidade){
+
+        return;
+
+    }
 
     quantidade.innerHTML =
         `${lista.length} título(s)`;
@@ -209,18 +359,28 @@ function atualizarQuantidade(){
 
 function desenhar(){
 
+    if(!area){
+
+        return;
+
+    }
+
     area.innerHTML = "";
 
+
+    /*---------------------------------------
+        SEM RESULTADOS
+    ---------------------------------------*/
 
     if(lista.length === 0){
 
         area.innerHTML = `
 
-        <div class="semResultado">
+            <div class="semResultado">
 
-            Nenhum conteúdo encontrado.
+                Nenhum conteúdo encontrado.
 
-        </div>
+            </div>
 
         `;
 
@@ -229,27 +389,38 @@ function desenhar(){
     }
 
 
+    /*---------------------------------------
+        CARDS
+    ---------------------------------------*/
+
     lista.forEach(item => {
 
 
-        /*-----------------------------------
-            PÁGINA
-        -----------------------------------*/
-
-        let pagina = "filme.html";
-
-        if(item.tipo === "Novela"){
-            pagina = "novela.html";
-        }
-
-        if(item.tipo === "Série"){
-            pagina = "serie.html";
-        }
+        let pagina =
+            "filme.html";
 
 
         /*-----------------------------------
-            CARD
+            CONTEÚDOS EPISÓDICOS
         -----------------------------------*/
+
+        if(
+
+            item.tipo === "Novela" ||
+
+            item.tipo === "Série" ||
+
+            item.tipo === "Anime" ||
+
+            item.tipo === "Dorama"
+
+        ){
+
+            pagina =
+                "episodios.html";
+
+        }
+
 
         area.innerHTML += `
 
@@ -263,64 +434,42 @@ function desenhar(){
 
             >
 
-            <img
+                <img
 
-                src="${item.poster || "../img/sem-poster.png"}"
+                    src="${
+                        item.poster ||
+                        "../img/sem-poster.png"
+                    }"
 
-                alt="${item.nome}"
+                    alt="${item.nome}"
 
-                loading="lazy"
+                    loading="lazy"
 
-                onerror="this.src='../img/sem-poster.png'"
+                    onerror="
+                        this.src='../img/sem-poster.png'
+                    "
 
-            >
+                >
 
-            <div class="cardInfo">
+                <div class="cardInfo">
 
-                <h3>
+                    <h3>
 
-                    ${item.nome}
+                        ${item.nome}
 
-                </h3>
+                    </h3>
 
-                <p>
+                    <p>
 
-                    ⭐ ${item.nota || "-"}
+                        ⭐ ${item.nota || "-"}
 
-                </p>
+                    </p>
 
-            </div>
+                </div>
 
-        </a>
+            </a>
 
         `;
-
-    });
-ativarPopupCategoria();
-}
-
-// =====================================================
-// POPUP NOS CARDS DA CATEGORIA
-// =====================================================
-
-function ativarPopupCategoria(){
-
-    document.querySelectorAll(".cardFilme").forEach(card => {
-
-        card.addEventListener("click", function(e){
-
-            e.preventDefault();
-
-            const id = Number(this.dataset.filmeId);
-
-            if(typeof abrirPopupDetalhes === "function"){
-                abrirPopupDetalhes(id);
-                return;
-            }
-
-            window.location.href = this.href;
-
-        });
 
     });
 
@@ -333,37 +482,43 @@ function ativarPopupCategoria(){
 
 if(pesquisa){
 
-    pesquisa.addEventListener("input", () => {
+    pesquisa.addEventListener(
+        "input",
+        () => {
+
+            const texto =
+                pesquisa.value
+                    .toLowerCase()
+                    .trim();
 
 
-        const texto =
-            pesquisa.value.toLowerCase();
+            const cards =
+                area.querySelectorAll(
+                    ".cardFilme"
+                );
 
 
-        const cards =
-            area.querySelectorAll(".cardFilme");
+            cards.forEach(card => {
+
+                const nome =
+                    card
+                        .querySelector("h3")
+                        ?.innerHTML
+                        .toLowerCase() || "";
 
 
-        cards.forEach(card => {
+                card.style.display =
 
+                    nome.includes(texto)
 
-            const nome =
-                card.querySelector("h3")
-                .innerHTML
-                .toLowerCase();
+                        ? "block"
 
+                        : "none";
 
-            card.style.display =
+            });
 
-                nome.includes(texto)
-
-                ? "block"
-
-                : "none";
-
-        });
-
-    });
+        }
+    );
 
 }
 
@@ -374,113 +529,81 @@ if(pesquisa){
 
 if(ordenacao){
 
-    ordenacao.addEventListener("change", () => {
+    ordenacao.addEventListener(
+        "change",
+        () => {
 
 
-        switch(ordenacao.value){
+            switch(
+                ordenacao.value
+            ){
+
+                case "nota":
+
+                    lista.sort(
+                        (a, b) =>
+
+                            Number(
+                                b.nota || 0
+                            ) -
+
+                            Number(
+                                a.nota || 0
+                            )
+                    );
+
+                break;
 
 
-            /*--------------------------------
-                MELHOR NOTA
-            --------------------------------*/
+                case "novo":
 
-            case "nota":
+                    lista.sort(
+                        (a, b) =>
 
-                lista.sort(
-                    (a,b) =>
-                        Number(b.nota || 0) -
-                        Number(a.nota || 0)
-                );
+                            Number(
+                                b.ano || 0
+                            ) -
 
-            break;
+                            Number(
+                                a.ano || 0
+                            )
+                    );
 
-
-            /*--------------------------------
-                MAIS NOVOS
-            --------------------------------*/
-
-            case "novo":
-
-                lista.sort(
-                    (a,b) =>
-                        Number(b.ano || 0) -
-                        Number(a.ano || 0)
-                );
-
-            break;
+                break;
 
 
-            /*--------------------------------
-                A → Z
-            --------------------------------*/
+                case "az":
 
-            case "az":
+                    lista.sort(
+                        (a, b) =>
 
-                lista.sort(
-                    (a,b) =>
-                        a.nome.localeCompare(b.nome)
-                );
+                            a.nome.localeCompare(
+                                b.nome
+                            )
+                    );
 
-            break;
+                break;
 
 
-            /*--------------------------------
-                Z → A
-            --------------------------------*/
+                case "za":
 
-            case "za":
+                    lista.sort(
+                        (a, b) =>
 
-                lista.sort(
-                    (a,b) =>
-                        b.nome.localeCompare(a.nome)
-                );
+                            b.nome.localeCompare(
+                                a.nome
+                            )
+                    );
 
-            break;
+                break;
+
+            }
+
+
+            desenhar();
 
         }
-
-
-        desenhar();
-
-    });
-
-}
-
-
-/*=========================================
-        BANNER
-=========================================*/
-
-function bannerCategoria(){
-
-
-    if(lista.length === 0){
-
-        return;
-
-    }
-
-
-    const hero =
-        document.querySelector(
-            ".heroCategoria"
-        );
-
-
-    if(!hero){
-
-        return;
-
-    }
-
-
-    if(lista[0].banner){
-
-        hero.style.backgroundImage =
-
-            `url("${lista[0].banner}")`;
-
-    }
+    );
 
 }
 
@@ -490,5 +613,3 @@ function bannerCategoria(){
 =========================================*/
 
 filtrarCategoria();
-
-bannerCategoria();

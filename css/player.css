@@ -958,3 +958,35 @@ body.cinemaMode .cinePlayer video {
         font-size: 25px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#playerArea {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #000;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+#playerIframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+}

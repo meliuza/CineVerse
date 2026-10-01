@@ -1,0 +1,536 @@
+/*=========================================
+        CINEVERSE — EPISÓDIOS
+        MESMA PEGADA DA PÁGINA FILME
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0b0b0b;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+
+/*=========================================
+            HERO
+=========================================*/
+
+.episodiosHero{
+    min-height:82vh;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+    background:#0b0b0b;
+}
+
+.episodiosHeroImagem{
+    position:absolute;
+    inset:0;
+    z-index:0;
+}
+
+.episodiosHeroImagem::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            #0b0b0b 3%,
+            rgba(11,11,11,.92) 18%,
+            transparent 65%
+        ),
+
+        linear-gradient(
+            to right,
+            rgba(0,0,0,.9) 0%,
+            rgba(0,0,0,.55) 35%,
+            transparent 75%
+        );
+}
+
+#episodiosBanner{
+    width:100%;
+    height:100%;
+    display:block;
+
+    object-fit:cover;
+    object-position:center;
+
+    filter:saturate(1.05);
+}
+
+
+/*=========================================
+            INFORMAÇÕES
+=========================================*/
+
+.episodiosHeroInfo{
+    position:relative;
+    z-index:5;
+
+    width:100%;
+    max-width:1500px;
+
+    margin:0 auto;
+
+    padding:
+        80px 60px
+        70px;
+
+}
+
+#episodiosTitulo{
+    font-size:65px;
+    line-height:1.05;
+
+    margin-bottom:18px;
+
+    font-weight:800;
+
+    text-shadow:
+        0 5px 25px rgba(0,0,0,.8);
+}
+
+#episodiosDescricao{
+    max-width:800px;
+
+    color:#ddd;
+
+    font-size:18px;
+    line-height:1.8;
+
+    margin-bottom:25px;
+}
+
+.episodiosMeta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.episodiosMeta span{
+    display:inline-flex;
+    align-items:center;
+
+    padding:8px 15px;
+
+    background:#202020;
+
+    border-radius:40px;
+
+    color:#ddd;
+
+    font-size:14px;
+}
+
+
+/*=========================================
+        CONTEÚDO
+=========================================*/
+
+.episodiosConteudo{
+
+    width:min(1500px,95%);
+
+    margin:60px auto 90px;
+
+    display:grid;
+
+    grid-template-columns:250px 1fr;
+
+    gap:35px;
+
+    align-items:start;
+}
+
+
+/*=========================================
+            TEMPORADAS
+=========================================*/
+
+.temporadas{
+
+    position:sticky;
+    top:25px;
+
+    background:#151515;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+
+}
+
+.temporadas button{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:14px 16px;
+
+    margin-bottom:8px;
+
+    background:#202020;
+
+    color:#aaa;
+
+    text-align:left;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.temporadas button:hover{
+
+    background:#2a2a2a;
+
+    color:#fff;
+
+}
+
+.temporadas button.ativo,
+.temporadas button.active{
+
+    background:#e50914;
+
+    color:#fff;
+
+    box-shadow:
+        0 5px 20px rgba(229,9,20,.25);
+
+}
+
+.temporadas select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#202020;
+
+    color:white;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+
+/*=========================================
+            LISTA
+=========================================*/
+
+.listaEpisodios{
+
+    display:grid;
+
+    gap:15px;
+
+}
+
+
+/*=========================================
+            EPISÓDIO
+=========================================*/
+
+.episodio{
+
+    background:#191919;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    border:1px solid transparent;
+
+    transition:.3s;
+
+}
+
+.episodio:hover{
+
+    background:#2a2a2a;
+
+    transform:translateX(4px);
+
+}
+
+.episodio.assistindo{
+
+    border:2px solid #e50914;
+
+    box-shadow:
+        0 0 25px rgba(229,9,20,.25);
+
+}
+
+.infoEp{
+
+    min-width:0;
+
+}
+
+.infoEp strong{
+
+    display:block;
+
+    font-size:17px;
+
+    margin-bottom:6px;
+
+}
+
+.nomeEp{
+
+    color:#aaa;
+
+    font-size:14px;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+.episodio button{
+
+    flex-shrink:0;
+
+    padding:11px 22px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#e50914;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.episodio button:hover{
+
+    background:#ff1a25;
+
+    transform:scale(1.04);
+
+}
+
+
+/*=========================================
+            SEM EPISÓDIOS
+=========================================*/
+
+.semEpisodios{
+
+    background:#191919;
+
+    border-radius:12px;
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#999;
+
+}
+
+
+/*=========================================
+            RESPONSIVO
+=========================================*/
+
+@media(max-width:900px){
+
+    .episodiosHero{
+
+        min-height:75vh;
+
+    }
+
+    .episodiosHeroInfo{
+
+        padding:
+            50px 30px
+            45px;
+
+        text-align:center;
+
+    }
+
+    #episodiosTitulo{
+
+        font-size:42px;
+
+    }
+
+    #episodiosDescricao{
+
+        font-size:16px;
+
+        margin-left:auto;
+        margin-right:auto;
+
+    }
+
+    .episodiosMeta{
+
+        justify-content:center;
+
+    }
+
+    .episodiosConteudo{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+    .temporadas{
+
+        position:static;
+
+        display:flex;
+
+        gap:8px;
+
+        overflow-x:auto;
+
+        padding:10px;
+
+    }
+
+    .temporadas button{
+
+        width:auto;
+
+        min-width:max-content;
+
+        margin:0;
+
+        white-space:nowrap;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .episodiosHero{
+
+        min-height:65vh;
+
+    }
+
+    .episodiosHeroImagem::after{
+
+        background:
+            linear-gradient(
+                to top,
+                #0b0b0b 5%,
+                rgba(11,11,11,.8) 35%,
+                rgba(0,0,0,.15) 80%
+            );
+
+    }
+
+    .episodiosHeroInfo{
+
+        padding:
+            35px 20px
+            35px;
+
+    }
+
+    #episodiosTitulo{
+
+        font-size:34px;
+
+    }
+
+    #episodiosDescricao{
+
+        font-size:14px;
+
+        line-height:1.65;
+
+    }
+
+    .episodiosConteudo{
+
+        width:calc(100% - 24px);
+
+        margin-top:35px;
+
+    }
+
+    .episodio{
+
+        padding:16px;
+
+    }
+
+    .episodio button{
+
+        padding:10px 13px;
+
+        font-size:12px;
+
+    }
+
+    .infoEp strong{
+
+        font-size:14px;
+
+    }
+
+    .nomeEp{
+
+        font-size:12px;
+
+    }
+
+}

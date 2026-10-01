@@ -23,10 +23,9 @@ function temVideo(item){
     // NOVELA
     if(item.tipo === "Novela"){
 
-        return (
-            typeof item.baseVideo === "string" &&
-            item.baseVideo.trim() !== ""
-        );
+        // Novelas usam o arquivo conteudos/novela.js
+        // para os episódios.
+        return true;
 
     }
 
@@ -34,23 +33,17 @@ function temVideo(item){
     // SÉRIE
     if(item.tipo === "Série"){
 
-        // Não tem temporadas
         if(!Array.isArray(item.temporadas)){
+
             return false;
+
         }
 
-        // Procura pelo menos 1 episódio
-        // que tenha vídeo
         return item.temporadas.some(temporada =>
 
             Array.isArray(temporada.episodios) &&
 
-            temporada.episodios.some(episodio =>
-
-                typeof episodio.video === "string" &&
-                episodio.video.trim() !== ""
-
-            )
+            temporada.episodios.length > 0
 
         );
 
@@ -70,13 +63,14 @@ function criarCard(filme){
 
     let pagina = "pages/filme.html";
 
-    if(filme.tipo === "Novela"){
-        pagina = "pages/novela.html";
-    }
-
-    if(filme.tipo === "Série"){
-        pagina = "pages/serie.html";
-    }
+if(
+    filme.tipo === "Novela" ||
+    filme.tipo === "Série" ||
+    filme.tipo === "Anime" ||
+    filme.tipo === "Dorama"
+){
+    pagina = "pages/episodios.html";
+}
 
     /*=====================================
         PEGAR PROGRESSO
@@ -625,13 +619,13 @@ function caminhoPaginaPopup(item){
     let pagina = "pages/filme.html";
 
 
-    if(item.tipo === "Novela"){
-        pagina = "pages/novela.html";
-    }
-
-
-    if(item.tipo === "Série"){
-        pagina = "pages/serie.html";
+    if(
+        item.tipo === "Novela" ||
+        item.tipo === "Série" ||
+        item.tipo === "Anime" ||
+        item.tipo === "Dorama"
+    ){
+        pagina = "pages/episodios.html";
     }
 
 
@@ -1221,14 +1215,18 @@ function abrirFilme(id){
         NOVELA
     ---------------------------------------*/
 
-    if(filme.tipo === "Novela"){
+if(
+    filme.tipo === "Novela" ||
+    filme.tipo === "Série" ||
+    filme.tipo === "Anime" ||
+    filme.tipo === "Dorama"
+){
 
-        window.location.href =
-            `pages/novela.html?id=${filme.id}`;
+    window.location.href =
+        `pages/episodios.html?id=${filme.id}`;
 
-        return;
-
-    }
+    return;
+}
 
 
     /*---------------------------------------
